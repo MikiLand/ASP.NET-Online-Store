@@ -1,0 +1,20 @@
+﻿body {
+}
+
+#footer1 {
+    text-align: center;
+    background: #0094ff;
+}
+
+#navbar {
+    background: #0094ff;
+}
+
+.footerlinks {
+    color: lightgrey;
+}
+
+.navbar-brand {
+    color: lightgrey;
+}
+
