@@ -2,6 +2,7 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+    <div class="jumbotron vertical-center">
     <div class="container">
         <div class="row">
             <div class="col-md-6 mx-auto">
@@ -46,14 +47,16 @@
                                 <div class="form-group">
                                     <asp:TextBox class="form-control" ID="TBPassword" runat="server" placeholder="Your password" TextMode="Password"></asp:TextBox>
                                 </div>
+                                <center>
+                                    <div class="d-grid gap-3">
+                                        <center>
+                                            <asp:Button Class="btn d-grid gap-2 btn-primary btn-block btn-lg" style="width: 150px" ID="BtnLogin" runat="server" Text="Login" OnClick="BtnLogin_Click" />
+                                        </center>
+                                        <a href="UserRegister.aspx"><input class="btn btn-primary btn-block btn-lg" style="width: 150px" id="Btnregister" type="button" value="Register" /></a>
+                                    </div>
+                                </center>
 
                             <!-- Nie działa rozciągnięcie na całą szerokość pliku i robienie odstępu-->
-                                <div class="form-group">
-                                    <asp:Button Class="btn d-grid gap-2 btn-primary btn-block btn-lg" ID="BtnLogin" runat="server" Text="Login" OnClick="BtnLogin_Click" />
-                                </div>
-                                <div class="form-group">
-                                    <a href="UserRegister.aspx"><input class="btn btn-primary btn-block btn-lg" id="Btnregister" type="button" value="Register" /></a>
-                                </div>
                             </div>
                         </div>
                     </div>
@@ -61,6 +64,5 @@
             </div>
         </div>
     </div>
-    
-
+</div>
 </asp:Content>

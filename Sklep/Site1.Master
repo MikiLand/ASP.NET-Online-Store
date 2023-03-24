@@ -98,9 +98,11 @@
         </div>
 
         <footer>
-            <div id="footer1" class="conteiner-fluid">
+            <div class="navbar fixed-bottom" id="footer1" class="conteiner-fluid">
                 <p style="color:lightgrey">
-                    &copy All rights reserved <a class="footerlinks" href="#" target="_blank">51099 50616</a>
+                    <center>
+                        &copy All rights reserved <a class="footerlinks" href="#" target="_blank">51099 50616</a>
+                    </center>
                 </p>
             </div>
         </footer>
