@@ -35,68 +35,68 @@ namespace Sklep
 
             if (TBLogin.Text == "")
             {
-                TBLogin.BackColor = System.Drawing.ColorTranslator.FromHtml("#D63E3E");
-                TBLogin.ForeColor = System.Drawing.ColorTranslator.FromHtml("#FFFFFF");
+                TBLogin.BorderColor = System.Drawing.ColorTranslator.FromHtml("#CF0000");
+                TBLogin.BackColor = System.Drawing.ColorTranslator.FromHtml("#F7D6D6");
                 StopFlag = true;
             }
             else if (TBLogin.Text.Length < 3)
             {
-                TBLogin.BackColor = System.Drawing.ColorTranslator.FromHtml("#D63E3E");
-                TBLogin.ForeColor = System.Drawing.ColorTranslator.FromHtml("#FFFFFF");
+                TBLogin.BorderColor = System.Drawing.ColorTranslator.FromHtml("#CF0000");
+                TBLogin.BackColor = System.Drawing.ColorTranslator.FromHtml("#F7D6D6");
                 StopFlag = true;
             }
             else
             {
-                TBLogin.BackColor = System.Drawing.ColorTranslator.FromHtml("#FFFFFF");
-                TBLogin.ForeColor = System.Drawing.ColorTranslator.FromHtml("#212529");
+                TBRepPassword.BorderColor = System.Drawing.ColorTranslator.FromHtml("#DFDFDF");
+                TBLogin.BackColor = System.Drawing.Color.White;
             }
 
             if (TBEmail.Text == "")
             {
-                TBEmail.BackColor = System.Drawing.ColorTranslator.FromHtml("#D63E3E");
-                TBEmail.ForeColor = System.Drawing.ColorTranslator.FromHtml("#FFFFFF");
+                TBEmail.BorderColor = System.Drawing.ColorTranslator.FromHtml("#CF0000");
+                TBEmail.BackColor = System.Drawing.ColorTranslator.FromHtml("#F7D6D6");
                 StopFlag = true;
             }
             else
             {
-                TBEmail.BackColor = System.Drawing.ColorTranslator.FromHtml("#FFFFFF");
-                TBEmail.ForeColor = System.Drawing.ColorTranslator.FromHtml("#212529");
+                TBRepPassword.BorderColor = System.Drawing.ColorTranslator.FromHtml("#DFDFDF");
+                TBEmail.BackColor = System.Drawing.Color.White;
             }
 
             if (TBPassword.Text == "")
             {
-                TBPassword.BackColor = System.Drawing.ColorTranslator.FromHtml("#D63E3E");
-                TBPassword.ForeColor = System.Drawing.ColorTranslator.FromHtml("#FFFFFF");
+                TBPassword.BorderColor = System.Drawing.ColorTranslator.FromHtml("#CF0000");
+                TBPassword.BackColor = System.Drawing.ColorTranslator.FromHtml("#F7D6D6");
                 StopFlag = true;
             }
             else if (TBPassword.Text.Length < 3)
             {
-                TBPassword.BackColor = System.Drawing.ColorTranslator.FromHtml("#D63E3E");
-                TBPassword.ForeColor = System.Drawing.ColorTranslator.FromHtml("#FFFFFF");
+                TBPassword.BorderColor = System.Drawing.ColorTranslator.FromHtml("#CF0000");
+                TBPassword.BackColor = System.Drawing.ColorTranslator.FromHtml("#F7D6D6");
                 StopFlag = true;
             }
             else
             {
-                TBPassword.BackColor = System.Drawing.ColorTranslator.FromHtml("#FFFFFF");
-                TBPassword.ForeColor = System.Drawing.ColorTranslator.FromHtml("#212529");
+                TBRepPassword.BorderColor = System.Drawing.ColorTranslator.FromHtml("#DFDFDF");
+                TBPassword.BackColor = System.Drawing.Color.White;
             }
 
             if (TBRepPassword.Text == "")
             {
-                TBRepPassword.BackColor = System.Drawing.ColorTranslator.FromHtml("#D63E3E");
-                TBRepPassword.ForeColor = System.Drawing.ColorTranslator.FromHtml("#FFFFFF");
+                TBRepPassword.BorderColor = System.Drawing.ColorTranslator.FromHtml("#CF0000");
+                TBRepPassword.BackColor = System.Drawing.ColorTranslator.FromHtml("#F7D6D6");
                 StopFlag = true;
             }
             else if (TBRepPassword.Text != TBPassword.Text)
             {
-                TBRepPassword.BackColor = System.Drawing.ColorTranslator.FromHtml("#D63E3E");
-                TBRepPassword.ForeColor = System.Drawing.ColorTranslator.FromHtml("#FFFFFF");
+                TBRepPassword.BorderColor = System.Drawing.ColorTranslator.FromHtml("#CF0000");
+                TBRepPassword.BackColor = System.Drawing.ColorTranslator.FromHtml("#F7D6D6");
                 StopFlag = true;
             }
             else
             {
-                TBRepPassword.BackColor = System.Drawing.ColorTranslator.FromHtml("#FFFFFF");
-                TBRepPassword.ForeColor = System.Drawing.ColorTranslator.FromHtml("#212529");
+                TBRepPassword.BorderColor = System.Drawing.ColorTranslator.FromHtml("#DFDFDF");
+                TBRepPassword.BackColor = System.Drawing.Color.White;
             }
 
             /* Nie widzie TextBoxa CBTaC

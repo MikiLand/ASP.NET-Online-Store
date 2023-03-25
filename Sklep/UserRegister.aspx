@@ -2,6 +2,9 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+    <div style="height: 50px;">
+
+    </div>
     <div class="container">
         <div class="row">
             <div class="col-md-6 mx-auto">
@@ -36,28 +39,28 @@
                                 <center>
                                     <label>Login</label>
                                 </center>
-                                <div class="form-group">
+                                <div class="form-group mb-3">
                                     <asp:TextBox class="form-control" ID="TBLogin" runat="server" placeholder="Your login"></asp:TextBox>
                                 </div>
 
                                 <center>
                                     <label>Email</label>
                                 </center>
-                                <div class="form-group">
+                                <div class="form-group mb-3">
                                     <asp:TextBox class="form-control" ID="TBEmail" runat="server" placeholder="Your email" TextMode="Email"></asp:TextBox>
                                 </div>
 
                                 <center>
                                     <label>Password</label>
                                 </center>
-                                <div class="form-group">
+                                <div class="form-group mb-3">
                                     <asp:TextBox class="form-control" ID="TBPassword" runat="server" placeholder="Your password" TextMode="Password"></asp:TextBox>
                                 </div>
 
                                 <center>
                                     <label>Repeat password</label>
                                 </center>
-                                <div class="form-group">
+                                <div class="form-group mb-3">
                                     <asp:TextBox class="form-control" ID="TBRepPassword" runat="server" placeholder="Repeat password" TextMode="Password"></asp:TextBox>
                                 </div>
 
@@ -66,10 +69,11 @@
                                     <a href="TermsAndConditions.aspx">Terms and conditions</a>
                                 </div>
 
-                            <!-- Nie działa rozciągnięcie na całą szerokość pliku i robienie odstępu-->
-                                <div class="form-group">
-                                    <asp:Button Class="btn d-grid gap-2 btn-primary btn-block btn-lg" ID="BtnRegister" runat="server" Text="Register" OnClick="BtnLogin_Click" />
-                                </div>
+                                <center>
+                                    <div class="form-group">
+                                        <asp:Button Class="btn d-grid gap-2 btn-primary btn-block btn-lg" style="width: 150px" ID="BtnRegister" runat="server" Text="Register" OnClick="BtnLogin_Click" />
+                                    </div>
+                                </center>
                             </div>
                         </div>
                     </div>
