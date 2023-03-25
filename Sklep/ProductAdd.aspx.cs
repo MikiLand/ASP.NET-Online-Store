@@ -15,7 +15,13 @@ namespace Sklep
 
         }
 
-            protected void BtnAdd_Click(object sender, EventArgs e)
+        protected void DDLProductTypeOnSelect(object sender, EventArgs e)
+        {
+            BtnAdd.Text = "Clicked";
+        }
+
+
+        protected void BtnAdd_Click(object sender, EventArgs e)
         {
             SqlCommand command, command2;
             SqlDataReader dataReader;
@@ -24,6 +30,8 @@ namespace Sklep
             string HashedPassword = "";
             string ProductTypeString;
             int ProductType = 0;
+
+            
 
             SqlConnection sqlCon = new SqlConnection(@"Data Source=DESKTOP-9EOJGT1\Typcio;Initial Catalog=Shop;User ID=sa;Password=1234");
 

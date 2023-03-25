@@ -3,7 +3,8 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <div class="container-fluid">
-        <div class="row">
+        <hr />
+        <div class="row mt-2">
             <div class="col-md-4">
                 <div class="card">
                     <div class="card-body">
@@ -33,20 +34,17 @@
 
                         <div class="row">
                             <div class="col">
-                                <center>
-                                    <label>Name</label>
-                                </center>
                                 <div class="form-group">
-                                    <asp:TextBox class="form-control" ID="TBName" runat="server" placeholder="Name" ></asp:TextBox>
+                                    <asp:TextBox class="form-control" ID="TBName" runat="server" placeholder="Product name" ></asp:TextBox>
                                 </div>
 
-                                <div class="input-group">
+                                <div class="input-group mt-1 mb-2">
                                         <asp:TextBox class="form-control" ID="TBProductType" runat="server" placeholder="Product type" ReadOnly="True"></asp:TextBox>
-                                        <div class="dropdown">
-                                            <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="DDType" data-bs-toggle="dropdown" aria-expanded="false">
+                                        <div class="dropdown m-1 mt-0 mb-0">
+                                            <a class="btn btn-secondary dropdown-toggle" style="width: 100px" href="#" role="button" id="DDType" data-bs-toggle="dropdown" aria-expanded="false">
                                                 Type
                                             </a>
-                                            <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                                            <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink" ID="DDLProductType" onselect="DDLProductTypeOnSelect">
                                                 <li><a class="dropdown-item" href="#">Candle</a></li>
                                                 <li><a class="dropdown-item" href="#">Scent</a></li>
                                                 <li><a class="dropdown-item" href="#">Other</a></li>
@@ -54,12 +52,10 @@
                                         </div>
                                     </div>
 
-                                
-
                                 <center>
                                     <label>Description</label>
                                 </center>
-                                <div class="form-group">
+                                <div class="form-group mb-2">
                                     <asp:TextBox class="form-control" ID="TBDescription" runat="server" placeholder="Description" TextMode="Email"></asp:TextBox>
                                 </div>
 
@@ -73,7 +69,7 @@
                             <!-- Nie działa rozciągnięcie na całą szerokość pliku i robienie odstępu-->
                                 <div class="form-group">
                                     <center>
-                                        <asp:Button Class="btn d-grid gap-2 btn-primary btn-block btn-lg" ID="BtnAdd" runat="server" Text="Add" OnClick="BtnAdd_Click" />
+                                        <asp:Button Class="btn d-grid gap-2 btn-primary btn-block btn-lgmt-3 mt-3" style="width: 150px" ID="BtnAdd" runat="server" Text="Add" OnClick="BtnAdd_Click" />
                                     </center>
                                 </div>
                             </div>

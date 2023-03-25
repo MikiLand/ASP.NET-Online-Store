@@ -49,14 +49,14 @@
                                     </div>
                                 </center>
                                 <div class="form-group">
-                                    <asp:TextBox class="form-control " ID="TBPassword" runat="server" placeholder="Your password" TextMode="Password"></asp:TextBox>
+                                    <asp:TextBox class="form-control" ID="TBPassword" runat="server" placeholder="Your password" TextMode="Password"></asp:TextBox>
                                 </div>
                                 <center>
                                     <div class="d-grid gap-1">
                                         <center>
                                             <asp:Button Class="btn d-grid gap-2 btn-primary btn-block btn-lg mt-3" style="width: 150px" ID="BtnLogin" runat="server" Text="Login" OnClick="BtnLogin_Click" />
                                         </center>
-                                        <a href="UserRegister.aspx"><input class="btn btn-primary btn-block btn-lg" style="width: 150px" id="Btnregister" type="button" value="Register"/></a>
+                                        <a href="UserRegister.aspx"><input class="btn btn-secondary btn-block btn-lg" style="width: 150px" id="Btnregister" type="button" value="Register"/></a>
                                     </div>
                                 </center>
                             </div>
