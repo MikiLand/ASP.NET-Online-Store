@@ -43,10 +43,10 @@ namespace Sklep
             }
             else
             {
-                TBLogin.BackColor = System.Drawing.ColorTranslator.FromHtml("#D63E3E");
-                TBLogin.ForeColor = System.Drawing.ColorTranslator.FromHtml("#FFFFFF");
-                TBPassword.BackColor = System.Drawing.ColorTranslator.FromHtml("#D63E3E");
-                TBPassword.ForeColor = System.Drawing.ColorTranslator.FromHtml("#FFFFFF");
+                TBLogin.BorderColor = System.Drawing.ColorTranslator.FromHtml("#CF0000");
+                TBPassword.BorderColor = System.Drawing.ColorTranslator.FromHtml("#CF0000");
+                TBLogin.BackColor = System.Drawing.ColorTranslator.FromHtml("#F7D6D6");
+                TBPassword.BackColor = System.Drawing.ColorTranslator.FromHtml("#F7D6D6");
             }
 
 
