@@ -3,7 +3,7 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <section>
-        <img src="imgs/bg_candles3.png" class="img-fluid"/>
+        <img src="imgs/bg_candles3.png" class="img-fluid w-100" />
     </section>
 
     <section>
@@ -11,13 +11,15 @@
             <div class="row">
                 <div class="col-12">
                     <center>
-                       <h2>Our products</h2>
+                        <div class="mt-5">
+                            <h2>Our products</h2>
+                        </div>
                        <p><b>Our products are created by the only master of it's kind</b></p>
                     </center>
                 </div>
             </div>
 
-            <div class="row">
+            <div class="row pb-3">
                 <div class="col-md-4">
                     <center>
                         <img width="150px" src="imgs/candles.png" />
@@ -46,7 +48,7 @@
     </section>
 
     <section>
-        <img src="imgs/bg_candles4.png" class="img-fluid"/>
+        <img src="imgs/bg_candles4.png" class="img-fluid w-100"/>
     </section>
 
     <section>
@@ -54,16 +56,20 @@
             <div class="row">
                 <div class="col-12">
                     <center>
-                       <h2>Those who believe in us</h2>
+                        <div class="mt-5 mb-3">
+                            <h2>Those who believe in us</h2>
+                        </div>
                     </center>
                 </div>
             </div>
 
-            <div class="row">
+            <div class="row pb-5">
                 <div class="col-md-4">
                     <center>
-                        <img height="300px" src="imgs/sabaton.jpg" class="img-fluid" />
-                        <h4>Joakim Broden</h4>
+                        <img height="300px" src="imgs/joakim.jpg" class="img-fluid" />
+                        <div class="mt-3">
+                            <h4>Joakim Broden</h4>
+                        </div>
                         <p class="text-justify">One of our first and most loyal customers is Joakim Broden, lead singer of Sabaton. Our paths met when Joakim was struggling with an odour on the set of a music video for a new song and was looking for help, and we delivered. </p>
                     </center>
                 </div>
@@ -71,15 +77,19 @@
                 <div class="col-md-4">
                     <center>
                         <img height="300px" src="imgs/oprah.jpg" class="img-fluid" />
-                        <h4>Oprah</h4>
+                        <div class="mt-3">
+                            <h4>Oprah</h4>
+                        </div>
                         <p class="text-justify">We all know and love Oprah's voice and know that it is absolutely unique, but as she once said, "Not as unique as the scents in World of Smells".</p>
                     </center>
                 </div>
 
                 <div class="col-md-4">
                     <center>
-                        <img height="300px" src="imgs/kiss.jpg" class="img-fluid" />
-                        <h4>Kiss</h4>
+                        <img height="300px" src="imgs/kiss1.jpg" class="img-fluid" />
+                        <div class="mt-3">
+                            <h4>Kiss</h4>
+                        </div>
                         <p class="text-justify">All members of the kiss team love our products and have used them continuously for many years. A little known fact is that in the song "I Was Made For Lovin' You" Paul Stanley refers to our candles as "Baby".</p>
                     </center>
                 </div>

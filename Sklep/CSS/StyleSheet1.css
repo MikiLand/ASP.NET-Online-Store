@@ -1,4 +1,12 @@
-﻿body {
+﻿.vertical-center {
+    min-height: 100%; /* Fallback for browsers do NOT support vh unit */
+    min-height: 100vh; /* These two lines are counted as one :-) */
+
+    display: flex;
+    align-items: center;
+}
+
+body {
 }
 
 #footer1 {
@@ -18,10 +26,7 @@
     color: lightgrey;
 }
 
-.vertical-center {
-    min-height: 100%; /* Fallback for browsers do NOT support vh unit */
-    min-height: 100vh; /* These two lines are counted as one :-)       */
-
-    display: flex;
-    align-items: center;
+.img-fluid {
+    max-width: 100%;
+    height: auto;
 }

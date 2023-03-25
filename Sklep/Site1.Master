@@ -98,10 +98,10 @@
         </div>
 
         <footer>
-            <div class="navbar fixed-bottom" id="footer1" class="conteiner-fluid">
+            <div class="navbar fixed-bottom" id="footer1">
                 <p style="color:lightgrey">
                     <center>
-                        &copy All rights reserved <a class="footerlinks" href="#" target="_blank">51099 50616</a>
+                        &copy All rights reserved <a class="footerlinks" href="#" target="_blank">World of smells&#8482</a> 
                     </center>
                 </p>
             </div>
