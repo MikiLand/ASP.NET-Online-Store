@@ -15,22 +15,22 @@ namespace Sklep
     {
 
         /// <summary>
-        /// TextBox4 control.
+        /// TBProductName control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox4;
+        protected global::System.Web.UI.WebControls.TextBox TBProductName;
 
         /// <summary>
-        /// Button1 control.
+        /// BtnSearch control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button Button1;
+        protected global::System.Web.UI.WebControls.Button BtnSearch;
 
         /// <summary>
         /// TBProductType control.
@@ -42,22 +42,22 @@ namespace Sklep
         protected global::System.Web.UI.WebControls.TextBox TBProductType;
 
         /// <summary>
-        /// TextBox3 control.
+        /// TBDescription control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox3;
+        protected global::System.Web.UI.WebControls.TextBox TBDescription;
 
         /// <summary>
-        /// TextBox2 control.
+        /// TBPrice control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox2;
+        protected global::System.Web.UI.WebControls.TextBox TBPrice;
 
         /// <summary>
         /// BtnUpdateProduct control.

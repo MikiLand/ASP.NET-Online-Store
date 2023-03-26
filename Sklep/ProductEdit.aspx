@@ -36,13 +36,13 @@
                             <div class="col">
                                 <div class="form-group">
                                     <div class="input-group mb-1">
-                                        <asp:TextBox class="form-control" ID="TextBox4" runat="server" placeholder="Product name" ></asp:TextBox>
-                                        <asp:Button Class="btn btn-primary m-1 mt-0 mb-0" style="width: 100px" ID="Button1" runat="server" Text="Search" />                      
+                                        <asp:TextBox class="form-control" ID="TBProductName" runat="server" placeholder="Product name"></asp:TextBox>
+                                        <asp:Button Class="btn btn-primary m-1 mt-0 mb-0" ID="BtnSearch" style="width: 100px"  runat="server" Text="Search" OnClick="BtnSearchOnClick"/>                      
                                     </div>
                                     <div class="input-group mb-2">
                                         <asp:TextBox class="form-control" ID="TBProductType" runat="server" placeholder="Product type" ReadOnly="True"></asp:TextBox>
                                         <div class="dropdown">
-                                            <a class="btn btn-secondary dropdown-toggle m-1 mt-0 mb-0" style="width: 100px" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
+                                            <a class="btn btn-secondary dropdown-toggle m-1 mt-0 mb-0" ID="dropdownMenuLink" style="width: 100px" href="#" role="button"  data-bs-toggle="dropdown" aria-expanded="false">
                                                 Type
                                             </a>
                                             <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
@@ -52,27 +52,30 @@
                                             </ul>
                                         </div>
                                     </div>
+                                    <!--<select class="form-select" ID="DDLTypes">
+                                        <option ID="Option1">Candle</option>
+                                        <option>Scent</option>
+                                        <option>Other</option>
+                                    </select>-->
 
                                     <center>
                                         <label>Description</label>
                                     </center>
-                                    <div class="form-group mb-2">
-                                        <asp:TextBox class="form-control" ID="TextBox3" runat="server" placeholder="Description" TextMode="Email"></asp:TextBox>
+                                    <div class="form-group mb-2" >
+                                        <asp:TextBox class="form-control" ID="TBDescription" runat="server" placeholder="Description"></asp:TextBox>
                                     </div>
 
                                     <center>
-                                        <label>Price</label>
+                                        <label id="test">Price</label>
                                     </center>
                                     <div class="form-group">
-                                        <asp:TextBox class="form-control" ID="TextBox2" runat="server" placeholder="Price" TextMode="Number"></asp:TextBox>
+                                        <asp:TextBox class="form-control" ID="TBPrice" runat="server" placeholder="Price"></asp:TextBox>
                                     </div>
-
-                            <!-- Nie działa rozciągnięcie na całą szerokość pliku i robienie odstępu-->
                                 <center>
                                     <div class="d-grid">
                                         <center>
-                                            <asp:Button Class="btn d-grid gap-2 btn-primary btn-block btn-lgmt-3 mt-3" Style="width: 150px;" ID="BtnUpdateProduct" runat="server" Text="Update" />
-                                            <asp:Button Class="btn d-grid gap-2 btn-danger btn-block btn-lgmt-3 mt-1" Style="width: 150px;"  ID="BtnDeleteProduct" runat="server" Text="Delete" />
+                                            <asp:Button Class="btn d-grid gap-2 btn-primary btn-block btn-lgmt-3 mt-3" Style="width: 150px;" ID="BtnUpdateProduct" OnClick="BtnUpdateOnClick" runat="server" Text="Update" />
+                                            <asp:Button Class="btn d-grid gap-2 btn-danger btn-block btn-lgmt-3 mt-1" Style="width: 150px;"  ID="BtnDeleteProduct" OnClick="BtnDeleteOnClick" runat="server" Text="Delete" />
                                         </center>
                                     </div>
                                 </center>

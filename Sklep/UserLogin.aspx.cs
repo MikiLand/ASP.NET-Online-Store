@@ -10,6 +10,8 @@ namespace Sklep
 {
     public partial class UserLogin : System.Web.UI.Page
     {
+
+        public static SqlConnection sqlCon = new SqlConnection(@"Data Source=DESKTOP-9EOJGT1\Typcio;Initial Catalog=Shop;User ID=sa;Password=1234");
         protected void Page_Load(object sender, EventArgs e)
         {
 
@@ -17,13 +19,8 @@ namespace Sklep
 
         protected void BtnLogin_Click(object sender, EventArgs e)
         {
-            SqlConnection sqlCon = new SqlConnection(@"Data Source=DESKTOP-9EOJGT1\Typcio;Initial Catalog=Shop;User ID=sa;Password=1234");
-
-
-
-
             SqlCommand command;
-            SqlDataReader dataReader;
+           // SqlDataReader dataReader;
             String sql, Output = "";
 
 
@@ -34,6 +31,7 @@ namespace Sklep
             //dataReader = command.ExecuteReader();
 
             SqlDataReader dr = command.ExecuteReader();
+
             if(dr.Read())
             {
                 Session["UserID"] = dr.GetValue(0).ToString();
@@ -47,6 +45,7 @@ namespace Sklep
                 TBPassword.BorderColor = System.Drawing.ColorTranslator.FromHtml("#CF0000");
                 TBLogin.BackColor = System.Drawing.ColorTranslator.FromHtml("#F7D6D6");
                 TBPassword.BackColor = System.Drawing.ColorTranslator.FromHtml("#F7D6D6");
+                sqlCon.Close();
             }
 
 
