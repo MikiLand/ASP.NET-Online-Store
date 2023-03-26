@@ -46,7 +46,7 @@
                                                 Type
                                             </a>
                                             <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                                                <li><a class="dropdown-item" href="#">Candle</a></li>
+                                                <li><a class="dropdown-item" OnClick="DDLOptionCandle" href="#">Candle</a></li>
                                                 <li><a class="dropdown-item" href="#">Scent</a></li>
                                                 <li><a class="dropdown-item" href="#">Other</a></li>
                                             </ul>

@@ -52,6 +52,11 @@ namespace Sklep
             UserLogin.sqlCon.Close();
         }
 
+        protected void DDLOptionCandle(object sender, EventArgs e)
+        {
+            TBProductType.Text = "Candle";
+        }
+
         protected void BtnUpdateOnClick(object sender, EventArgs e)
         {
             SqlCommand command;
