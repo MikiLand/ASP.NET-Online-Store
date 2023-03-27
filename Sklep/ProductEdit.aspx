@@ -114,7 +114,18 @@
 
                         <div class="row">
                             <div class="col">
-                                <asp:GridView class="table table-striped table-bordered" ID="GVAddProduct" runat="server"></asp:GridView>
+                                <asp:SqlDataSource ID="SqlDataProducts" runat="server" ConnectionString="<%$ ConnectionStrings:ShopConnectionString2 %>" SelectCommand="select p.Name, p.Description, tp.TypeName as Type, p.Price
+from Product p
+left join ProductType tp on tp.id = p.Type
+Order by p.name"></asp:SqlDataSource>
+                                <asp:GridView class="table table-striped table-bordered" ID="GVProducts" runat="server" AutoGenerateColumns="False" DataSourceID="SqlDataProducts">
+                                    <Columns>
+                                        <asp:BoundField DataField="Name" HeaderText="Name" SortExpression="Name" />
+                                        <asp:BoundField DataField="Description" HeaderText="Description" SortExpression="Description" />
+                                        <asp:BoundField DataField="Type" HeaderText="Type" SortExpression="Type" />
+                                        <asp:BoundField DataField="Price" HeaderText="Price" SortExpression="Price" />
+                                    </Columns>
+                                </asp:GridView>
                             </div>
                         </div>
                     </div>

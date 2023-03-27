@@ -86,6 +86,10 @@ namespace Sklep
             command = new SqlCommand(sql, UserLogin.sqlCon);
             command.ExecuteNonQuery();
             UserLogin.sqlCon.Close();
+
+            Response.Write("<script>alert('Product has been updated!');</script>");
+            GVProducts.DataBind();
+
         }
 
         protected void BtnDeleteOnClick(object sender, EventArgs e)
@@ -98,6 +102,14 @@ namespace Sklep
             command = new SqlCommand(sql, UserLogin.sqlCon);
             command.ExecuteNonQuery();
             UserLogin.sqlCon.Close();
+
+            Response.Write("<script>alert('Product has been deleted!');</script>");
+            GVProducts.DataBind();
+        }
+
+        protected void SqlProductsList_Selecting(object sender, SqlDataSourceSelectingEventArgs e)
+        {
+
         }
     }
 }
