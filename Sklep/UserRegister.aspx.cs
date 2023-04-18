@@ -5,6 +5,8 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Data.SqlClient;
+using System.Security.Cryptography;
+using System.Text;
 
 namespace Sklep
 {
@@ -128,7 +130,7 @@ namespace Sklep
 
 
                     sqlCon2.Open();
-                    sql2 = "Insert into users(login,email,pass_word,tac_accept) values ( '" + TBLogin.Text.Trim() + "' ,'" + TBEmail.Text.Trim() + "' ,'" + TBPassword.Text.Trim() + "' ,1)";
+                    sql2 = "Insert into users(login,email,pass_word,tac_accept,is_admin) values ( '" + TBLogin.Text.Trim() + "' ,'" + TBEmail.Text.Trim() + "' ,'" + MD5Hashing(TBPassword.Text.Trim()) + "' ,1,0)";
                     command2 = new SqlCommand(sql2, sqlCon2);
                     command2.ExecuteNonQuery();
                     sqlCon2.Close();
@@ -146,9 +148,20 @@ namespace Sklep
                     TBEmail.ForeColor = System.Drawing.ColorTranslator.FromHtml("#FFFFFF");
                 }
             }
+        }
+        string MD5Hashing(string Password)
+        {
+            MD5 Md5Passowrd = new MD5CryptoServiceProvider();
+            Md5Passowrd.ComputeHash(ASCIIEncoding.ASCII.GetBytes(Password));
+            byte[] HashedPassword = Md5Passowrd.Hash;
+            StringBuilder StringBuilder = new StringBuilder();
 
+            for (int i = 0; i < HashedPassword.Length; i++)
+            {
+                StringBuilder.Append(HashedPassword[i].ToString("x2"));
+            }
 
-            
+            return StringBuilder.ToString();
         }
     }
 }

@@ -33,6 +33,24 @@ namespace Sklep
         protected global::System.Web.UI.WebControls.TextBox TBEmail;
 
         /// <summary>
+        /// BtnUpdateEmail control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button BtnUpdateEmail;
+
+        /// <summary>
+        /// TBCurrentPassword control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox TBCurrentPassword;
+
+        /// <summary>
         /// TBPassword control.
         /// </summary>
         /// <remarks>
@@ -51,13 +69,13 @@ namespace Sklep
         protected global::System.Web.UI.WebControls.TextBox TBRepPassword;
 
         /// <summary>
-        /// BtnUpdate control.
+        /// BtnUpdatePassword control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button BtnUpdate;
+        protected global::System.Web.UI.WebControls.Button BtnUpdatePassword;
 
         /// <summary>
         /// SqlDataSource1 control.

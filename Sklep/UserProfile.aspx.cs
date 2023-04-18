@@ -5,6 +5,8 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Data.SqlClient;
+using System.Security.Cryptography;
+using System.Text;
 
 namespace Sklep
 {
@@ -40,7 +42,7 @@ namespace Sklep
             }
         }
 
-        protected void BtnUpdate_Click(object sender, EventArgs e)
+        protected void BtnUpdateEmail_Click(object sender, EventArgs e)
         {
 
 
@@ -54,7 +56,90 @@ namespace Sklep
             sqlCon2.Open();
             if(TBPassword.Text.Trim() != "")
             {
-                if (TBPassword.Text.Length < 3)
+                if (TBEmail.Text.Trim().Contains("@") == false)
+                {
+                    TBEmail.BackColor = System.Drawing.ColorTranslator.FromHtml("#D63E3E");
+                    TBEmail.ForeColor = System.Drawing.ColorTranslator.FromHtml("#FFFFFF");
+                    //LblErrorRegisterMessage.Text = "Email must contain @ character!";
+                    StopFlag = true;
+                }
+                else if (TBEmail.Text.Trim().Contains(".") == false && StopFlag == false)
+                {
+                    TBEmail.BackColor = System.Drawing.ColorTranslator.FromHtml("#D63E3E");
+                    TBEmail.ForeColor = System.Drawing.ColorTranslator.FromHtml("#FFFFFF");
+                    //LblErrorRegisterMessage.Text = "Email must contain . character!";
+                    StopFlag = true;
+                }
+                else
+                {
+                    TBEmail.BackColor = System.Drawing.ColorTranslator.FromHtml("#FFFFFF");
+                    TBEmail.ForeColor = System.Drawing.ColorTranslator.FromHtml("#212529");
+                }
+
+                if (StopFlag == false)
+                {
+                    Response.Write("<script>alert('" + TBEmail.Text.ToString() + "');</script>");
+                    sql2 = "Update users set email = '" + TBEmail.Text.Trim() + "' where id =  " + Session["UserID"] + "";
+                    command2 = new SqlCommand(sql2, sqlCon2);
+                    command2.ExecuteNonQuery();
+                    sqlCon2.Close();
+
+                    Response.Redirect("UserProfile.aspx");
+                }
+            }
+            else
+            {
+                TBEmail.BackColor = System.Drawing.ColorTranslator.FromHtml("#D63E3E");
+                TBEmail.ForeColor = System.Drawing.ColorTranslator.FromHtml("#FFFFFF");
+                //LblErrorRegisterMessage.Text = "Email can't be empty!";
+
+                /*Response.Write("<script>alert('" + TBEmail.Text.ToString() + "');</script>");
+                sql2 = "Update users set email = '" + TBEmail.Text.Trim() + "' where id = " + Session["UserID"] + "";
+                command2 = new SqlCommand(sql2, sqlCon2);
+                command2.ExecuteNonQuery();
+                sqlCon2.Close();*/
+            }
+            
+        }
+
+        protected void BtnUpdatePassword_Click(object sender, EventArgs e)
+        {
+            bool StopFlag = false;
+            String sql2 = "", CurrentPassword = "", DatabaseCurrentPassword = "";
+            SqlCommand command2;
+
+            SqlConnection sqlCon2 = new SqlConnection(@"Data Source=DESKTOP-9EOJGT1\Typcio;Initial Catalog=shop;User ID=sa;Password=1234");
+
+            if(TBCurrentPassword.Text == "")
+            {
+                CurrentPassword = MD5Hashing(TBCurrentPassword.Text);
+
+                SqlDataReader dataReader;
+                String sql, Output = "";
+
+
+                sql = "SELECT pass_word FROM users where id = " + Session["UserID"] + "";
+                sqlCon2.Open();
+                command2 = new SqlCommand(sql, sqlCon2);
+
+                SqlDataReader dr = command2.ExecuteReader();
+
+                if (dr.Read())
+                {
+
+                    //dataReader = command.ExecuteReader();
+
+                    DatabaseCurrentPassword = dr.GetValue(0).ToString();
+
+                    sqlCon2.Close();
+                }
+
+            }
+
+
+            if (DatabaseCurrentPassword == CurrentPassword)
+            {
+                if (TBPassword.Text.Length < 8)
                 {
                     TBPassword.BackColor = System.Drawing.ColorTranslator.FromHtml("#D63E3E");
                     TBPassword.ForeColor = System.Drawing.ColorTranslator.FromHtml("#FFFFFF");
@@ -77,12 +162,15 @@ namespace Sklep
                     TBRepPassword.BackColor = System.Drawing.ColorTranslator.FromHtml("#FFFFFF");
                     TBRepPassword.ForeColor = System.Drawing.ColorTranslator.FromHtml("#212529");
                 }
+
                 if (StopFlag == false)
                 {
-                    Response.Write("<script>alert('" + TBEmail.Text.ToString() + "');</script>");
-                    sql2 = "Update users set email = '" + TBEmail.Text.Trim() + "', pass_word = '" + TBPassword.Text.Trim() + "' where id =  " + Session["UserID"] + "";
+                    sqlCon2.Open();
+
+                    sql2 = "Update users set pass_word = '" + TBPassword.Text.Trim() + "' where id =  " + Session["UserID"] + "";
                     command2 = new SqlCommand(sql2, sqlCon2);
                     command2.ExecuteNonQuery();
+
                     sqlCon2.Close();
 
                     Response.Redirect("UserProfile.aspx");
@@ -90,13 +178,24 @@ namespace Sklep
             }
             else
             {
-                Response.Write("<script>alert('" + TBEmail.Text.ToString() + "');</script>");
-                sql2 = "Update users set email = '" + TBEmail.Text.Trim() + "' where id = " + Session["UserID"] + "";
-                command2 = new SqlCommand(sql2, sqlCon2);
-                command2.ExecuteNonQuery();
-                sqlCon2.Close();
+                TBCurrentPassword.BackColor = System.Drawing.ColorTranslator.FromHtml("#D63E3E");
+                TBCurrentPassword.ForeColor = System.Drawing.ColorTranslator.FromHtml("#FFFFFF");
             }
-            
+        }
+
+        string MD5Hashing(string Password)
+        {
+            MD5 Md5Passowrd = new MD5CryptoServiceProvider();
+            Md5Passowrd.ComputeHash(ASCIIEncoding.ASCII.GetBytes(Password));
+            byte[] HashedPassword = Md5Passowrd.Hash;
+            StringBuilder StringBuilder = new StringBuilder();
+
+            for (int i = 0; i < HashedPassword.Length; i++)
+            {
+                StringBuilder.Append(HashedPassword[i].ToString("x2"));
+            }
+
+            return StringBuilder.ToString();
         }
     }
 }

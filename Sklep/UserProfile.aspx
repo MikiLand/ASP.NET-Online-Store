@@ -10,7 +10,7 @@
                         <div class="row">
                             <div class="col">
                                 <center>
-                                    <img width="150px" src="imgs/candles.png">
+                                    <img width="150px" src="imgs/profile.png">
                                 </center>
                             </div>
                         </div>
@@ -47,6 +47,25 @@
                                     <asp:TextBox class="form-control" ID="TBEmail" runat="server" placeholder="Your email" TextMode="Email"></asp:TextBox>
                                 </div>
 
+                                <div class="form-group">
+                                    <center>
+                                        <asp:Button Class="btn d-grid gap-2 btn-primary btn-block btn-lgmt-3 mt-3" style="width: 150px" ID="BtnUpdateEmail" runat="server" Text="Update email" OnClick="BtnUpdateEmail_Click" />
+                                    </center>
+                                </div>
+
+                                <div class="col">
+                                    <center>
+                                        <hr />
+                                    </center>
+                                </div>
+
+                                <center>
+                                    <label>Current password</label>
+                                </center>
+                                <div class="form-group">
+                                    <asp:TextBox class="form-control" ID="TBCurrentPassword" runat="server" placeholder="Current password" TextMode="Password"></asp:TextBox>
+                                </div>
+
                                 <center>
                                     <label>New password</label>
                                 </center>
@@ -61,9 +80,10 @@
                                     <asp:TextBox class="form-control" ID="TBRepPassword" runat="server" placeholder="Repeat password" TextMode="Password"></asp:TextBox>
                                 </div>
 
-                            <!-- Nie działa rozciągnięcie na całą szerokość pliku i robienie odstępu-->
                                 <div class="form-group">
-                                    <asp:Button Class="btn d-grid gap-2 btn-primary btn-block btn-lg" ID="BtnUpdate" runat="server" Text="Update" OnClick="BtnUpdate_Click" />
+                                    <center>
+                                        <asp:Button Class="btn d-grid gap-2 btn-primary btn-block btn-lgmt-3 mt-3" style="width: 150px" ID="BtnUpdatePassword" runat="server" Text="Update password" OnClick="BtnUpdatePassword_Click" />
+                                    </center>
                                 </div>
                             </div>
                         </div>

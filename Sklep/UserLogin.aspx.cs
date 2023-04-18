@@ -5,6 +5,8 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Data.SqlClient;
+using System.Security.Cryptography;
+using System.Text;
 
 namespace Sklep
 {
@@ -24,7 +26,7 @@ namespace Sklep
             String sql, Output = "";
 
 
-            sql = "SELECT id, is_admin FROM users where login = '" + TBLogin.Text.Trim() + "' and pass_word ='" + TBPassword.Text.Trim() + "'";
+            sql = "SELECT id, is_admin FROM users where login = '" + TBLogin.Text.Trim() + "' and pass_word ='" + MD5Hashing(TBPassword.Text.Trim()) + "'";
             sqlCon.Open();
             command = new SqlCommand(sql, sqlCon);
 
@@ -66,6 +68,21 @@ namespace Sklep
                 TBPassword.BackColor = System.Drawing.ColorTranslator.FromHtml("#D63E3E");
                 TBPassword.ForeColor = System.Drawing.ColorTranslator.FromHtml("#FFFFFF");
             }*/
+        }
+
+        string MD5Hashing(string Password)
+        {
+            MD5 Md5Passowrd = new MD5CryptoServiceProvider();
+            Md5Passowrd.ComputeHash(ASCIIEncoding.ASCII.GetBytes(Password));
+            byte[] HashedPassword = Md5Passowrd.Hash;
+            StringBuilder StringBuilder = new StringBuilder();
+
+            for (int i = 0; i < HashedPassword.Length; i++)
+            {
+                StringBuilder.Append(HashedPassword[i].ToString("x2"));
+            }
+
+            return StringBuilder.ToString();
         }
     }
 }
