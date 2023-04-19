@@ -44,8 +44,6 @@ namespace Sklep
 
         protected void BtnUpdateEmail_Click(object sender, EventArgs e)
         {
-
-
             bool StopFlag = false; 
             String sql2="";
             SqlCommand command2;
@@ -110,7 +108,7 @@ namespace Sklep
 
             SqlConnection sqlCon2 = new SqlConnection(@"Data Source=DESKTOP-9EOJGT1\Typcio;Initial Catalog=shop;User ID=sa;Password=1234");
 
-            if(TBCurrentPassword.Text == "")
+            if(TBCurrentPassword.Text != "")
             {
                 CurrentPassword = MD5Hashing(TBCurrentPassword.Text);
 
@@ -134,47 +132,52 @@ namespace Sklep
                     sqlCon2.Close();
                 }
 
-            }
 
-
-            if (DatabaseCurrentPassword == CurrentPassword)
-            {
-                if (TBPassword.Text.Length < 8)
+                if (DatabaseCurrentPassword == CurrentPassword)
                 {
-                    TBPassword.BackColor = System.Drawing.ColorTranslator.FromHtml("#D63E3E");
-                    TBPassword.ForeColor = System.Drawing.ColorTranslator.FromHtml("#FFFFFF");
-                    StopFlag = true;
+                    if (TBPassword.Text.Length < 8)
+                    {
+                        TBPassword.BackColor = System.Drawing.ColorTranslator.FromHtml("#D63E3E");
+                        TBPassword.ForeColor = System.Drawing.ColorTranslator.FromHtml("#FFFFFF");
+                        StopFlag = true;
+                    }
+                    else
+                    {
+                        TBPassword.BackColor = System.Drawing.ColorTranslator.FromHtml("#FFFFFF");
+                        TBPassword.ForeColor = System.Drawing.ColorTranslator.FromHtml("#212529");
+                    }
+
+                    if (TBRepPassword.Text != TBPassword.Text)
+                    {
+                        TBRepPassword.BackColor = System.Drawing.ColorTranslator.FromHtml("#D63E3E");
+                        TBRepPassword.ForeColor = System.Drawing.ColorTranslator.FromHtml("#FFFFFF");
+                        StopFlag = true;
+                    }
+                    else
+                    {
+                        TBRepPassword.BackColor = System.Drawing.ColorTranslator.FromHtml("#FFFFFF");
+                        TBRepPassword.ForeColor = System.Drawing.ColorTranslator.FromHtml("#212529");
+                    }
+
+                    if (StopFlag == false)
+                    {
+                        sqlCon2.Open();
+
+                        sql2 = "Update users set pass_word = '" + MD5Hashing(TBPassword.Text.Trim()) + "' where id =  " + Session["UserID"] + "";
+                        command2 = new SqlCommand(sql2, sqlCon2);
+                        command2.ExecuteNonQuery();
+
+                        sqlCon2.Close();
+
+                        Response.Redirect("UserProfile.aspx");
+                    }
                 }
                 else
                 {
-                    TBPassword.BackColor = System.Drawing.ColorTranslator.FromHtml("#FFFFFF");
-                    TBPassword.ForeColor = System.Drawing.ColorTranslator.FromHtml("#212529");
+                    TBCurrentPassword.BackColor = System.Drawing.ColorTranslator.FromHtml("#D63E3E");
+                    TBCurrentPassword.ForeColor = System.Drawing.ColorTranslator.FromHtml("#FFFFFF");
                 }
 
-                if (TBRepPassword.Text != TBPassword.Text)
-                {
-                    TBRepPassword.BackColor = System.Drawing.ColorTranslator.FromHtml("#D63E3E");
-                    TBRepPassword.ForeColor = System.Drawing.ColorTranslator.FromHtml("#FFFFFF");
-                    StopFlag = true;
-                }
-                else
-                {
-                    TBRepPassword.BackColor = System.Drawing.ColorTranslator.FromHtml("#FFFFFF");
-                    TBRepPassword.ForeColor = System.Drawing.ColorTranslator.FromHtml("#212529");
-                }
-
-                if (StopFlag == false)
-                {
-                    sqlCon2.Open();
-
-                    sql2 = "Update users set pass_word = '" + TBPassword.Text.Trim() + "' where id =  " + Session["UserID"] + "";
-                    command2 = new SqlCommand(sql2, sqlCon2);
-                    command2.ExecuteNonQuery();
-
-                    sqlCon2.Close();
-
-                    Response.Redirect("UserProfile.aspx");
-                }
             }
             else
             {
