@@ -56,17 +56,16 @@
                                     <label>Description</label>
                                 </center>
                                 <div class="form-group mb-2">
-                                    <asp:TextBox class="form-control" ID="TBDescription" runat="server" placeholder="Description" TextMode="Email"></asp:TextBox>
+                                    <asp:TextBox class="form-control" ID="TBDescription" runat="server" placeholder="Description"></asp:TextBox>
                                 </div>
 
                                 <center>
                                     <label>Price</label>
                                 </center>
                                 <div class="form-group">
-                                    <asp:TextBox class="form-control" ID="TBPrice" runat="server" placeholder="Price" TextMode="Number"></asp:TextBox>
+                                    <asp:TextBox class="form-control" ID="TBPrice" runat="server" placeholder="Price"></asp:TextBox>
                                 </div>
 
-                            <!-- Nie działa rozciągnięcie na całą szerokość pliku i robienie odstępu-->
                                 <div class="form-group">
                                     <center>
                                         <asp:Button Class="btn d-grid gap-2 btn-primary btn-block btn-lgmt-3 mt-3" style="width: 150px" ID="BtnAdd" runat="server" Text="Add" OnClick="BtnAdd_Click" />
@@ -98,15 +97,23 @@
 
                         <div class="row">
                             <div class="col">
-                                <center>
-                                    <hr />
-                                </center>
+                                <asp:SqlDataSource ID="SqlDataProducts" runat="server" ConnectionString="<%$ ConnectionStrings:ShopConnectionString2 %>" SelectCommand="select p.Name, p.Description, tp.TypeName as Type, p.Price
+from Product p
+left join ProductType tp on tp.id = p.Type
+Order by p.name"></asp:SqlDataSource>
+                                <asp:GridView class="table table-striped table-bordered" ID="GVProducts" runat="server" AutoGenerateColumns="False" DataSourceID="SqlDataProducts">
+                                    <Columns>
+                                        <asp:BoundField DataField="Name" HeaderText="Name" SortExpression="Name" />
+                                        <asp:BoundField DataField="Description" HeaderText="Description" SortExpression="Description" />
+                                        <asp:BoundField DataField="Type" HeaderText="Type" SortExpression="Type" />
+                                        <asp:BoundField DataField="Price" HeaderText="Price" SortExpression="Price" />
+                                    </Columns>
+                                </asp:GridView>
                             </div>
                         </div>
 
                         <div class="row">
                             <div class="col">
-                                <asp:GridView class="table table-striped table-bordered" ID="GVAddProduct" runat="server"></asp:GridView>
                             </div>
                         </div>
                     </div>

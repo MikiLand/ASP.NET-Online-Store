@@ -115,9 +115,10 @@ namespace Sklep
                     command2 = new SqlCommand(sql2, sqlCon2);
                     command2.ExecuteNonQuery();
                     sqlCon2.Close();
+                    
+                    //GVProducts.DataBind();
 
-
-                    Response.Redirect("ProductAdd.aspx");
+                    //Response.Redirect("ProductAdd.aspx");
 
                 }
                 else

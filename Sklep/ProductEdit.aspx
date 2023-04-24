@@ -1,15 +1,5 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site1.Master" AutoEventWireup="true" CodeBehind="ProductEdit.aspx.cs" Inherits="Sklep.ProductEdit" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
-    ﻿
-
-<script type="text/javascript"> $(document).ready(function () {
-        //$(document).ready(function () {
-        //$('.table').DataTable();
-        // });
-        $(".table").prepend($("<thead></thead>").append($(this).find("tr:first"))).dataTable();
-        //$('.table1'). DataTable();
-    });
-</script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <div class="container-fluid">

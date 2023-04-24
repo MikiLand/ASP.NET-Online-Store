@@ -87,7 +87,7 @@ namespace Sklep
             command.ExecuteNonQuery();
             UserLogin.sqlCon.Close();
 
-            Response.Write("<script>alert('Product has been updated!');</script>");
+            //Response.Write("<script>alert('Product has been updated!');</script>");
             GVProducts.DataBind();
 
         }

@@ -60,12 +60,21 @@ namespace Sklep
         protected global::System.Web.UI.WebControls.Button BtnAdd;
 
         /// <summary>
-        /// GVAddProduct control.
+        /// SqlDataProducts control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView GVAddProduct;
+        protected global::System.Web.UI.WebControls.SqlDataSource SqlDataProducts;
+
+        /// <summary>
+        /// GVProducts control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.GridView GVProducts;
     }
 }
