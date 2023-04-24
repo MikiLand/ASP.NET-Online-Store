@@ -24,7 +24,7 @@ namespace Sklep
             String sql, Output = "";
 
 
-            sql = "SELECT login, email FROM users where id = " + Session["UserID"] + "";
+            sql = "SELECT login, email, name, surname FROM users where id = " + Session["UserID"] + "";
             sqlCon.Open();
             command = new SqlCommand(sql, sqlCon);
 
@@ -37,6 +37,8 @@ namespace Sklep
 
                 TBLogin.Text = dr.GetValue(0).ToString();
                 TBEmail.Text = dr.GetValue(1).ToString();
+                TBName.Text = dr.GetValue(2).ToString();
+                TBSurname.Text = dr.GetValue(3).ToString();
 
                 sqlCon.Close();
             }
@@ -86,8 +88,8 @@ namespace Sklep
             }
             else
             {
-                TBName.BorderColor = System.Drawing.ColorTranslator.FromHtml("#DFDFDF");
-                TBName.BackColor = System.Drawing.Color.White;
+                TBName.BorderColor = System.Drawing.ColorTranslator.FromHtml("#FFFFFF");
+                TBName.BackColor = System.Drawing.ColorTranslator.FromHtml("#212529");
             }
 
             if (TBSurname.Text == "")
@@ -104,8 +106,8 @@ namespace Sklep
             }
             else
             {
-                TBSurname.BorderColor = System.Drawing.ColorTranslator.FromHtml("#DFDFDF");
-                TBSurname.BackColor = System.Drawing.Color.White;
+                TBSurname.BorderColor = System.Drawing.ColorTranslator.FromHtml("#FFFFFF");
+                TBSurname.BackColor = System.Drawing.ColorTranslator.FromHtml("#212529");
             }
 
             if (StopFlag == false)

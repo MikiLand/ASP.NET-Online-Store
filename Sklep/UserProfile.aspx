@@ -2,6 +2,9 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+       <div style="height: 10px;">
+
+    </div>
      <div class="container-fluid">
         <div class="row">
             <div class="col-md-4">
@@ -150,6 +153,9 @@ left join Product p on p.id = op.id_product"></asp:SqlDataSource>
                     </div>
                 </div>
             </div>
+        </div>
+        <div style="height: 50px;">
+
         </div>
     </div>
 </asp:Content>
