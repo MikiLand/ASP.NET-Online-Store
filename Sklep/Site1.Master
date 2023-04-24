@@ -49,8 +49,9 @@
         <div id="navbar">
             <nav class="nabar navbar-expand-lg nabar-light">
                 <a class="navbar-brand" href="HomePage.aspx">
-                    <img src="imgs/home_page.png" width="30" height="30"/>
-                    <b>World of smells</b>
+                    <center>
+                        <img src="imgs/WOS.png" width="480" height="100"/>
+                    </center>
                 </a>
 
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-taret="#navbarSupportContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
