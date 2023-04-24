@@ -2,7 +2,7 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <div style="height: 50px;">
+    <div style="height: 10px;">
 
     </div>
     <div class="container">
@@ -51,6 +51,20 @@
                                 </div>
 
                                 <center>
+                                    <label>Name</label>
+                                </center>
+                                <div class="form-group mb-3">
+                                    <asp:TextBox class="form-control" ID="TBName" runat="server" placeholder="Your name"></asp:TextBox>
+                                </div>
+
+                                <center>
+                                    <label>Surname</label>
+                                </center>
+                                <div class="form-group mb-3">
+                                    <asp:TextBox class="form-control" ID="TBSurname" runat="server" placeholder="Your surname"></asp:TextBox>
+                                </div>
+
+                                <center>
                                     <label>Password</label>
                                 </center>
                                 <div class="form-group mb-3">
@@ -79,6 +93,9 @@
                     </div>
                 </div>
             </div>
+        </div>
+        <div style="height: 50px;">
+
         </div>
     </div>
 </asp:Content>

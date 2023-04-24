@@ -61,8 +61,44 @@ namespace Sklep
             }
             else
             {
-                TBRepPassword.BorderColor = System.Drawing.ColorTranslator.FromHtml("#DFDFDF");
+                TBEmail.BorderColor = System.Drawing.ColorTranslator.FromHtml("#DFDFDF");
                 TBEmail.BackColor = System.Drawing.Color.White;
+            }
+
+            if (TBName.Text == "")
+            {
+                TBName.BorderColor = System.Drawing.ColorTranslator.FromHtml("#CF0000");
+                TBName.BackColor = System.Drawing.ColorTranslator.FromHtml("#F7D6D6");
+                StopFlag = true;
+            }
+            else if (TBName.Text.Length < 2)
+            {
+                TBLogin.BorderColor = System.Drawing.ColorTranslator.FromHtml("#CF0000");
+                TBLogin.BackColor = System.Drawing.ColorTranslator.FromHtml("#F7D6D6");
+                StopFlag = true;
+            }
+            else
+            {
+                TBName.BorderColor = System.Drawing.ColorTranslator.FromHtml("#DFDFDF");
+                TBName.BackColor = System.Drawing.Color.White;
+            }
+
+            if (TBSurname.Text == "")
+            {
+                TBSurname.BorderColor = System.Drawing.ColorTranslator.FromHtml("#CF0000");
+                TBSurname.BackColor = System.Drawing.ColorTranslator.FromHtml("#F7D6D6");
+                StopFlag = true;
+            }
+            else if (TBName.Text.Length < 2)
+            {
+                TBSurname.BorderColor = System.Drawing.ColorTranslator.FromHtml("#CF0000");
+                TBSurname.BackColor = System.Drawing.ColorTranslator.FromHtml("#F7D6D6");
+                StopFlag = true;
+            }
+            else
+            {
+                TBSurname.BorderColor = System.Drawing.ColorTranslator.FromHtml("#DFDFDF");
+                TBSurname.BackColor = System.Drawing.Color.White;
             }
 
             if (TBPassword.Text == "")
@@ -130,7 +166,7 @@ namespace Sklep
 
 
                     sqlCon2.Open();
-                    sql2 = "Insert into users(login,email,pass_word,tac_accept,is_admin) values ( '" + TBLogin.Text.Trim() + "' ,'" + TBEmail.Text.Trim() + "' ,'" + MD5Hashing(TBPassword.Text.Trim()) + "' ,1,0)";
+                    sql2 = "Insert into users(login,email,pass_word,tac_accept,is_admin,name,surname) values ( '" + TBLogin.Text.Trim() + "' ,'" + TBEmail.Text.Trim() + "' ,'" + MD5Hashing(TBPassword.Text.Trim()) + "' ,1,0,'" + TBName.Text.Trim() + "','" + TBSurname.Text.Trim() + "')";
                     command2 = new SqlCommand(sql2, sqlCon2);
                     command2.ExecuteNonQuery();
                     sqlCon2.Close();
