@@ -52,38 +52,71 @@ namespace Sklep
 
 
             sqlCon2.Open();
-            if(TBPassword.Text.Trim() != "")
+            if (TBEmail.Text.Trim().Contains("@") == false)
             {
-                if (TBEmail.Text.Trim().Contains("@") == false)
-                {
-                    TBEmail.BackColor = System.Drawing.ColorTranslator.FromHtml("#D63E3E");
-                    TBEmail.ForeColor = System.Drawing.ColorTranslator.FromHtml("#FFFFFF");
-                    //LblErrorRegisterMessage.Text = "Email must contain @ character!";
-                    StopFlag = true;
-                }
-                else if (TBEmail.Text.Trim().Contains(".") == false && StopFlag == false)
-                {
-                    TBEmail.BackColor = System.Drawing.ColorTranslator.FromHtml("#D63E3E");
-                    TBEmail.ForeColor = System.Drawing.ColorTranslator.FromHtml("#FFFFFF");
-                    //LblErrorRegisterMessage.Text = "Email must contain . character!";
-                    StopFlag = true;
-                }
-                else
-                {
-                    TBEmail.BackColor = System.Drawing.ColorTranslator.FromHtml("#FFFFFF");
-                    TBEmail.ForeColor = System.Drawing.ColorTranslator.FromHtml("#212529");
-                }
+                TBEmail.BackColor = System.Drawing.ColorTranslator.FromHtml("#D63E3E");
+                TBEmail.ForeColor = System.Drawing.ColorTranslator.FromHtml("#FFFFFF");
+                //LblErrorRegisterMessage.Text = "Email must contain @ character!";
+                StopFlag = true;
+            }
+            else if (TBEmail.Text.Trim().Contains(".") == false && StopFlag == false)
+            {
+                TBEmail.BackColor = System.Drawing.ColorTranslator.FromHtml("#D63E3E");
+                TBEmail.ForeColor = System.Drawing.ColorTranslator.FromHtml("#FFFFFF");
+                //LblErrorRegisterMessage.Text = "Email must contain . character!";
+                StopFlag = true;
+            }
+            else
+            {
+                TBEmail.BackColor = System.Drawing.ColorTranslator.FromHtml("#FFFFFF");
+                TBEmail.ForeColor = System.Drawing.ColorTranslator.FromHtml("#212529");
+            }
 
-                if (StopFlag == false)
-                {
-                    Response.Write("<script>alert('" + TBEmail.Text.ToString() + "');</script>");
-                    sql2 = "Update users set email = '" + TBEmail.Text.Trim() + "' where id =  " + Session["UserID"] + "";
-                    command2 = new SqlCommand(sql2, sqlCon2);
-                    command2.ExecuteNonQuery();
-                    sqlCon2.Close();
+            if (TBName.Text == "")
+            {
+                TBName.BorderColor = System.Drawing.ColorTranslator.FromHtml("#CF0000");
+                TBName.BackColor = System.Drawing.ColorTranslator.FromHtml("#F7D6D6");
+                StopFlag = true;
+            }
+            else if (TBName.Text.Length < 2)
+            {
+                TBLogin.BorderColor = System.Drawing.ColorTranslator.FromHtml("#CF0000");
+                TBLogin.BackColor = System.Drawing.ColorTranslator.FromHtml("#F7D6D6");
+                StopFlag = true;
+            }
+            else
+            {
+                TBName.BorderColor = System.Drawing.ColorTranslator.FromHtml("#DFDFDF");
+                TBName.BackColor = System.Drawing.Color.White;
+            }
 
-                    Response.Redirect("UserProfile.aspx");
-                }
+            if (TBSurname.Text == "")
+            {
+                TBSurname.BorderColor = System.Drawing.ColorTranslator.FromHtml("#CF0000");
+                TBSurname.BackColor = System.Drawing.ColorTranslator.FromHtml("#F7D6D6");
+                StopFlag = true;
+            }
+            else if (TBName.Text.Length < 2)
+            {
+                TBSurname.BorderColor = System.Drawing.ColorTranslator.FromHtml("#CF0000");
+                TBSurname.BackColor = System.Drawing.ColorTranslator.FromHtml("#F7D6D6");
+                StopFlag = true;
+            }
+            else
+            {
+                TBSurname.BorderColor = System.Drawing.ColorTranslator.FromHtml("#DFDFDF");
+                TBSurname.BackColor = System.Drawing.Color.White;
+            }
+
+            if (StopFlag == false)
+            {
+                //Response.Write("<script>alert('" + TBEmail.Text.ToString() + "');</script>");
+                sql2 = "Update users (email, name, surname) values ('" + TBEmail.Text.Trim() + "','" + TBName.Text.Trim() + "','" + TBSurname.Text.Trim() + "') where id =  " + Session["UserID"] + "";
+                command2 = new SqlCommand(sql2, sqlCon2);
+                command2.ExecuteNonQuery();
+                sqlCon2.Close();
+
+                Response.Redirect("UserProfile.aspx");
             }
             else
             {

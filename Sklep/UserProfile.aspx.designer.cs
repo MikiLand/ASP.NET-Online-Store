@@ -33,6 +33,24 @@ namespace Sklep
         protected global::System.Web.UI.WebControls.TextBox TBEmail;
 
         /// <summary>
+        /// TBName control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox TBName;
+
+        /// <summary>
+        /// TBSurname control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox TBSurname;
+
+        /// <summary>
         /// BtnUpdateEmail control.
         /// </summary>
         /// <remarks>

@@ -47,9 +47,23 @@
                                     <asp:TextBox class="form-control" ID="TBEmail" runat="server" placeholder="Your email" TextMode="Email"></asp:TextBox>
                                 </div>
 
+                                <center>
+                                    <label>Name</label>
+                                </center>
+                                <div class="form-group">
+                                    <asp:TextBox class="form-control" ID="TBName" runat="server" placeholder="Your name"></asp:TextBox>
+                                </div>
+
+                                <center>
+                                    <label>Surname</label>
+                                </center>
+                                <div class="form-group">
+                                    <asp:TextBox class="form-control" ID="TBSurname" runat="server" placeholder="Your surname"></asp:TextBox>
+                                </div>
+
                                 <div class="form-group">
                                     <center>
-                                        <asp:Button Class="btn d-grid gap-2 btn-primary btn-block btn-lgmt-3 mt-3" style="width: 150px" ID="BtnUpdateEmail" runat="server" Text="Update email" OnClick="BtnUpdateEmail_Click" />
+                                        <asp:Button Class="btn d-grid gap-2 btn-primary btn-block btn-lgmt-3 mt-3" style="width: 150px" ID="BtnUpdateEmail" runat="server" Text="Update" OnClick="BtnUpdateEmail_Click" />
                                     </center>
                                 </div>
 
