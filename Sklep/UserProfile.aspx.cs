@@ -36,9 +36,12 @@ namespace Sklep
                 //dataReader = command.ExecuteReader();
 
                 TBLogin.Text = dr.GetValue(0).ToString();
-                TBEmail.Text = dr.GetValue(1).ToString();
-                TBName.Text = dr.GetValue(2).ToString();
-                TBSurname.Text = dr.GetValue(3).ToString();
+                if(TBEmail.Text == "")
+                    TBEmail.Text = dr.GetValue(1).ToString();
+                if (TBName.Text == "")
+                    TBName.Text = dr.GetValue(2).ToString();
+                if (TBSurname.Text == "")
+                    TBSurname.Text = dr.GetValue(3).ToString();
 
                 sqlCon.Close();
             }
@@ -54,6 +57,12 @@ namespace Sklep
 
 
             sqlCon2.Open();
+            if (TBEmail.Text.Length < 5)
+            {
+                TBEmail.BackColor = System.Drawing.ColorTranslator.FromHtml("#D63E3E");
+                TBEmail.ForeColor = System.Drawing.ColorTranslator.FromHtml("#FFFFFF");
+                StopFlag = true;
+            }
             if (TBEmail.Text.Trim().Contains("@") == false)
             {
                 TBEmail.BackColor = System.Drawing.ColorTranslator.FromHtml("#D63E3E");
@@ -113,26 +122,13 @@ namespace Sklep
             if (StopFlag == false)
             {
                 //Response.Write("<script>alert('" + TBEmail.Text.ToString() + "');</script>");
-                sql2 = "Update users (email, name, surname) values ('" + TBEmail.Text.Trim() + "','" + TBName.Text.Trim() + "','" + TBSurname.Text.Trim() + "') where id =  " + Session["UserID"] + "";
+                sql2 = "Update users set email = '" + TBEmail.Text.Trim() + "', name = '" + TBName.Text.Trim() + "', surname = '" + TBSurname.Text.Trim() + "' where id =  " + Session["UserID"] + "";
                 command2 = new SqlCommand(sql2, sqlCon2);
                 command2.ExecuteNonQuery();
                 sqlCon2.Close();
 
                 Response.Redirect("UserProfile.aspx");
             }
-            else
-            {
-                TBEmail.BackColor = System.Drawing.ColorTranslator.FromHtml("#D63E3E");
-                TBEmail.ForeColor = System.Drawing.ColorTranslator.FromHtml("#FFFFFF");
-                //LblErrorRegisterMessage.Text = "Email can't be empty!";
-
-                /*Response.Write("<script>alert('" + TBEmail.Text.ToString() + "');</script>");
-                sql2 = "Update users set email = '" + TBEmail.Text.Trim() + "' where id = " + Session["UserID"] + "";
-                command2 = new SqlCommand(sql2, sqlCon2);
-                command2.ExecuteNonQuery();
-                sqlCon2.Close();*/
-            }
-            
         }
 
         protected void BtnUpdatePassword_Click(object sender, EventArgs e)

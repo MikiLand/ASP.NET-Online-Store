@@ -67,6 +67,7 @@
                                 <div class="form-group">
                                     <center>
                                         <asp:Button Class="btn d-grid gap-2 btn-primary btn-block btn-lgmt-3 mt-3" style="width: 150px" ID="BtnUpdateEmail" runat="server" Text="Update" OnClick="BtnUpdateEmail_Click" />
+                                        <div class="pop"
                                     </center>
                                 </div>
 
