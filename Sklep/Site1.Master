@@ -46,17 +46,18 @@
 </head>
 <body>
     <form id="form1" runat="server">
+        
         <div id="navbar">
             <nav class="nabar navbar-expand-lg nabar-light">
-                <a class="navbar-brand" href="HomePage.aspx">
+                <a class="" href="HomePage.aspx">
                     <center>
                         <img src="imgs/WOS.png" width="480" height="100"/>
                     </center>
-                </a>
+                </a>    
 
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-taret="#navbarSupportContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <!--<button class="navbar-toggler" type="button" data-toggle="collapse" data-taret="#navbarSupportContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation" height="100">
                     <span class="navbar-toggler-icon"></span>
-                </button>
+                </button>-->
 
                 <nav class="navbar navbar-expand-lg navbar-light bg-light">
                     <div class="container-fluid">
