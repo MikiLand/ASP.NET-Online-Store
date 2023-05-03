@@ -23,6 +23,9 @@ namespace Sklep
             SqlDataReader dataReader;
             String sql, Output = "";
 
+            SqlDataOrders.SelectCommand = "select id as [Order number], net as Net, gross as Gross, date as Date from [Order] where id_user = " + Session["UserID"] + " order by date desc";
+            //SqlDataSource1.Select
+
 
             sql = "SELECT login, email, name, surname FROM users where id = " + Session["UserID"] + "";
             sqlCon.Open();

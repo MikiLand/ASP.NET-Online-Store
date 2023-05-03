@@ -78,13 +78,13 @@ namespace Sklep
         protected global::System.Web.UI.WebControls.Button BtnDeleteProduct;
 
         /// <summary>
-        /// SqlDataProducts control.
+        /// SqlDataOrders control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.SqlDataSource SqlDataProducts;
+        protected global::System.Web.UI.WebControls.SqlDataSource SqlDataOrders;
 
         /// <summary>
         /// GVProducts control.

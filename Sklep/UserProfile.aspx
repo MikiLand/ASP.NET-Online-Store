@@ -161,19 +161,9 @@
                         </div>
 
                         <div class="row">
-                            <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:ShopConnectionString %>" SelectCommand="select op.id, o.id [Order ID], date [Order date], name [Product name],
-CASE
-    WHEN type = 1 THEN 'Candle'
-    WHEN type = 2 THEN 'Scent'
-    WHEN type = 3 THEN 'Other'
-END Type,
-Price
-
-from OrderPosition op
-left join [Order] o on op.id_order = o.id
-left join Product p on p.id = op.id_product"></asp:SqlDataSource>
+                            <asp:SqlDataSource ID="SqlDataOrders" runat="server" ConnectionString="<%$ ConnectionStrings:ShopConnectionString %>" SelectCommand="select id as [Order number], net as Net, gross as Gross, date as Date from [Order]"></asp:SqlDataSource>
                             <div class="col">
-                                <asp:GridView class="table table-striped table-bordered" ID="GVUserOrders" runat="server"></asp:GridView>
+                                <asp:GridView class="table table-striped table-bordered" ID="GVUserOrders" runat="server" DataSourceID="SqlDataOrders"></asp:GridView>
                             </div>
                         </div>
                     </div>
