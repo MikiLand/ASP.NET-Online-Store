@@ -3,7 +3,7 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <section>
-        <div class="container">
+        <div class="container-fluid">
             <div class="row">
                 <div class="col-md-3">
                     <center>
@@ -33,9 +33,15 @@
                                         <asp:Label ID="Label2" runat="server" Text='<%# Eval("Price") %>'></asp:Label>
                                     </td>
                                 </tr>
+                                <div style="height: 15px;">
+
+                                </div>
                             </table>
                         </ItemTemplate>
                     </asp:DataList>
+                </div>
+                <div style="height: 50px;">
+
                 </div>
             </div>
         </div>
