@@ -18,17 +18,17 @@
                             <table>
                                 <tr>
                                     <td>
+                                        <img height="300px" src='<%# Eval("Path")%>' class="img-fluid" />
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
                                         <asp:Label ID="Label1" runat="server" Text='<%# Eval("Name") %>'></asp:Label>
                                     </td>
                                 </tr>
                                 <tr>
                                     <td>
-                                        <asp:Label ID="Label2" runat="server" Text="Label"></asp:Label>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <asp:Label ID="Label3" runat="server" Text="Label"></asp:Label>
+                                        <asp:Label ID="Label2" runat="server" Text='<%# Eval("Price") %>'></asp:Label>
                                     </td>
                                 </tr>
                             </table>
@@ -39,9 +39,10 @@
         </div>
 
     </section>
-    <asp:SqlDataSource ID="SqlDataProducts" runat="server" ConnectionString="<%$ ConnectionStrings:ShopConnectionString2 %>" SelectCommand="select p.Name, p.Description, tp.TypeName as Type, p.Price
+    <asp:SqlDataSource ID="SqlDataProducts" runat="server" ConnectionString="<%$ ConnectionStrings:ShopConnectionString2 %>" SelectCommand="select p.Name, p.Description, tp.TypeName as Type, p.Price, pic.Path
 from Product p
 left join ProductType tp on tp.id = p.Type
+left join Pictures Pic on Pic.IDCard = P.id
 Order by p.name">
     </asp:SqlDataSource>
     
