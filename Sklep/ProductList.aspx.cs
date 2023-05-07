@@ -13,5 +13,10 @@ namespace Sklep
         {
 
         }
+
+        protected void ProductPicture_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("HomePage.aspx");
+        }
     }
 }

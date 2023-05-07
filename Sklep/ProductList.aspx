@@ -5,20 +5,22 @@
     <section>
         <div class="container">
             <div class="row">
-                <div class="col-md-2">
+                <div class="col-md-3">
                     <center>
                         <br /><h1>"Two words my friend<br />
                         No refunds"</h1><br />
                         <h3>September 18, 2012 ~ Marcus</h3>
                     </center>
                 </div>
-                <div class="col-md-10">
-                    <asp:DataList ID="DataListProduct" runat="server" DataSourceID="SqlDataProducts">
+                <div class="col-md-9">
+                    <asp:DataList ID="DataListProduct" runat="server" DataSourceID="SqlDataProducts" RepeatColumns="3" RepeatDirection="Horizontal">
                         <ItemTemplate>
                             <table>
                                 <tr>
                                     <td>
-                                        <img height="300px" src='<%# Eval("Path")%>' class="img-fluid" />
+                                        <a class="" href="HomePage.aspx">
+                                            <img height="300px" src='<%# Eval("Path")%>' class="img-fluid" href="HomePage.aspx"/>
+                                        </a>
                                     </td>
                                 </tr>
                                 <tr>
