@@ -10,7 +10,7 @@
 
                     </div>
                     <div class="card">
-                        <div class="card-body">
+                        <div class="card-body" DataSourceID="SqlDataProducts">
                             <!--<center>
                                 <br /><h1>"Two words my friend<br />
                                 No refunds"</h1><br />
@@ -22,7 +22,7 @@
                             
                             <br />
                             <div class="form-group">
-                                <asp:TextBox class="form-control" ID="TBLogin" runat="server" placeholder="What are you looking for?"></asp:TextBox>
+                                <asp:TextBox class="form-control" ID="TBSearch" runat="server" placeholder="What are you looking for?"></asp:TextBox>
                             </div>
 
                             <div class="row">
@@ -62,7 +62,7 @@
                             </div>
 
                             <label>Price up to:&nbsp;</label><label id="LblPrice"></label><label>$</label>
-                            <input type="range" class="form-range" min="0" max="50" id="RangePrice">
+                            <input type="range" ID="RangePrice" class="form-range" min="1" max="100">
                             <script>
                                 var slider = document.getElementById("RangePrice");
                                 var output = document.getElementById("LblPrice");
@@ -169,6 +169,11 @@ from Product p
 left join ProductType tp on tp.id = p.Type
 left join Pictures Pic on Pic.IDCard = P.id
 Order by p.name">
+    </asp:SqlDataSource>
+    
+
+    
+    <asp:SqlDataSource ID="SqlDataProductsPrice" runat="server" ConnectionString="<%$ ConnectionStrings:ShopConnectionString2 %>" SelectCommand="select round(min(price),0)-1 as MinPrice, round(max(price),0)+1 as MixPrice from Product">
     </asp:SqlDataSource>
     
 
