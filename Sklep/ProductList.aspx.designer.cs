@@ -11,8 +11,26 @@ namespace Sklep
 {
 
 
-    public partial class TermsAndConditions
+    public partial class ProductList
     {
+
+        /// <summary>
+        /// TBLogin control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox TBLogin;
+
+        /// <summary>
+        /// BtnSearch control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button BtnSearch;
 
         /// <summary>
         /// DataListProduct control.
