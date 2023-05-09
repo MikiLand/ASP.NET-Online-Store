@@ -46,7 +46,7 @@ namespace Sklep
         protected void BtnSearch_Click(object sender, EventArgs e)
         {
             string SQLWhere = " where p.Price <" + RangePrice.Value.Trim() + "";
-            string SQLWhereProductType = "";
+            string SQLWhereProductType = "", SQLOrderBy ="";
 
             if (TBSearch.Text != "")
             {
@@ -87,30 +87,18 @@ namespace Sklep
                 SQLWhereProductType += ")";
             }
 
+            if (RadioNameAsc.Checked)
+                SQLOrderBy = " order by p.Name asc";
+            else if (RadioNameDesc.Checked)
+                SQLOrderBy = " order by p.Name desc";
+            else if (RadioPriceAsc.Checked)
+                SQLOrderBy = " order by p.Price asc";
+            else if (RadioPriceDesc.Checked)
+                SQLOrderBy = " order by p.Price desc";
+            else if (RadioProductType.Checked)
+                SQLOrderBy = " order by tp.TypeName";
 
-
-
-
-            /*if(SQLWhere == " where")
-            {
-                SQLWhere += SQLWhereProductType + "";
-            }
-            else
-            {
-                SQLWhere += " and " + SQLWhereProductType + "";
-            }*/
-
-            /*if(SQLWhere != " where")
-            {
-                SQLWhere += " and p.Price <" + RangePrice.Value.Trim() + "";
-            }
-            else
-            {
-                SQLWhere += " p.Price <" + RangePrice.Value.Trim() + "";
-            }*/
-            
-
-            SqlDataProducts.SelectCommand = "select p.Name, p.Description, tp.TypeName as Type, p.Price, pic.Path from Product p left join ProductType tp on tp.id = p.Type left join Pictures Pic on Pic.IDCard = P.id" + SQLWhere + SQLWhereProductType + " order by p.name";
+            SqlDataProducts.SelectCommand = "select p.Name, p.Description, tp.TypeName as Type, p.Price, pic.Path from Product p left join ProductType tp on tp.id = p.Type left join Pictures Pic on Pic.IDCard = P.id" + SQLWhere + SQLWhereProductType + SQLOrderBy + "";
 
 
 

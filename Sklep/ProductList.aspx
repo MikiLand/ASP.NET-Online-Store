@@ -83,31 +83,31 @@
 
                             <label>Sort by:</label>
                             <div class="form-check">
-                              <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" checked>
+                              <input class="form-check-input" type="radio" name="flexRadioDefault" id="RadioNameAsc" checked runat="server">
                               <label class="form-check-label" for="flexRadioDefault2">
                                 Name ascending
                               </label>
                             </div>
                             <div class="form-check">
-                              <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+                              <input class="form-check-input" type="radio" name="flexRadioDefault" id="RadioNameDesc" runat="server">
                               <label class="form-check-label" for="flexRadioDefault1">
                                 Name descending
                               </label>
                             </div>
                             <div class="form-check">
-                              <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+                              <input class="form-check-input" type="radio" name="flexRadioDefault" id="RadioPriceAsc" runat="server">
                               <label class="form-check-label" for="flexRadioDefault1">
                                 Price ascending
                               </label>
                             </div>
                             <div class="form-check">
-                              <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+                              <input class="form-check-input" type="radio" name="flexRadioDefault" id="RadioPriceDesc" runat="server">
                               <label class="form-check-label" for="flexRadioDefault1">
                                 Price descending
                               </label>
                             </div>
                             <div class="form-check">
-                              <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+                              <input class="form-check-input" type="radio" name="flexRadioDefault" id="RadioProductType" runat="server">
                               <label class="form-check-label" for="flexRadioDefault1">
                                 Product type
                               </label>

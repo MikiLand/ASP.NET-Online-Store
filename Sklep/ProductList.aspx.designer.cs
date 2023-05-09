@@ -60,6 +60,51 @@ namespace Sklep
         protected global::System.Web.UI.HtmlControls.HtmlInputGenericControl RangePrice;
 
         /// <summary>
+        /// RadioNameAsc control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlInputRadioButton RadioNameAsc;
+
+        /// <summary>
+        /// RadioNameDesc control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlInputRadioButton RadioNameDesc;
+
+        /// <summary>
+        /// RadioPriceAsc control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlInputRadioButton RadioPriceAsc;
+
+        /// <summary>
+        /// RadioPriceDesc control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlInputRadioButton RadioPriceDesc;
+
+        /// <summary>
+        /// RadioProductType control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlInputRadioButton RadioProductType;
+
+        /// <summary>
         /// BtnSearch control.
         /// </summary>
         /// <remarks>
