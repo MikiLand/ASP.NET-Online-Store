@@ -35,19 +35,19 @@
 
                             <label>Products type:</label>
                             <div class="form-check">
-                              <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" checked>
+                              <input class="form-check-input" type="checkbox" value="" id="CBCandle" checked runat="server">
                               <label class="form-check-label" for="flexCheckChecked">
                                 Candle
                               </label>
                             </div>
                             <div class="form-check">
-                              <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" checked>
+                              <input class="form-check-input" type="checkbox" value="" id="CBScent" checked runat="server">
                               <label class="form-check-label" for="flexCheckChecked">
                                 Scent
                               </label>
                             </div>
                             <div class="form-check">
-                              <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" checked>
+                              <input class="form-check-input" type="checkbox" value="" id="CBOther" checked runat="server">
                               <label class="form-check-label" for="flexCheckChecked">
                                 Other
                               </label>
@@ -62,7 +62,7 @@
                             </div>
 
                             <label>Price up to:&nbsp;</label><label id="LblPrice"></label><label>$</label>
-                            <input type="range" ID="RangePrice" class="form-range" min="1" max="100">
+                            <input type="range" ID="RangePrice" class="form-range" min="1" max="100" runat="server">
                             <script>
                                 var slider = document.getElementById("RangePrice");
                                 var output = document.getElementById("LblPrice");
