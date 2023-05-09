@@ -45,17 +45,17 @@ namespace Sklep
 
         protected void BtnSearch_Click(object sender, EventArgs e)
         {
-            string SQLWhere = " where";
+            string SQLWhere = " where p.Price <" + RangePrice.Value.Trim() + "";
             string SQLWhereProductType = "";
 
             if (TBSearch.Text != "")
             {
-                SQLWhere = "p.Name like '%" + TBSearch.Text.Trim() + "%'";
+                SQLWhere += " and p.Name like '%" + TBSearch.Text.Trim() + "%'";
             }
 
             if (CBCandle.Checked)
             {
-                SQLWhereProductType = " p.type in (1";
+                SQLWhereProductType = " and p.type in (1";
             }
 
             if (CBScent.Checked)
@@ -74,7 +74,7 @@ namespace Sklep
             {
                 if (SQLWhereProductType == "")
                 {
-                    SQLWhereProductType = " and p.type in (3";
+                    SQLWhereProductType = "and p.type in (3";
                 }
                 else
                 {
@@ -87,17 +87,30 @@ namespace Sklep
                 SQLWhereProductType += ")";
             }
 
-            if(SQLWhere == " where")
+
+
+
+
+            /*if(SQLWhere == " where")
             {
-                SQLWhere += SQLWhereProductType + " and p.Price <" + RangePrice.Value.Trim() + "";
+                SQLWhere += SQLWhereProductType + "";
             }
             else
             {
-                SQLWhere += " and " + SQLWhereProductType + " and p.Price <" + RangePrice.Value.Trim() + "";
+                SQLWhere += " and " + SQLWhereProductType + "";
+            }*/
+
+            /*if(SQLWhere != " where")
+            {
+                SQLWhere += " and p.Price <" + RangePrice.Value.Trim() + "";
             }
+            else
+            {
+                SQLWhere += " p.Price <" + RangePrice.Value.Trim() + "";
+            }*/
             
 
-            SqlDataProducts.SelectCommand = "select p.Name, p.Description, tp.TypeName as Type, p.Price, pic.Path from Product p left join ProductType tp on tp.id = p.Type left join Pictures Pic on Pic.IDCard = P.id" + SQLWhere + "Order by p.name";
+            SqlDataProducts.SelectCommand = "select p.Name, p.Description, tp.TypeName as Type, p.Price, pic.Path from Product p left join ProductType tp on tp.id = p.Type left join Pictures Pic on Pic.IDCard = P.id" + SQLWhere + SQLWhereProductType + " order by p.name";
 
 
 
