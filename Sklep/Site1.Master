@@ -73,6 +73,9 @@
                                 <li class="nav-item">
                                     <a class="nav-link active" aria-current="page" href="#">Sale</a>
                                 </li>
+                                <li class="nav-item active">
+                                    <asp:LinkButton class="nav-link" ID="LinkButton1" runat="server" OnClientClick="NavProduct_Click" OnClick="NavProduct_Click">Products</asp:LinkButton>
+                                </li>
 
                                 <!--<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
   <div class="container-fluid">
@@ -97,7 +100,7 @@
   </div>
 </nav>-->
 
-                                <li class="nav-item dropdown">
+                                <!--<li class="nav-item dropdown">
                                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                         Products
                                     </a>
@@ -110,7 +113,7 @@
                                         <li><hr class="dropdown-divider"></li>
                                         <li><a class="dropdown-item" href="#">Other</a></li>
                                     </ul>
-                                </li>
+                                </li>-->
                             </ul>
 
                             <ul class="navbar-nav mr-auto">
