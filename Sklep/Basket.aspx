@@ -1,18 +1,18 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site1.Master" AutoEventWireup="true" CodeBehind="Basket.aspx.cs" Inherits="Sklep.ProductList" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site1.Master" AutoEventWireup="true" CodeBehind="Basket.aspx.cs" Inherits="Sklep.Basket" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <section>
-        <div class="container-fluid">
+        <div class="container">
             <div class="row">
                 <div class="col-md-9">
-                    <asp:DataList ID="DataListProduct" runat="server" DataSourceID="SqlDataProducts" RepeatColumns="1" RepeatDirection="Horizontal">
+                    <asp:DataList ID="DataListProduct" runat="server" DataSourceID="SqlDataBasket" RepeatColumns="1" RepeatDirection="Horizontal">
                         <ItemTemplate>
                             <table>
                                 <tr>
                                     <td>
                                         <a class="" href="HomePage.aspx">
-                                            <img height="300px" src='<%# Eval("Path")%>' class="img-fluid" href="HomePage.aspx"/>
+                                            <img src='<%# Eval("Path")%>' height="200" href="HomePage.aspx"/>
                                         </a>
                                     </td>
                                 </tr>
@@ -25,6 +25,13 @@
                                     <td>
                                         <asp:Label ID="Label2" runat="server" Text='<%# Eval("Price") %>'></asp:Label>
                                     </td>
+                                    <div class="row">
+                                        <div class="col">
+                                            <center>
+                                                <hr />
+                                            </center>
+                                        </div>
+                                    </div>
                                 </tr>
                                 <div style="height: 15px;">
 
@@ -53,7 +60,7 @@
         </div>
 
     </section>
-    <asp:SqlDataSource ID="SqlDataBasket" runat="server" ConnectionString="<%$ ConnectionStrings:ShopConnectionString2 %>" SelectCommand="select top 1 id_user, p.Name, p.Description, p.Price, b.Amount, p.Price* b.Amount, pic.Path as Value  from Basket b
+    <asp:SqlDataSource ID="SqlDataBasket" runat="server" ConnectionString="<%$ ConnectionStrings:ShopConnectionString2 %>" SelectCommand="select top 1 id_user, p.Name, p.Description, p.Price, b.Amount, p.Price, b.Amount, p.Price * b.Amount as Value, pic.Path  from Basket b
 left join Product p on p.id = b.id_product
 left join Pictures Pic on Pic.IDCard = P.id">
     </asp:SqlDataSource>

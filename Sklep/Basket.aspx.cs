@@ -13,7 +13,7 @@ namespace Sklep
         public static SqlConnection sqlCon = new SqlConnection(@"Data Source=DESKTOP-9EOJGT1\Typcio;Initial Catalog=Shop;User ID=sa;Password=1234");
         protected void Page_Load(object sender, EventArgs e)
         {
-            SqlDataBasket.SelectCommand = "select id_user, p.Name, p.Description, p.Price, b.Amount, p.Price* b.Amount, pic.Path as Value  from Basket b left join Product p on p.id = b.id_product left join Pictures Pic on Pic.IDCard = P.id where id_user =" + Session["UserID"] + "";
+            SqlDataBasket.SelectCommand = "select id_user, p.Name, p.Description, p.Price, b.Amount, p.Price * b.Amount as Value, pic.Path  from Basket b left join Product p on p.id = b.id_product left join Pictures Pic on Pic.IDCard = P.id where id_user =" + Session["UserID"] + "";
 
 
 

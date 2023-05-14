@@ -11,7 +11,7 @@ namespace Sklep
 {
 
 
-    public partial class ProductList
+    public partial class Basket
     {
 
         /// <summary>
