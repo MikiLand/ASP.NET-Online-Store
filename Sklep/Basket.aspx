@@ -23,7 +23,7 @@
                                         <asp:Label ID="Label4" runat="server" Text='<%# Eval("Price") %>'></asp:Label>
                                         <div class="input-group mb-1">
                                             <asp:Button Class="btn d-grid gap-2 btn-primary btn-block btn-lgmt-3 mt-3" Style="width: 30px;" ID="BtnUpdateProduct" OnClick="BtnBasketMoreOnClick" runat="server" Text="+" />
-                                            <asp:TextBox class="form-control" ID="TBAmount" runat="server" Enabled="false" Style="width: 40px;"></asp:TextBox>
+                                            <asp:TextBox class="form-control" ID="TBAmount" runat="server" Enabled="false" Style="width: 40px;" Text='<%# Eval("Amount") %>' ></asp:TextBox>
                                             <asp:Button Class="btn d-grid gap-2 btn-primary btn-block btn-lgmt-3 mt-3" Style="width: 30px;" ID="Button1" OnClick="BtnBasketLessOnClick" runat="server" Text="-" />
                                         </div>
                                         <br />
@@ -47,7 +47,25 @@
                     </div>
                     <div class="card">
                         <div class="card-body">
-                            <asp:Label ID="Label4" runat="server" Text='Test'></asp:Label>
+                            <asp:Label ID="Label4" runat="server" Text='Summary:'></asp:Label>
+                            <br />
+                            <div class="input-group mb-1">
+                                <label>Total:&nbsp;</label>
+                                <asp:Label ID="LblTotal" runat="server" Text='<%# Eval("Partial price:") %>'></asp:Label>
+                                <label>$</label>
+                            </div>
+
+                            <div class="input-group mb-1">
+                                <label>Delivery:&nbsp;</label>
+                                <asp:Label ID="Label1" runat="server"></asp:Label>
+                                <label>$</label>
+                            </div>
+
+                            <label>Promo code:</label>
+                            <div class="input-group mb-1">
+                                <asp:TextBox class="form-control" ID="TBAmount" runat="server" Enabled="false" Style="width: 100px;"></asp:TextBox>
+                                <asp:Button Class="btn d-grid gap-2 btn-primary btn-block btn-lgmt-3 mt-3" Style="width: 100px;" ID="Button1" OnClick="BtnBasketLessOnClick" runat="server" Text="Reedem" />
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -67,7 +85,7 @@ left join Pictures Pic on Pic.IDCard = P.id">
     
 
     
-    <asp:SqlDataSource ID="SqlDataBasketSummary" runat="server" ConnectionString="<%$ ConnectionStrings:ShopConnectionString2 %>" SelectCommand="select round(min(price),0)-1 as MinPrice, round(max(price),0)+1 as MixPrice from Product">
+    <asp:SqlDataSource ID="SqlDataBasketSummary" runat="server" ConnectionString="<%$ ConnectionStrings:ShopConnectionString2 %>" SelectCommand="select top 1 sum(p.Price* b.Amount) as Value  from Basket b left join Product p on p.id = b.id_product">
     </asp:SqlDataSource>
     
 
