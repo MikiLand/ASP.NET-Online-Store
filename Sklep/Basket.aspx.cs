@@ -47,6 +47,18 @@ namespace Sklep
             Response.Redirect("HomePage.aspx");
         }
 
+        protected void BtnBasketMoreOnClick(object sender, EventArgs e)
+        {
+        }
+
+        protected void BtnBasketLessOnClick(object sender, EventArgs e)
+        {
+        }
+
+        protected void BtnDeleteFromBasketOnClick(object sender, EventArgs e)
+        {
+        }
+
         protected void BtnSearch_Click(object sender, EventArgs e)
         {
             

@@ -3,28 +3,32 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <section>
+        <div style="height: 10px;">
+
+        </div>
         <div class="container">
             <div class="row">
                 <div class="col-md-9">
                     <asp:DataList ID="DataListProduct" runat="server" DataSourceID="SqlDataBasket" RepeatColumns="1" RepeatDirection="Horizontal">
                         <ItemTemplate>
-                            <table>
-                                <tr>
-                                    <td>
-                                        <a class="" href="HomePage.aspx">
-                                            <img src='<%# Eval("Path")%>' height="200" href="HomePage.aspx"/>
-                                        </a>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <asp:Label ID="Label1" runat="server" Text='<%# Eval("Name") %>'></asp:Label>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <asp:Label ID="Label2" runat="server" Text='<%# Eval("Price") %>'></asp:Label>
-                                    </td>
+                            <div class="container">
+                                <div class="row">
+                                    <div class="col-md-3">
+                                        <img src='<%# Eval("Path")%>' class="img-fluid" height="200" href="HomePage.aspx"/>
+                                    </div>
+
+                                    <div class="col-md-9">
+                                        <asp:Label ID="Label3" runat="server" Text='<%# Eval("Name") %>'></asp:Label>
+                                        <br />
+                                        <asp:Label ID="Label4" runat="server" Text='<%# Eval("Price") %>'></asp:Label>
+                                        <div class="input-group mb-1">
+                                            <asp:Button Class="btn d-grid gap-2 btn-primary btn-block btn-lgmt-3 mt-3" Style="width: 30px;" ID="BtnUpdateProduct" OnClick="BtnBasketMoreOnClick" runat="server" Text="+" />
+                                            <asp:TextBox class="form-control" ID="TBAmount" runat="server" Enabled="false" Style="width: 40px;"></asp:TextBox>
+                                            <asp:Button Class="btn d-grid gap-2 btn-primary btn-block btn-lgmt-3 mt-3" Style="width: 30px;" ID="Button1" OnClick="BtnBasketLessOnClick" runat="server" Text="-" />
+                                        </div>
+                                        <br />
+                                        <asp:Button Class="btn d-grid gap-2 btn-danger btn-block btn-lgmt-3 mt-1" Style="width: 150px;"  ID="BtnDeleteProduct" OnClick="BtnDeleteFromBasketOnClick" runat="server" Text="Delete" />
+                                    </div>
                                     <div class="row">
                                         <div class="col">
                                             <center>
@@ -32,23 +36,19 @@
                                             </center>
                                         </div>
                                     </div>
-                                </tr>
-                                <div style="height: 15px;">
-
-                                </div>
-                            </table>
+                            </div>
                         </ItemTemplate>
                     </asp:DataList>
                 </div>
 
-
-
-
-
-
                 <div class="col-md-3">
                     <div style="height: 15px;">
 
+                    </div>
+                    <div class="card">
+                        <div class="card-body">
+                            <asp:Label ID="Label4" runat="server" Text='Test'></asp:Label>
+                        </div>
                     </div>
                 </div>
 
