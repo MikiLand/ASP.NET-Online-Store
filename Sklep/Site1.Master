@@ -118,6 +118,9 @@
 
                             <ul class="navbar-nav mr-auto">
                                 <li class="nav-item active">
+                                    <asp:LinkButton class="nav-link" ID="NavBasket" runat="server" OnClientClick="NavBasket_Click" OnClick="NavBasket_Click">Basket</asp:LinkButton>
+                                </li>
+                                <li class="nav-item active">
                                     <asp:LinkButton class="nav-link" ID="NavAddProduct" runat="server" OnClientClick="NavAddProduct_Click" OnClick="NavAddProduct_Click1">Add product</asp:LinkButton>
                                 </li>
                                 <li class="nav-item active">

@@ -11,6 +11,7 @@ namespace Sklep
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            NavBasket.Visible = false;
             NavAddProduct.Visible = false;
             NavEditProduct.Visible = false;
             NavLogin.Visible = true;
@@ -25,6 +26,7 @@ namespace Sklep
                 //Response.Write("<script>alert('" + Session["UserID"].ToString() + "');</script>");
                 if (Session["IsAdmin"].ToString() == "1")
                 {
+                    NavBasket.Visible = true;
                     NavAddProduct.Visible = true;
                     NavEditProduct.Visible = true;
                     NavLogin.Visible = false;
@@ -35,6 +37,7 @@ namespace Sklep
                 }
                 else
                 {
+                    NavBasket.Visible = true;
                     NavAddProduct.Visible = false;
                     NavEditProduct.Visible = false;
                     NavLogin.Visible = false;
@@ -46,6 +49,10 @@ namespace Sklep
             }
         }
 
+        protected void NavBasket_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("Basket.aspx");
+        }
         protected void NavAddProduct_Click1(object sender, EventArgs e)
         {
             Response.Redirect("ProductAdd.aspx");
@@ -75,6 +82,7 @@ namespace Sklep
         {
             Session["UserID"] = null;
             Session["IsAdmin"] = null;
+            NavBasket.Visible = false;
             NavAddProduct.Visible = false;
             NavEditProduct.Visible = false;
             NavLogin.Visible = true;
