@@ -51,13 +51,13 @@ namespace Sklep
         protected global::System.Web.UI.WebControls.Label LblDelivery;
 
         /// <summary>
-        /// TBAmount control.
+        /// TBPromoCode control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TBAmount;
+        protected global::System.Web.UI.WebControls.TextBox TBPromoCode;
 
         /// <summary>
         /// BtnReedem control.
@@ -69,31 +69,31 @@ namespace Sklep
         protected global::System.Web.UI.WebControls.Button BtnReedem;
 
         /// <summary>
-        /// Label2 control.
+        /// LblPromoCodeDescription control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label2;
+        protected global::System.Web.UI.WebControls.Label LblPromoCodeDescription;
 
         /// <summary>
-        /// Label1 control.
+        /// LblPromoCodeValue control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label1;
+        protected global::System.Web.UI.WebControls.Label LblPromoCodeValue;
 
         /// <summary>
-        /// Label5 control.
+        /// LblPromoCodeCurrency control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label5;
+        protected global::System.Web.UI.WebControls.Label LblPromoCodeCurrency;
 
         /// <summary>
         /// LblTotal control.

@@ -45,7 +45,46 @@ namespace Sklep
 
         protected void BtnReedemOnClick(object sender, EventArgs e)
         {
+            SqlCommand command;
+            String sql;
+            int CodeValue = 0;
+            int CodePercent = 0;
 
+
+            sql = "select top 1 code_value, code_percent from promocodes where active = 1 and code = '" + TBPromoCode.Text + "'";
+            sqlCon.Open();
+            command = new SqlCommand(sql, sqlCon);
+
+            SqlDataReader dr = command.ExecuteReader();
+
+            if (dr.Read())
+            {
+                CodeValue = int.Parse(dr.GetValue(0).ToString());
+                CodePercent = int.Parse(dr.GetValue(1).ToString());
+                if (CodeValue > 0)
+                {
+                    LblPromoCodeValue.Text = CodeValue + "$";
+                    LblTotal.Text = (float.Parse(LblTotal.Text) - CodeValue).ToString();
+                    LblPromoCodeDescription.Visible = true;
+                    LblPromoCodeValue.Visible = true;
+                    LblPromoCodeCurrency.Visible = true;
+                }
+                else if (CodePercent > 0)
+                {
+                    LblPromoCodeValue.Text = CodePercent + "%";
+                    LblTotal.Text = (float.Parse(LblTotal.Text) - (float.Parse(LblTotal.Text) * (CodePercent / 100))).ToString();
+                    LblPromoCodeDescription.Visible = true;
+                    LblPromoCodeValue.Visible = true;
+                    LblPromoCodeCurrency.Visible = true;
+                }
+                else
+                {
+
+                }
+
+
+                sqlCon.Close();
+            }
         }
 
         public void BasketSummary()

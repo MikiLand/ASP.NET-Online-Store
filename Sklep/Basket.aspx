@@ -71,13 +71,13 @@
 
                             <label>Promo code:</label>
                             <div class="input-group mb-1">
-                                <asp:TextBox class="form-control" ID="TBAmount" runat="server" Style="width: 100px;"></asp:TextBox>
+                                <asp:TextBox class="form-control" ID="TBPromoCode" runat="server" Style="width: 100px;"></asp:TextBox>
                                 <asp:Button Class="btn d-grid gap-2 btn-primary btn-block btn-lgmt-3 mt-3" Style="width: 100px;" ID="BtnReedem" OnClick="BtnReedemOnClick" runat="server" Text="Reedem" />
                             </div>
                             <div class="input-group mb-1">
-                                <asp:Label ID="Label2" runat="server" Visible="false" Text="Code value:"> </asp:Label>
-                                <asp:Label ID="Label1" runat="server" Visible="false"></asp:Label>
-                                <asp:Label ID="Label5" runat="server" Visible="false" Text="$"> </asp:Label>
+                                <asp:Label ID="LblPromoCodeDescription" runat="server" Visible="false" Text="Code value:"> </asp:Label>
+                                <asp:Label ID="LblPromoCodeValue" runat="server" Visible="false"></asp:Label>
+                                <asp:Label ID="LblPromoCodeCurrency" runat="server" Visible="false" Text="$"> </asp:Label>
                             </div>
 
                             <div class="row">
