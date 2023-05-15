@@ -43,17 +43,23 @@ namespace Sklep
             
         }
 
+        protected void BtnReedemOnClick(object sender, EventArgs e)
+        {
+
+        }
+
         public void BasketSummary()
         {
             SqlCommand command;
             // SqlDataReader dataReader;
             String sql;
-            string PriceMin, PriceMax;
-            float Total, Delivery;
+            float PartialPrice = 0;
+            float Total = 0;
+            float Delivery = 0;
             int ProductAmount;
 
 
-            sql = "select sum(p.Price* b.Amount) as Total, sum(b.Amount) as ProductAmount  from Basket b left join Product p on p.id = b.id_product where id_user = " + Session["UserID"] + "";
+            sql = "select sum(p.Price* b.Amount) as PartialPrice, sum(b.Amount) as ProductAmount  from Basket b left join Product p on p.id = b.id_product where id_user = " + Session["UserID"] + "";
             sqlCon.Open();
             command = new SqlCommand(sql, sqlCon);
 
@@ -61,19 +67,23 @@ namespace Sklep
 
             if (dr.Read())
             {
-                Total = Double(dr.GetValue(0));
-                ProductAmount = dr.GetValue(1);
-                LblTotal.Text 
+                PartialPrice = float.Parse(dr.GetValue(0).ToString());
+                ProductAmount = int.Parse(dr.GetValue(1).ToString());
+                LblTotal.Text = Total.ToString();
 
-                if(dr.GetValue(0) > 500)
+                if (PartialPrice > 500)
                 {
-                    LblDelivery = "Free";
+                    LblDelivery.Text = "Free";
                 }
                 else
                 {
-                    Delivery = 25 + 3 * ProductAmount;
-                    LblDelivery.Text = Delivery;
+                    Delivery = 25 + (3 * ProductAmount);
+                    LblDelivery.Text = Delivery.ToString();
                 }
+
+                Total = PartialPrice + Delivery;
+
+                LblTotal.Text = Total.ToString();
 
                 sqlCon.Close();
             }

@@ -50,21 +50,48 @@
                             <asp:Label ID="Label4" runat="server" Text='Summary:'></asp:Label>
                             <br />
                             <div class="input-group mb-1">
-                                <label>Total:&nbsp;</label>
-                                <asp:Label ID="LblTotal" runat="server" Text='<%# Eval("Partial price:") %>'></asp:Label>
+                                <label>Partial price:&nbsp;</label>
+                                <asp:Label ID="LblPartialPrice" runat="server" Text='<%# Eval("PartialPrice") %>'></asp:Label>
                                 <label>$</label>
                             </div>
 
                             <div class="input-group mb-1">
                                 <label>Delivery:&nbsp;</label>
-                                <asp:Label ID="Label1" runat="server"></asp:Label>
+                                <asp:Label ID="LblDelivery" runat="server"></asp:Label>
                                 <label>$</label>
+                            </div>
+
+                            <div class="row">
+                                <div class="col">
+                                    <center>
+                                        <hr />
+                                    </center>
+                                </div>
                             </div>
 
                             <label>Promo code:</label>
                             <div class="input-group mb-1">
-                                <asp:TextBox class="form-control" ID="TBAmount" runat="server" Enabled="false" Style="width: 100px;"></asp:TextBox>
-                                <asp:Button Class="btn d-grid gap-2 btn-primary btn-block btn-lgmt-3 mt-3" Style="width: 100px;" ID="Button1" OnClick="BtnBasketLessOnClick" runat="server" Text="Reedem" />
+                                <asp:TextBox class="form-control" ID="TBAmount" runat="server" Style="width: 100px;"></asp:TextBox>
+                                <asp:Button Class="btn d-grid gap-2 btn-primary btn-block btn-lgmt-3 mt-3" Style="width: 100px;" ID="BtnReedem" OnClick="BtnReedemOnClick" runat="server" Text="Reedem" />
+                            </div>
+                            <div class="input-group mb-1">
+                                <asp:Label ID="Label2" runat="server" Visible="false" Text="Code value:"> </asp:Label>
+                                <asp:Label ID="Label1" runat="server" Visible="false"></asp:Label>
+                                <asp:Label ID="Label5" runat="server" Visible="false" Text="$"> </asp:Label>
+                            </div>
+
+                            <div class="row">
+                                <div class="col">
+                                    <center>
+                                        <hr />
+                                    </center>
+                                </div>
+                            </div>
+
+                            <div class="input-group mb-1">
+                                <label>Total:&nbsp;</label>
+                                <asp:Label ID="LblTotal" runat="server"></asp:Label>
+                                <label>$</label>
                             </div>
                         </div>
                     </div>
@@ -82,12 +109,4 @@
 left join Product p on p.id = b.id_product
 left join Pictures Pic on Pic.IDCard = P.id">
     </asp:SqlDataSource>
-    
-
-    
-    <asp:SqlDataSource ID="SqlDataBasketSummary" runat="server" ConnectionString="<%$ ConnectionStrings:ShopConnectionString2 %>" SelectCommand="select top 1 sum(p.Price* b.Amount) as Value  from Basket b left join Product p on p.id = b.id_product">
-    </asp:SqlDataSource>
-    
-
-    
 </asp:Content>
