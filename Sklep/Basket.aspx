@@ -77,7 +77,6 @@
                             <div class="input-group mb-1">
                                 <asp:Label ID="LblPromoCodeDescription" runat="server" Visible="false" Text="Code value:"> </asp:Label>
                                 <asp:Label ID="LblPromoCodeValue" runat="server" Visible="false"></asp:Label>
-                                <asp:Label ID="LblPromoCodeCurrency" runat="server" Visible="false" Text="$"> </asp:Label>
                             </div>
 
                             <div class="row">

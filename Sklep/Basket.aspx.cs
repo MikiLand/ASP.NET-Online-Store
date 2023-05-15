@@ -67,7 +67,7 @@ namespace Sklep
                     LblTotal.Text = (float.Parse(LblTotal.Text) - CodeValue).ToString();
                     LblPromoCodeDescription.Visible = true;
                     LblPromoCodeValue.Visible = true;
-                    LblPromoCodeCurrency.Visible = true;
+                    //LblPromoCodeCurrency.Visible = true;
                 }
                 else if (CodePercent > 0)
                 {
@@ -75,7 +75,7 @@ namespace Sklep
                     LblTotal.Text = (float.Parse(LblTotal.Text) - (float.Parse(LblTotal.Text) * (CodePercent / 100))).ToString();
                     LblPromoCodeDescription.Visible = true;
                     LblPromoCodeValue.Visible = true;
-                    LblPromoCodeCurrency.Visible = true;
+                    //LblPromoCodeCurrency.Visible = true;
                 }
                 else
                 {
@@ -108,7 +108,6 @@ namespace Sklep
             {
                 PartialPrice = float.Parse(dr.GetValue(0).ToString());
                 ProductAmount = int.Parse(dr.GetValue(1).ToString());
-                LblTotal.Text = Total.ToString();
 
                 if (PartialPrice > 500)
                 {
@@ -122,10 +121,11 @@ namespace Sklep
 
                 Total = PartialPrice + Delivery;
 
+                LblPartialPrice.Text = PartialPrice.ToString();
                 LblTotal.Text = Total.ToString();
-
-                sqlCon.Close();
             }
+
+            sqlCon.Close();
         }
     }
 }
