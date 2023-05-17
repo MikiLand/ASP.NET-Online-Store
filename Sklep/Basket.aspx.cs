@@ -73,7 +73,7 @@ namespace Sklep
                 else if (CodePercent > 0)
                 {
                     LblPromoCodeValue.Text = CodePercent + "%";
-                    LblTotal.Text = (float.Parse(LblTotal.Text) - (float.Parse(LblTotal.Text) * (CodePercent / 100))).ToString();
+                    LblTotal.Text = Math.Round((float.Parse(LblTotal.Text) - (float.Parse(LblTotal.Text) * (CodePercent / 100))),2).ToString();
                     LblPromoCodeDescription.Visible = true;
                     LblPromoCodeValue.Visible = true;
                     //LblPromoCodeCurrency.Visible = true;
