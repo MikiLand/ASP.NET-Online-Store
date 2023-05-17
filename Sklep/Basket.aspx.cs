@@ -82,10 +82,8 @@ namespace Sklep
                 {
 
                 }
-
-
-                sqlCon.Close();
             }
+            sqlCon.Close();
         }
 
         public void BasketSummary()
