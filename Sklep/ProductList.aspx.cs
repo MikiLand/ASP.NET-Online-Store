@@ -43,6 +43,14 @@ namespace Sklep
             Response.Redirect("HomePage.aspx");
         }
 
+        protected void DataList1_ItemCommand(object source, DataListCommandEventArgs e)
+        {
+            if(e.CommandName == "ToProductPage")
+            {
+                Response.Redirect("ProductDetails.aspx?id=" + e.CommandArgument.ToString());
+            }
+        }
+
         protected void BtnSearch_Click(object sender, EventArgs e)
         {
             string SQLWhere = " where p.Price <" + RangePrice.Value.Trim() + "";

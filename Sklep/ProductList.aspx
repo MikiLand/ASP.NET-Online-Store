@@ -136,7 +136,7 @@
                                 <tr>
                                     <td>
                                         <a class="" href="HomePage.aspx">
-                                            <img height="300px" src='<%# Eval("Path")%>' class="img-fluid" href="HomePage.aspx"/>
+                                            <img height="300px" src='<%# Eval("Path")%>' class="img-fluid" href="HomePage.aspx" commandargument='<%# Eval("id") %>' Commandname="ToProductPage" />
                                         </a>
                                     </td>
                                 </tr>
@@ -164,7 +164,7 @@
         </div>
 
     </section>
-    <asp:SqlDataSource ID="SqlDataProducts" runat="server" ConnectionString="<%$ ConnectionStrings:ShopConnectionString2 %>" SelectCommand="select p.Name, p.Description, tp.TypeName as Type, p.Price, pic.Path
+    <asp:SqlDataSource ID="SqlDataProducts" runat="server" ConnectionString="<%$ ConnectionStrings:ShopConnectionString2 %>" SelectCommand="select p.id, p.Name, p.Description, tp.TypeName as Type, p.Price, pic.Path
 from Product p
 left join ProductType tp on tp.id = p.Type
 left join Pictures Pic on Pic.IDCard = P.id
