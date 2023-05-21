@@ -1,0 +1,56 @@
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site1.Master" AutoEventWireup="true" CodeBehind="ProductDetails.aspx.cs" Inherits="Sklep.ProductDetails" %>
+<asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+</asp:Content>
+<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+    <section>
+        <div class="container">
+            <div class="row">
+                <div style="height: 15px;">
+
+                </div>
+                <div class="col-md-3">
+                    <asp:DataList ID="DataListProduct" runat="server" DataSourceID="SqlDataProducts">
+                        <ItemTemplate>
+                            <a class="" href="HomePage.aspx">
+                                <img height="300px" src='<%# Eval("Path")%>' class="img-fluid" href="HomePage.aspx" commandargument='<%# Eval("id") %>' Commandname="ToProductPage" />
+                            </a>
+                        </ItemTemplate>
+                    </asp:DataList>
+
+
+                </div>
+                <div class="col-md-9">
+                    <asp:DataList ID="DataList1" runat="server" DataSourceID="SqlDataProducts">
+                        <ItemTemplate>
+                            <asp:Label ID="Label3" runat="server" Text='<%# Eval("Name") %>'></asp:Label>
+                            <br />
+                            <asp:Label ID="Label4" runat="server" Text='<%# Eval("Price") %>'></asp:Label>
+                            <br />
+                            <asp:Label ID="Label1" runat="server" Text='<%# Eval("Description") %>'></asp:Label>
+
+                            <asp:Button Class="btn d-grid gap-2 btn-danger btn-block btn-lgmt-3 mt-1" Style="width: 150px;"  ID="BtnDeleteProduct" runat="server" Text="Delete" />
+                        </ItemTemplate>
+                    </asp:DataList>
+                </div>
+                <div style="height: 50px;">
+
+                </div>
+            </div>
+        </div>
+
+    </section>
+    <asp:SqlDataSource ID="SqlDataProducts" runat="server" ConnectionString="<%$ ConnectionStrings:ShopConnectionString2 %>" SelectCommand="select top 1 p.id, p.Name, p.Description, tp.TypeName as Type, p.Price, pic.Path
+from Product p
+left join ProductType tp on tp.id = p.Type
+left join Pictures Pic on Pic.IDCard = P.id
+Order by p.name">
+    </asp:SqlDataSource>
+    
+
+    
+    <asp:SqlDataSource ID="SqlDataProductsPrice" runat="server" ConnectionString="<%$ ConnectionStrings:ShopConnectionString2 %>" SelectCommand="select round(min(price),0)-1 as MinPrice, round(max(price),0)+1 as MixPrice from Product">
+    </asp:SqlDataSource>
+    
+
+    
+</asp:Content>

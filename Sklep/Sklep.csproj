@@ -1741,6 +1741,7 @@
     <Content Include="ProductAdd.aspx" />
     <Content Include="ProductEdit.aspx" />
     <Content Include="Basket.aspx" />
+    <Content Include="ProductDetails.aspx" />
     <Content Include="ProductList.aspx" />
     <Content Include="TermsAndConditions.aspx" />
     <Content Include="UserLogin.aspx" />
@@ -1777,6 +1778,13 @@
     </Compile>
     <Compile Include="Basket.aspx.designer.cs">
       <DependentUpon>Basket.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ProductDetails.aspx.cs">
+      <DependentUpon>ProductDetails.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ProductDetails.aspx.designer.cs">
+      <DependentUpon>ProductDetails.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Site1.Master.cs">
