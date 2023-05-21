@@ -40,10 +40,10 @@ namespace Sklep
 
         protected void ProductPicture_Click(object sender, EventArgs e)
         {
-            Response.Redirect("HomePage.aspx");
+
         }
 
-        protected void DataList1_ItemCommand(object source, DataListCommandEventArgs e)
+        protected void DataListProduct_ItemCommand(object source, DataListCommandEventArgs e)
         {
             if(e.CommandName == "ToProductPage")
             {
@@ -111,6 +111,11 @@ namespace Sklep
 
 
 
+        }
+
+        protected void ImgBtnProductOnClick(object sender, ImageClickEventArgs e)
+        {
+            DataListProduct_ItemCommand();
         }
     }
 }

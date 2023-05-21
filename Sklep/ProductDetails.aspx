@@ -39,18 +39,9 @@
         </div>
 
     </section>
-    <asp:SqlDataSource ID="SqlDataProducts" runat="server" ConnectionString="<%$ ConnectionStrings:ShopConnectionString2 %>" SelectCommand="select top 1 p.id, p.Name, p.Description, tp.TypeName as Type, p.Price, pic.Path
-from Product p
-left join ProductType tp on tp.id = p.Type
-left join Pictures Pic on Pic.IDCard = P.id
-Order by p.name">
+    <asp:SqlDataSource ID="SqlDataProducts" runat="server" ConnectionString="<%$ ConnectionStrings:ShopConnectionString2 %>" OnSelecting="SqlDataSource1_Selecting" SelectCommand="SELECT [id], [name], [description], [type], [price] FROM [Product] WHERE ([id] = @id)">
+        <SelectParameters>
+            <asp:QueryStringParameter Name="id" QueryStringField="id" Type="Int32" />
+        </SelectParameters>
     </asp:SqlDataSource>
-    
-
-    
-    <asp:SqlDataSource ID="SqlDataProductsPrice" runat="server" ConnectionString="<%$ ConnectionStrings:ShopConnectionString2 %>" SelectCommand="select round(min(price),0)-1 as MinPrice, round(max(price),0)+1 as MixPrice from Product">
-    </asp:SqlDataSource>
-    
-
-    
 </asp:Content>
