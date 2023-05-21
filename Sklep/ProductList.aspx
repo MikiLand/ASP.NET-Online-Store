@@ -130,7 +130,7 @@
                 </div>
 
                 <div class="col-md-9">
-                    <asp:DataList ID="DataListProduct" runat="server" DataSourceID="SqlDataProducts" RepeatColumns="3" RepeatDirection="Horizontal">
+                    <asp:DataList ID="DataListProduct" runat="server" DataSourceID="SqlDataProducts" RepeatColumns="3" RepeatDirection="Horizontal" OnItemCommand="DataListProduct_ItemCommand">
                         <ItemTemplate>
                             <table>
                                 <tr>
@@ -168,12 +168,8 @@ left join ProductType tp on tp.id = p.Type
 left join Pictures Pic on Pic.IDCard = P.id
 Order by p.name">
     </asp:SqlDataSource>
-    
 
-    
     <asp:SqlDataSource ID="SqlDataProductsPrice" runat="server" ConnectionString="<%$ ConnectionStrings:ShopConnectionString2 %>" SelectCommand="select round(min(price),0)-1 as MinPrice, round(max(price),0)+1 as MixPrice from Product">
     </asp:SqlDataSource>
-    
-
     
 </asp:Content>

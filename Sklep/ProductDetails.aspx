@@ -39,7 +39,11 @@
         </div>
 
     </section>
-    <asp:SqlDataSource ID="SqlDataProducts" runat="server" ConnectionString="<%$ ConnectionStrings:ShopConnectionString2 %>" OnSelecting="SqlDataSource1_Selecting" SelectCommand="SELECT [id], [name], [description], [type], [price] FROM [Product] WHERE ([id] = @id)">
+    <asp:SqlDataSource ID="SqlDataProducts" runat="server" ConnectionString="<%$ ConnectionStrings:ShopConnectionString2 %>" SelectCommand="select top 1 p.id, p.Name, p.Description, tp.TypeName as Type, p.Price, pic.Path
+from Product p
+left join ProductType tp on tp.id = p.Type
+left join Pictures Pic on Pic.IDCard = P.id 
+        WHERE (p.id = @id)">
         <SelectParameters>
             <asp:QueryStringParameter Name="id" QueryStringField="id" Type="Int32" />
         </SelectParameters>

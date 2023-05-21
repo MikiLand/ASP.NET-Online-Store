@@ -115,7 +115,7 @@ namespace Sklep
 
         protected void ImgBtnProductOnClick(object sender, ImageClickEventArgs e)
         {
-            DataListProduct_ItemCommand();
+
         }
     }
 }
