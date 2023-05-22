@@ -28,7 +28,7 @@
                             <br />
                             <asp:Label ID="Label1" runat="server" Text='<%# Eval("Description") %>'></asp:Label>
 
-                            <asp:Button Class="btn d-grid gap-2 btn-danger btn-block btn-lgmt-3 mt-1" Style="width: 150px;"  ID="BtnDeleteProduct" runat="server" Text="Delete" />
+                            <asp:Button Class="btn d-grid gap-2 btn-primary btn-block btn-lgmt-3 mt-1" Style="width: 150px;"  ID="BtnAddToBasket" runat="server" Text="Add to basket" OnClick="BtnAddToBasketOnClick"/>
                         </ItemTemplate>
                     </asp:DataList>
                 </div>

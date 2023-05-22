@@ -21,5 +21,20 @@ namespace Sklep
                 }
             }
         }
+
+        protected void BtnAddToBasketOnClick(object sender, EventArgs e)
+        {
+            SqlCommand command;
+            String sql;
+
+            sql = "INSERT INTO Basket(id_user, id_product, amount) VALUES(" + Session["UserID"] + "," + Request.QueryString["id"] + ", 1)";
+            sqlCon.Open();
+            command = new SqlCommand(sql, sqlCon);
+            command.ExecuteNonQuery();
+
+            sqlCon.Close();
+
+            Response.Redirect("Basket.aspx");
+        }
     }
 }
