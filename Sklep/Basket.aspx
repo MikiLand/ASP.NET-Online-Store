@@ -9,7 +9,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-9">
-                    <asp:DataList ID="DataListProduct" runat="server" DataSourceID="SqlDataBasket" RepeatColumns="1" RepeatDirection="Horizontal">
+                    <asp:DataList ID="DataListBasket" runat="server" DataSourceID="SqlDataBasket" RepeatColumns="1" RepeatDirection="Horizontal" OnItemCommand="DataListBasket_ItemCommand">
                         <ItemTemplate>
                             <div class="container">
                                 <div class="row">
@@ -27,7 +27,8 @@
                                             <asp:Button Class="btn d-grid gap-2 btn-primary btn-block btn-lgmt-3 mt-3" Style="width: 30px;" ID="Button1" OnClick="BtnBasketLessOnClick" runat="server" Text="-" />
                                         </div>
                                         <br />
-                                        <asp:Button Class="btn d-grid gap-2 btn-danger btn-block btn-lgmt-3 mt-1" Style="width: 150px;"  ID="BtnDeleteProduct" OnClick="BtnDeleteFromBasketOnClick" runat="server" Text="Delete" />
+                                        <!--<asp:Button Class="btn d-grid gap-2 btn-danger btn-block btn-lgmt-3 mt-1" Style="width: 150px;"  ID="BtnDeleteProduct" runat="server" Text="Delete" />-->
+                                        <asp:Button runat="server" ID="BtnDeleteFromBasket" Class="btn d-grid gap-2 btn-danger btn-block btn-lgmt-3 mt-1" Style="width: 150px;" Text="Delete" Commandname="DeleteFromBasket" commandargument='<%# Eval("id") %>'/>
                                     </div>
                                     <div class="row">
                                         <div class="col">
@@ -104,7 +105,7 @@
         </div>
 
     </section>
-    <asp:SqlDataSource ID="SqlDataBasket" runat="server" ConnectionString="<%$ ConnectionStrings:ShopConnectionString2 %>" SelectCommand="select top 1 id_user, p.Name, p.Description, p.Price, b.Amount, p.Price, b.Amount, p.Price * b.Amount as Value, pic.Path  from Basket b
+    <asp:SqlDataSource ID="SqlDataBasket" runat="server" ConnectionString="<%$ ConnectionStrings:ShopConnectionString2 %>" SelectCommand="select top 1 b.id, id_user, p.Name, p.Description, p.Price, b.Amount, p.Price, b.Amount, p.Price * b.Amount as Value, pic.Path  from Basket b
 left join Product p on p.id = b.id_product
 left join Pictures Pic on Pic.IDCard = P.id">
     </asp:SqlDataSource>

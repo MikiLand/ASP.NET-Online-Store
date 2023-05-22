@@ -15,13 +15,13 @@ namespace Sklep
     {
 
         /// <summary>
-        /// DataListProduct control.
+        /// DataListBasket control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DataList DataListProduct;
+        protected global::System.Web.UI.WebControls.DataList DataListBasket;
 
         /// <summary>
         /// Label4 control.
