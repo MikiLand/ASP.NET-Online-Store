@@ -161,12 +161,35 @@
                         </div>
 
                         <div class="row">
-                            <asp:SqlDataSource ID="SqlDataOrders" runat="server" ConnectionString="<%$ ConnectionStrings:ShopConnectionString %>" SelectCommand="select id as [Order number], net as Net, gross as Gross, date as Date from [Order]"></asp:SqlDataSource>
+                            <asp:DataList ID="DataListBasket" runat="server" DataSourceID="SqlDataOrders" RepeatColumns="1" RepeatDirection="Horizontal" OnItemCommand="DataListBasket_ItemCommand">
+                        <ItemTemplate>
+                            <div class="container">
+                                <div class="row">
+                                    <div class="col-md-3">
+                                        <asp:Label ID="Label6" runat="server" Text='<%# Eval("Order number") %>'></asp:Label>
+                                    </div>
+                                    <div class="col-md-2">
+                                        <asp:Label ID="Label1" runat="server" Text='<%# Eval("Net") %>'></asp:Label>
+                                    </div>
+                                    <div class="col-md-2">
+                                        <asp:Label ID="Label2" runat="server" Text='<%# Eval("Gross") %>'></asp:Label>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <asp:Label ID="Label3" runat="server" Text='<%# Eval("Date") %>'></asp:Label>
+                                    </div>
+                                    <div class="col-md-2">
+                                        <asp:Button runat="server" ID="Button2" Class="btn d-grid gap-2 btn-danger btn-block btn-lgmt-3 mt-1" Style="width: 150px;" Text="Delete" Commandname="DeleteFromBasket" commandargument='<%# Eval("id") %>'/>
+                                    </div>
+                                </div>
+                            </div>
+                        </ItemTemplate>
+                    </asp:DataList>  
+                           <!-- <asp:SqlDataSource ID="SqlDataOrders" runat="server" ConnectionString="<%$ ConnectionStrings:ShopConnectionString %>" SelectCommand="select id, id as [Order number], net as Net, gross as Gross, date as Date from [Order]"></asp:SqlDataSource>
                             <div class="col">
                                 <asp:GridView class="table table-striped table-bordered" ID="GVUserOrders" runat="server" DataSourceID="SqlDataOrders"></asp:GridView>
                             </div>
                         </div>
-                    </div>
+                    </div>-->
                 </div>
             </div>
         </div>
@@ -174,4 +197,6 @@
 
         </div>
     </div>
+    <asp:SqlDataSource ID="SqlDataBasket" runat="server" ConnectionString="<%$ ConnectionStrings:ShopConnectionString2 %>" SelectCommand="select id, id as [Order number], net as Net, gross as Gross, date as Date from [Order] id_user = " + Session["UserID"] + "">
+    </asp:SqlDataSource>
 </asp:Content>
