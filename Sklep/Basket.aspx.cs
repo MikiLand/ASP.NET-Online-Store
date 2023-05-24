@@ -143,6 +143,36 @@ namespace Sklep
 
                 Response.Redirect("Basket.aspx");
             }
+
+            if (e.CommandName == "AddToBasket")
+            {
+                SqlCommand command;
+                String sql;
+
+                sql = "update basket set amount = amount+1 where id = " + e.CommandArgument.ToString() + " and id_user = " + Session["UserID"] + "";
+                sqlCon.Open();
+                command = new SqlCommand(sql, sqlCon);
+                command.ExecuteNonQuery();
+
+                sqlCon.Close();
+
+                Response.Redirect("Basket.aspx");
+            }
+
+            if (e.CommandName == "SubtractFromBasket")
+            {
+                SqlCommand command;
+                String sql;
+
+                sql = "update basket set amount = IIF(amount<>1,amount-1,amount) where id = " + e.CommandArgument.ToString() + " and id_user = " + Session["UserID"] + "";
+                sqlCon.Open();
+                command = new SqlCommand(sql, sqlCon);
+                command.ExecuteNonQuery();
+
+                sqlCon.Close();
+
+                Response.Redirect("Basket.aspx");
+            }
         }
     }
 }

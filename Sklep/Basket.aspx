@@ -22,9 +22,9 @@
                                         <br />
                                         <asp:Label ID="Label4" runat="server" Text='<%# Eval("Price") %>'></asp:Label>
                                         <div class="input-group mb-1">
-                                            <asp:Button Class="btn d-grid gap-2 btn-primary btn-block btn-lgmt-3 mt-3" Style="width: 30px;" ID="BtnUpdateProduct" OnClick="BtnBasketMoreOnClick" runat="server" Text="+" />
+                                            <asp:Button Class="btn d-grid gap-2 btn-primary btn-block btn-lgmt-3 mt-3" Style="width: 30px;" ID="BtnUpdateProduct" runat="server" Text="+" Commandname="AddToBasket" commandargument='<%# Eval("id") %>'/>
                                             <asp:TextBox class="form-control" ID="TBAmount" runat="server" Enabled="false" Style="width: 40px;" Text='<%# Eval("Amount") %>' ></asp:TextBox>
-                                            <asp:Button Class="btn d-grid gap-2 btn-primary btn-block btn-lgmt-3 mt-3" Style="width: 30px;" ID="Button1" OnClick="BtnBasketLessOnClick" runat="server" Text="-" />
+                                            <asp:Button Class="btn d-grid gap-2 btn-primary btn-block btn-lgmt-3 mt-3" Style="width: 30px;" ID="Button1" runat="server" Text="-" Commandname="SubtractFromBasket" commandargument='<%# Eval("id") %>' />
                                         </div>
                                         <br />
                                         <!--<asp:Button Class="btn d-grid gap-2 btn-danger btn-block btn-lgmt-3 mt-1" Style="width: 150px;"  ID="BtnDeleteProduct" runat="server" Text="Delete" />-->
