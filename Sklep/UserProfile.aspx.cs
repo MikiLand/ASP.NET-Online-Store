@@ -239,7 +239,7 @@ namespace Sklep
         {
             if (e.CommandName == "ToOrders")
             {
-                Response.Redirect("Orders.aspx?id=" + e.CommandArgument.ToString());
+                Response.Redirect("OrderDetails.aspx?id=" + e.CommandArgument.ToString());
             }
 
         }

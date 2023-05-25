@@ -67,6 +67,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="OrderDetails.aspx" />
     <Content Include="Bootstrap\CSS\bootstrap.min.css" />
     <Content Include="Bootstrap\js\bootstrap.bundle.min.js" />
     <Content Include="CSS\StyleSheet1.css" />
@@ -1751,6 +1752,13 @@
     <Content Include="page1.aspx" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="OrderDetails.aspx.cs">
+      <DependentUpon>OrderDetails.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="OrderDetails.aspx.designer.cs">
+      <DependentUpon>OrderDetails.aspx</DependentUpon>
+    </Compile>
     <Compile Include="HomePage.aspx.cs">
       <DependentUpon>HomePage.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
