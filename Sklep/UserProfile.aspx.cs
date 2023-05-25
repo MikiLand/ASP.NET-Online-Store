@@ -23,7 +23,7 @@ namespace Sklep
             SqlDataReader dataReader;
             String sql, Output = "";
 
-            SqlDataOrders.SelectCommand = "select id as [Order number], net as Net, gross as Gross, date as Date from [Order] where id_user = " + Session["UserID"] + " order by date desc";
+            SqlDataOrders.SelectCommand = "select id, id as [Order number], net as Net, gross as Gross, date as Date from [Order] where id_user = " + Session["UserID"] + " order by id";
             //SqlDataSource1.Select
 
 
@@ -39,7 +39,7 @@ namespace Sklep
                 //dataReader = command.ExecuteReader();
 
                 TBLogin.Text = dr.GetValue(0).ToString();
-                if(TBEmail.Text == "")
+                if (TBEmail.Text == "")
                     TBEmail.Text = dr.GetValue(1).ToString();
                 if (TBName.Text == "")
                     TBName.Text = dr.GetValue(2).ToString();
@@ -52,8 +52,8 @@ namespace Sklep
 
         protected void BtnUpdateEmail_Click(object sender, EventArgs e)
         {
-            bool StopFlag = false; 
-            String sql2="";
+            bool StopFlag = false;
+            String sql2 = "";
             SqlCommand command2;
 
             SqlConnection sqlCon2 = new SqlConnection(@"Data Source=DESKTOP-9EOJGT1\Typcio;Initial Catalog=shop;User ID=sa;Password=1234");
@@ -142,7 +142,7 @@ namespace Sklep
 
             SqlConnection sqlCon2 = new SqlConnection(@"Data Source=DESKTOP-9EOJGT1\Typcio;Initial Catalog=shop;User ID=sa;Password=1234");
 
-            if(TBCurrentPassword.Text != "")
+            if (TBCurrentPassword.Text != "")
             {
                 CurrentPassword = MD5Hashing(TBCurrentPassword.Text);
 
@@ -233,6 +233,15 @@ namespace Sklep
             }
 
             return StringBuilder.ToString();
+        }
+
+        protected void DataListProfileOrders_ItemCommand(object source, DataListCommandEventArgs e)
+        {
+            if (e.CommandName == "ToOrders")
+            {
+                Response.Redirect("Orders.aspx?id=" + e.CommandArgument.ToString());
+            }
+
         }
     }
 }

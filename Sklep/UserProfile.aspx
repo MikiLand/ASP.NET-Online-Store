@@ -161,7 +161,7 @@
                         </div>
 
                         <div class="row">
-                            <asp:DataList ID="DataListBasket" runat="server" DataSourceID="SqlDataOrders" RepeatColumns="1" RepeatDirection="Horizontal" OnItemCommand="DataListBasket_ItemCommand">
+                            <asp:DataList ID="DataListBasket" runat="server" DataSourceID="SqlDataOrders" RepeatColumns="1" RepeatDirection="Horizontal" OnItemCommand="DataListProfileOrders_ItemCommand">
                         <ItemTemplate>
                             <div class="container">
                                 <div class="row">
@@ -178,10 +178,13 @@
                                         <asp:Label ID="Label3" runat="server" Text='<%# Eval("Date") %>'></asp:Label>
                                     </div>
                                     <div class="col-md-2">
-                                        <asp:Button runat="server" ID="Button2" Class="btn d-grid gap-2 btn-danger btn-block btn-lgmt-3 mt-1" Style="width: 150px;" Text="Delete" Commandname="DeleteFromBasket" commandargument='<%# Eval("id") %>'/>
+                                        <asp:Button runat="server" ID="Button2" Class="btn d-grid gap-2 btn-primary btn-block btn-lgmt-3 mt-1" Style="width: 150px;" Text="View" Commandname="ToOrders" commandargument='<%# Eval("id") %>'/>
                                     </div>
                                 </div>
                             </div>
+                            <center>
+                                    <hr />
+                                </center>
                         </ItemTemplate>
                     </asp:DataList>  
                            <!-- <asp:SqlDataSource ID="SqlDataOrders" runat="server" ConnectionString="<%$ ConnectionStrings:ShopConnectionString %>" SelectCommand="select id, id as [Order number], net as Net, gross as Gross, date as Date from [Order]"></asp:SqlDataSource>
@@ -193,10 +196,10 @@
                 </div>
             </div>
         </div>
-        <div style="height: 50px;">
-
-        </div>
     </div>
-    <asp:SqlDataSource ID="SqlDataBasket" runat="server" ConnectionString="<%$ ConnectionStrings:ShopConnectionString2 %>" SelectCommand="select id, id as [Order number], net as Net, gross as Gross, date as Date from [Order] id_user = " + Session["UserID"] + "">
+    <div style="height: 50px;">
+
+    </div>
+    <asp:SqlDataSource ID="SqlDataBasket" runat="server" ConnectionString="<%$ ConnectionStrings:ShopConnectionString2 %>" SelectCommand="select top 1 id, id as [Order number], net as Net, gross as Gross, date as Date from [Order]">
     </asp:SqlDataSource>
 </asp:Content>
