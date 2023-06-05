@@ -68,7 +68,6 @@ namespace Sklep
                     LblTotal.Text = (float.Parse(LblTotal.Text) - CodeValue).ToString();
                     LblPromoCodeDescription.Visible = true;
                     LblPromoCodeValue.Visible = true;
-                    //LblPromoCodeCurrency.Visible = true;
                 }
                 else if (CodePercent > 0)
                 {
@@ -76,12 +75,7 @@ namespace Sklep
                     LblTotal.Text = Math.Round((float.Parse(LblTotal.Text) - (float.Parse(LblTotal.Text) * (CodePercent / 100))),2).ToString();
                     LblPromoCodeDescription.Visible = true;
                     LblPromoCodeValue.Visible = true;
-                    //LblPromoCodeCurrency.Visible = true;
-                }
-                else
-                {
-
-                }
+                };
             }
             sqlCon.Close();
         }

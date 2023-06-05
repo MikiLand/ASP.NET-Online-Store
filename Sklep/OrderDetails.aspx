@@ -20,8 +20,18 @@
                                     <div class="col-md-9">
                                         <asp:Label ID="Label3" runat="server" Text='<%# Eval("Name") %>'></asp:Label>
                                         <br />
-                                        <asp:Label ID="Label4" runat="server" Text='<%# Eval("net") %>'></asp:Label>
+
                                         <div class="input-group mb-1">
+                                            <label>Net:&nbsp;</label>
+                                            <asp:Label ID="Label2" runat="server" Text='<%# Eval("net") %>'></asp:Label>
+                                        </div>
+                                        <div class="input-group mb-1">
+                                            <label>Gross:&nbsp;</label>
+                                            <asp:Label ID="Label5" runat="server" Text='<%# Eval("gross") %>'></asp:Label>
+                                        </div>
+                                        <div class="input-group mb-1">
+                                            <label>Amount:&nbsp;</label>
+                                            <asp:Label ID="Label1" runat="server" Text='<%# Eval("amount") %>'></asp:Label>
                                         </div>
                                         <br />
                                     </div>
@@ -67,10 +77,6 @@
 
                             <label>Promo code:</label>
                             <div class="input-group mb-1">
-                                <asp:TextBox class="form-control" ID="TBPromoCode" runat="server" Style="width: 100px;"></asp:TextBox>
-                                <asp:Button Class="btn d-grid gap-2 btn-primary btn-block btn-lgmt-3 mt-3" Style="width: 100px;" ID="BtnReedem" OnClick="BtnReedemOnClick" runat="server" Text="Reedem" />
-                            </div>
-                            <div class="input-group mb-1">
                                 <asp:Label ID="LblPromoCodeDescription" runat="server" Visible="false" >Code value:&nbsp;</asp:Label>
                                 <asp:Label ID="LblPromoCodeValue" runat="server" Visible="false"></asp:Label>
                             </div>
@@ -100,7 +106,7 @@
         </div>
 
     </section>
-    <asp:SqlDataSource ID="SqlDataOrder" runat="server" ConnectionString="<%$ ConnectionStrings:ShopConnectionString2 %>" SelectCommand="select top 1 OP.id_order as id, op.net, op.gross, p.name, p.description, Pic.Path from OrderPosition OP
+    <asp:SqlDataSource ID="SqlDataOrder" runat="server" ConnectionString="<%$ ConnectionStrings:ShopConnectionString2 %>" SelectCommand="select top 1 OP.id_order as id, op.net, op.gross, p.name, p.description, Pic.Path, op.amount from OrderPosition OP
 left join Product p on p.id = op.id_product
 left join Pictures Pic on Pic.IDCard = P.id">
     </asp:SqlDataSource>
