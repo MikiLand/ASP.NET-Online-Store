@@ -114,14 +114,14 @@ namespace Sklep
                 }
                 else
                 {
-                    Delivery = 25 + (3 * ProductAmount);
+                    Delivery = 15 + (3 * ProductAmount);
                     LblDelivery.Text = Delivery.ToString();
                 }
 
                 Total = PartialPrice + Delivery;
 
-                LblPartialPrice.Text = PartialPrice.ToString();
-                LblTotal.Text = Total.ToString();
+                LblPartialPrice.Text = Math.Round(PartialPrice, 2).ToString();
+                LblTotal.Text = Math.Round(Total,2).ToString();
             }
 
             sqlCon.Close();
