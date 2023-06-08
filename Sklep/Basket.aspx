@@ -22,9 +22,9 @@
                                         <br />
                                         <asp:Label ID="Label4" runat="server" Text='<%# Eval("Price") %>'></asp:Label>
                                         <div class="input-group mb-1">
-                                            <asp:Button Class="btn d-grid gap-2 btn-primary btn-block btn-lgmt-3 mt-3" Style="width: 30px;" ID="BtnUpdateProduct" runat="server" Text="+" Commandname="AddToBasket" commandargument='<%# Eval("id") %>'/>
+                                            <asp:Button Class="btn btn-primary m-1 mt-0 mb-0" Style="width: 30px;" ID="BtnUpdateProduct" runat="server" Text="+" Commandname="AddToBasket" commandargument='<%# Eval("id") %>'/>
                                             <asp:TextBox class="form-control" ID="TBAmount" runat="server" Enabled="false" Style="width: 40px;" Text='<%# Eval("Amount") %>' ></asp:TextBox>
-                                            <asp:Button Class="btn d-grid gap-2 btn-primary btn-block btn-lgmt-3 mt-3" Style="width: 30px;" ID="Button1" runat="server" Text="-" Commandname="SubtractFromBasket" commandargument='<%# Eval("id") %>' />
+                                            <asp:Button Class="btn btn-primary m-1 mt-0 mb-0" Style="width: 30px;" ID="Button1" runat="server" Text="-" Commandname="SubtractFromBasket" commandargument='<%# Eval("id") %>' />
                                         </div>
                                         <br />
                                         <!--<asp:Button Class="btn d-grid gap-2 btn-danger btn-block btn-lgmt-3 mt-1" Style="width: 150px;"  ID="BtnDeleteProduct" runat="server" Text="Delete" />-->
@@ -73,8 +73,9 @@
                             <label>Promo code:</label>
                             <div class="input-group mb-1">
                                 <asp:TextBox class="form-control" ID="TBPromoCode" runat="server" Style="width: 100px;"></asp:TextBox>
-                                <asp:Button Class="btn d-grid gap-2 btn-primary btn-block btn-lgmt-3 mt-3" Style="width: 100px;" ID="BtnReedem" OnClick="BtnReedemOnClick" runat="server" Text="Reedem" />
+                                <asp:Button Class="btn btn-primary m-1 mt-0 mb-0" Style="width: 100px;" ID="BtnReedem" OnClick="BtnReedemOnClick" runat="server" Text="Reedem" />
                             </div>
+
                             <div class="input-group mb-1">
                                 <asp:Label ID="LblPromoCodeDescription" runat="server" Visible="false" >Code value:&nbsp;</asp:Label>
                                 <asp:Label ID="LblPromoCodeValue" runat="server" Visible="false"></asp:Label>
