@@ -59,7 +59,8 @@ namespace Sklep
             float PartialPrice = 0;
             float Total = 0;
             float Delivery = 0;
-            int ProductAmount, CodeValue, CodePercent;
+            int ProductAmount, CodeValue;
+            float CodePercent;
 
 
             sql = "select top 1 O.net, O.gross, sum(op.amount) as amount, pc.code_name, pc.code_value, pc.code_percent from [Order] O left join PromoCodes PC on PC.id = O.id_promocode left join OrderPosition OP on OP.id_order = O.id where o.id = " + Request.QueryString["id"] + " group by o.net, o.gross, pc.code_name, pc.code_value, pc.code_percent ";
@@ -85,25 +86,25 @@ namespace Sklep
                 else
                 {
                     Delivery = 15 + (3 * ProductAmount);
-                    LblDelivery.Text = Delivery.ToString();
+                    LblDelivery.Text = Delivery.ToString("n2");
                 }
 
                 Total = PartialPrice + Delivery;
 
-                LblPartialPrice.Text = PartialPrice.ToString();
-                LblTotal.Text = Total.ToString();
+                LblPartialPrice.Text = PartialPrice.ToString("n2");
+                LblTotal.Text = Total.ToString("n2").ToString();
 
                 if (CodeValue > 0)
                 {
                     LblPromoCodeValue.Text = CodeValue + "$";
-                    LblTotal.Text = (float.Parse(LblTotal.Text) - CodeValue).ToString();
+                    LblTotal.Text = (float.Parse(LblTotal.Text) - CodeValue).ToString("n2");
                     LblPromoCodeDescription.Visible = true;
                     LblPromoCodeValue.Visible = true;
                 }
                 else if (CodePercent > 0)
                 {
                     LblPromoCodeValue.Text = CodePercent + "%";
-                    LblTotal.Text = Math.Round((float.Parse(LblTotal.Text) - (float.Parse(LblTotal.Text) * (CodePercent / 100))), 2).ToString();
+                    LblTotal.Text = Math.Round((float.Parse(LblTotal.Text) - (float.Parse(LblTotal.Text) * (CodePercent / 100.0f))), 2).ToString("n2");
                     LblPromoCodeDescription.Visible = true;
                     LblPromoCodeValue.Visible = true;
                 };
