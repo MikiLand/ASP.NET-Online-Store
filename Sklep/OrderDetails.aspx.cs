@@ -63,7 +63,7 @@ namespace Sklep
             float CodePercent;
 
 
-            sql = "select top 1 O.net, O.gross, sum(op.amount) as amount, pc.code_name, pc.code_value, pc.code_percent from [Order] O left join PromoCodes PC on PC.id = O.id_promocode left join OrderPosition OP on OP.id_order = O.id where o.id = " + Request.QueryString["id"] + " group by o.net, o.gross, pc.code_name, pc.code_value, pc.code_percent ";
+            sql = "select top 1 sum(O.net * op.amount), sum(O.gross * op.amount), sum(op.amount) as amount, pc.code_name, pc.code_value, pc.code_percent from [Order] O left join PromoCodes PC on PC.id = O.id_promocode left join OrderPosition OP on OP.id_order = O.id where o.id = " + Request.QueryString["id"] + " group by o.net, o.gross, pc.code_name, pc.code_value, pc.code_percent ";
             sqlCon.Open();
             command = new SqlCommand(sql, sqlCon);
 
