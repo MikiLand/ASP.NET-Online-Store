@@ -135,7 +135,7 @@
                             <table>
                                 <tr>
                                     <td>
-                                        <asp:ImageButton runat="server" ID="ImgBtnProduct" OnClick="ImgBtnProductOnClick" height="300px" src='<%# Eval("Path")%>' class="img-fluid" Commandname="ToProductPage" commandargument='<%# Eval("id") %>'/>
+                                        <asp:ImageButton runat="server" ID="ImgBtnProduct" OnClick="ImgBtnProductOnClick" height="500px" src='<%# Eval("Path")%>' class="img-fluid" Commandname="ToProductPage" commandargument='<%# Eval("id") %>'/>
                                     </td>
                                 </tr>
                                 <tr>

@@ -106,7 +106,7 @@ namespace Sklep
             else if (RadioProductType.Checked)
                 SQLOrderBy = " order by tp.TypeName";
 
-            SqlDataProducts.SelectCommand = "select p.Name, p.Description, tp.TypeName as Type, p.Price, pic.Path from Product p left join ProductType tp on tp.id = p.Type left join Pictures Pic on Pic.IDCard = P.id" + SQLWhere + SQLWhereProductType + SQLOrderBy + "";
+            SqlDataProducts.SelectCommand = "select p.id, p.Name, p.Description, tp.TypeName as Type, p.Price, pic.Path from Product p left join ProductType tp on tp.id = p.Type left join Pictures Pic on Pic.IDCard = P.id" + SQLWhere + SQLWhereProductType + SQLOrderBy + "";
 
 
 

@@ -11,8 +11,8 @@
                 <div class="col-md-3">
                     <asp:DataList ID="DataListProduct" runat="server" DataSourceID="SqlDataProducts">
                         <ItemTemplate>
-                            <a class="" href="HomePage.aspx">
-                                <img height="300px" src='<%# Eval("Path")%>' class="img-fluid" href="HomePage.aspx" commandargument='<%# Eval("id") %>' Commandname="ToProductPage" />
+                            <a class="">
+                                <img height="300" src='<%# Eval("Path")%>' class="img-fluid" commandargument='<%# Eval("id") %>' Commandname="ToProductPage" />
                             </a>
                         </ItemTemplate>
                     </asp:DataList>

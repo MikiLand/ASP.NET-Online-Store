@@ -49,7 +49,7 @@ namespace Sklep
             String sql;
             float CodeValue = 0;
             float CodePercent = 0;
-            float PromoTotal = 0;
+            //float PromoTotal = 0;
 
 
             sql = "select top 1 code_value, code_percent from promocodes where active = 1 and code = '" + TBPromoCode.Text + "'";
