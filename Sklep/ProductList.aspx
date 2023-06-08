@@ -61,8 +61,26 @@
                                 </div>
                             </div>
 
+
+                            <input id="pi_input" onclick="myFunction()" type="range" min="0" max="3.14" step="any" runat="server" />
+                            <p>Value: <output id="value"></output></p>
+                            <script type="text/javascript">
+                                function myFunction() {
+                                    const value = document.querySelector("#value")
+                                    const input = document.querySelector("#pi_input")
+                                    value.textContent = input.value
+                                    input.addEventListener("input", (event) => {
+                                        value.textContent = event.target.value
+                                    })
+                                }
+                            </script>
+
+
                             <label>Price up to:&nbsp;</label><label id="LblPrice"></label><label>$</label>
-                            <input type="range" ID="RangePrice" class="form-range" min="1" max="100" runat="server">
+                            
+
+                            <input type="range" ID="RangePrice" class="form-range" min="1" max="100" runat="server" OnClick="RangeOnChange" ondrag="RangeOnChange" onmousemove="RangeOnChange" onfocus="RangeOnChange">
+                            <asp:Label ID="RangeCurrentAmount" runat="server" Text='100'></asp:Label>
                             <script>
                                 var slider = document.getElementById("RangePrice");
                                 var output = document.getElementById("LblPrice");

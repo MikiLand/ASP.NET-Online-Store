@@ -51,6 +51,15 @@ namespace Sklep
         protected global::System.Web.UI.HtmlControls.HtmlInputCheckBox CBOther;
 
         /// <summary>
+        /// pi_input control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlInputGenericControl pi_input;
+
+        /// <summary>
         /// RangePrice control.
         /// </summary>
         /// <remarks>
@@ -58,6 +67,15 @@ namespace Sklep
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlInputGenericControl RangePrice;
+
+        /// <summary>
+        /// RangeCurrentAmount control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label RangeCurrentAmount;
 
         /// <summary>
         /// RadioNameAsc control.

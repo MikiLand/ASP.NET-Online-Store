@@ -19,7 +19,8 @@ namespace Sklep
             SqlCommand command;
             // SqlDataReader dataReader;
             String sql;
-            string PriceMin, PriceMax;
+            string PriceMin = "0";
+            string PriceMax = "100";
 
 
             sql = "select round(min(price),0)-1 as MinPrice, round(max(price),0)+1 as MixPrice from Product";
@@ -35,7 +36,9 @@ namespace Sklep
                 sqlCon.Close();
             }
 
-            //RangePrice.
+            RangePrice.Attributes.Add("min", PriceMin);
+            RangePrice.Attributes.Add("min", PriceMax);
+            RangeCurrentAmount.Text = PriceMax.ToString();
         }
 
         protected void ProductPicture_Click(object sender, EventArgs e)
@@ -49,6 +52,11 @@ namespace Sklep
             {
                 Response.Redirect("ProductDetails.aspx?id=" + e.CommandArgument.ToString());
             }
+        }
+
+        protected void RangeOnChange(object sender, EventArgs e)
+        { 
+            RangeCurrentAmount.Text = RangePrice.Value.ToString();
         }
 
         protected void BtnSearch_Click(object sender, EventArgs e)
@@ -107,10 +115,6 @@ namespace Sklep
                 SQLOrderBy = " order by tp.TypeName";
 
             SqlDataProducts.SelectCommand = "select p.id, p.Name, p.Description, tp.TypeName as Type, p.Price, pic.Path from Product p left join ProductType tp on tp.id = p.Type left join Pictures Pic on Pic.IDCard = P.id" + SQLWhere + SQLWhereProductType + SQLOrderBy + "";
-
-
-
-
         }
 
         protected void ImgBtnProductOnClick(object sender, ImageClickEventArgs e)
