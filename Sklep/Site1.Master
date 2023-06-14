@@ -82,13 +82,14 @@
                                         Products
                                     </a>
                                     <ul class="dropdown-menu" data-bs-toggle='dropdown' aria-labelledby="navbarDropdown">
-                                        <li><a class="dropdown-item" href="#">Candle</a></li>
-                                        <li><a class="dropdown-item" href="#">Scented candle</a></li>
+                                        <asp:LinkButton class="nav-link" ID="LinkButton2" runat="server" OnClientClick="NavProduct_Click" OnClick="NavProduct_Click">Products</asp:LinkButton>
+                                        <li><a class="dropdown-item" href="HomePage.aspx" OnClientClick="NavProduct_Click" OnClick="NavProduct_Click">Candle</a></li>
+                                        <li><a class="dropdown-item" OnClick="NavProduct_Click">Scented candle</a></li>
                                         <li><hr class="dropdown-divider"></li>
-                                        <li><a class="dropdown-item" href="#">Scents</a></li>
-                                        <li><a class="dropdown-item" href="#">Neutral scents</a></li>
+                                        <li><a class="dropdown-item" OnClick="NavProduct_Click">Scents</a></li>
+                                        <li><a class="dropdown-item" OnClick="NavProduct_Click">Neutral scents</a></li>
                                         <li><hr class="dropdown-divider"></li>
-                                        <li><a class="dropdown-item" href="#">Other</a></li>
+                                        <li><a class="dropdown-item" OnClick="NavProduct_Click">Other</a></li>
                                     </ul>
                                 </li>
                             </ul>
