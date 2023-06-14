@@ -22,7 +22,7 @@
             <div class="row pb-3">
                 <div class="col-md-4">
                     <center>
-                        <img width="150px" src="imgs/candles.png" />
+                        <img width="150" src="imgs/candles.png" />
                         <h4>Candles</h4>
                         <p align="justify">We have a wide selection of unique candles to suit every need. Candles are not only a fragrance but also a spiritual journey that you may never experience</p>
                     </center>
@@ -30,7 +30,7 @@
 
                 <div class="col-md-4">
                     <center>
-                        <img width="150px" src="imgs/scents.png" />
+                        <img width="150" src="imgs/scents.png" />
                         <h4>Scents</h4>
                         <p align="justify">Our fragrances will create a unique atmosphere and transport your mind to a completely different place, better place</p>
                     </center>
@@ -38,7 +38,7 @@
 
                 <div class="col-md-4">
                     <center>
-                        <img width="150px" src="imgs/file.png" />
+                        <img width="150" src="imgs/file.png" />
                         <h4>Other</h4>
                         <p align="justify">However, do not worry if candles and fragrances are not what you are looking for in the adventure called life. In our store we have much more to offer</p>
                     </center>
