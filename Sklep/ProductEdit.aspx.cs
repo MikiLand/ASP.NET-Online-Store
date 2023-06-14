@@ -52,10 +52,10 @@ namespace Sklep
             UserLogin.sqlCon.Close();
         }
 
-        protected void DDLOptionCandle(object sender, EventArgs e)
+        /*protected void DDLOptionCandle(object sender, EventArgs e)
         {
             TBProductType.Text = "Candle";
-        }
+        }*/
 
         protected void BtnUpdateOnClick(object sender, EventArgs e)
         {
@@ -65,7 +65,7 @@ namespace Sklep
             string Price;
             
 
-            switch (TBProductType.Text)
+            /*switch (DDLProductType.Text)
             {
                 case "Candle":
                     ProductType = 1;
@@ -76,12 +76,12 @@ namespace Sklep
                 case "Other":
                     ProductType = 3;
                     break;
-            };
+            };*/
 
             Price = TBPrice.Text.Trim();
             Price = Price.Replace(',', '.');
 
-            sql = "Update product set type = " + ProductType + ", description = '" + TBDescription.Text.Trim() + "', price = " + Price + " where name ='" + TBProductName.Text.Trim() + "'";
+            sql = "Update product set type = " + DDLProductType.SelectedValue + ", description = '" + TBDescription.Text.Trim() + "', price = " + Price + " where name ='" + TBProductName.Text.Trim() + "'";
             UserLogin.sqlCon.Open();
             command = new SqlCommand(sql, UserLogin.sqlCon);
             command.ExecuteNonQuery();

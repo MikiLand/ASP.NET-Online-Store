@@ -41,22 +41,12 @@
                                     </div>
                                     <div class="input-group mb-2">
                                         <asp:TextBox class="form-control" ID="TBProductType" runat="server" placeholder="Product type" ReadOnly="True"></asp:TextBox>
-                                        <div class="dropdown">
-                                            <a class="btn btn-secondary dropdown-toggle m-1 mt-0 mb-0" ID="dropdownMenuLink" style="width: 100px" href="#" role="button"  data-bs-toggle="dropdown" aria-expanded="false">
-                                                Type
-                                            </a>
-                                            <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                                                <li><a class="dropdown-item" OnClick="DDLOptionCandle" href="#">Candle</a></li>
-                                                <li><a class="dropdown-item" href="#">Scent</a></li>
-                                                <li><a class="dropdown-item" href="#">Other</a></li>
-                                            </ul>
-                                        </div>
+                                        <asp:DropDownList Class="btn btn-secondary dropdown-toggle m-1 mt-0 mb-0" style="width: 100px" ID="DDLProductType" AutoPostBack="True" runat="server" >
+                                            <asp:ListItem Value="1">Candle</asp:ListItem>
+                                            <asp:ListItem Value="2">Scent</asp:ListItem>
+                                            <asp:ListItem Value="3">Other</asp:ListItem>
+                                        </asp:DropDownList>
                                     </div>
-                                    <!--<select class="form-select" ID="DDLTypes">
-                                        <option ID="Option1">Candle</option>
-                                        <option>Scent</option>
-                                        <option>Other</option>
-                                    </select>-->
 
                                     <center>
                                         <label>Description</label>
