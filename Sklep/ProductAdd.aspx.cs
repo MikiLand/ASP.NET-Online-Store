@@ -31,8 +31,6 @@ namespace Sklep
             string ProductTypeString;
             int ProductType = 0;
 
-            
-
             SqlConnection sqlCon = new SqlConnection(@"Data Source=DESKTOP-9EOJGT1\Typcio;Initial Catalog=Shop;User ID=sa;Password=1234");
 
             StopFlag = false;
@@ -115,7 +113,9 @@ namespace Sklep
                     command2 = new SqlCommand(sql2, sqlCon2);
                     command2.ExecuteNonQuery();
                     sqlCon2.Close();
-                    
+
+                    ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "openModal();", true);
+
                     //GVProducts.DataBind();
 
                     //Response.Redirect("ProductAdd.aspx");
