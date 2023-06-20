@@ -65,7 +65,7 @@ namespace Sklep
             string Price;
             
 
-            /*switch (DDLProductType.Text)
+            switch (DDLProductType.Text)
             {
                 case "Candle":
                     ProductType = 1;
@@ -76,7 +76,7 @@ namespace Sklep
                 case "Other":
                     ProductType = 3;
                     break;
-            };*/
+            };
 
             Price = TBPrice.Text.Trim();
             Price = Price.Replace(',', '.');

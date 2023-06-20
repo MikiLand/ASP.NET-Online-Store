@@ -23,6 +23,8 @@ namespace Sklep
 
         protected void BtnAdd_Click(object sender, EventArgs e)
         {
+            ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "openModal(2);", true);
+
             SqlCommand command, command2;
             SqlDataReader dataReader;
             String sql, sql2, Output = "";
@@ -128,6 +130,8 @@ namespace Sklep
 
                     TBProductType.BackColor = System.Drawing.ColorTranslator.FromHtml("#D63E3E");
                     TBProductType.ForeColor = System.Drawing.ColorTranslator.FromHtml("#FFFFFF");
+
+                    //ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "openModal(2);", true);
                 }
             }
 

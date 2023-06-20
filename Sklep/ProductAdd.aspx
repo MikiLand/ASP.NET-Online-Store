@@ -1,8 +1,24 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site1.Master" AutoEventWireup="true" CodeBehind="ProductAdd.aspx.cs" Inherits="Sklep.ProductAdd" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <script type="text/javascript">
-        function openModal() {
-            $('#exampleModal').modal('show');
+        function openModal(ModalType) {
+
+            if (ModalType = 1) {
+                $('#ModalSuccess').modal('show');
+            } 
+            //else
+                if (ModalType = 2) {
+                $('#ModalError').modal('show');
+            }
+
+            //switch (ModalType) {
+            //    case 1:
+            //        $('#ModalSuccess').modal('show');
+            //        break;
+            //    case 2:
+            //        $('#ModalError').modal('show');
+            //        break;
+            //$('#ModalSuccess').modal('show');
         }
     </script>
 </asp:Content>
@@ -15,8 +31,8 @@
           Launch demo modal
         </button>
         
-        <!-- Modal -->
-        <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <!-- Modal Success -->
+        <div class="modal fade" id="ModalSuccess" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
           <div class="modal-dialog" role="document">
             <div class="modal-content">
               <div class="modal-header">
@@ -30,6 +46,26 @@
               </div>
               <div class="modal-footer">
                 <!--<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>-->
+                <button type="button" class="btn btn-primary" data-dismiss="modal">Ok</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Modal Error -->
+        <div class="modal fade" id="ModalError" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel2">Operation unsuccessful</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">
+                Product has not been added! Verify the data you entered!
+              </div>
+              <div class="modal-footer">
                 <button type="button" class="btn btn-primary">Ok</button>
               </div>
             </div>
