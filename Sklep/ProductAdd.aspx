@@ -3,11 +3,10 @@
     <script type="text/javascript">
         function openModal(ModalType) {
 
-            if (ModalType = 1) {
+            if (ModalType == 1) {
                 $('#ModalSuccess').modal('show');
             } 
-            //else
-                if (ModalType = 2) {
+            else if (ModalType == 2) {
                 $('#ModalError').modal('show');
             }
 

@@ -23,8 +23,6 @@ namespace Sklep
 
         protected void BtnAdd_Click(object sender, EventArgs e)
         {
-            ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "openModal(2);", true);
-
             SqlCommand command, command2;
             SqlDataReader dataReader;
             String sql, sql2, Output = "";
@@ -133,6 +131,10 @@ namespace Sklep
 
                     //ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "openModal(2);", true);
                 }
+            }
+            else
+            {
+                ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "openModal(2);", true);
             }
 
         }
