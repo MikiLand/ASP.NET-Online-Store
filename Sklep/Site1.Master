@@ -38,6 +38,32 @@
 
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
+
+    <script type='text/javascript'>
+        /*$(window).load(function (Type){
+            $(function (Type){
+                $(".dropdown-menu").on("click", "li", function (event) {
+                    if (Type == 'Candles')
+                        window.location.replace("https://localhost:44305/ProductList.aspx?Candle");
+                    else if (Type == 'Scent')
+                        window.location.replace("https://localhost:44305/ProductList.aspx?Scent");
+                    else
+                        window.location.replace("https://localhost:44305/ProductList.aspx?Other");
+                })
+            })
+        });*/
+
+        //window.location.replace("https://localhost:44305/ProductList.aspx?Scent");
+
+        function ToProduct(Type) {
+            if (Type == 'Candles')
+                window.location.replace("https://localhost:44305/ProductList.aspx?Candle");
+            else if (Type == 'Scent')
+                window.location.replace("https://localhost:44305/ProductList.aspx?Scent");
+            else
+                window.location.replace("https://localhost:44305/ProductList.aspx?Other");
+        }
+    </script>
 </head>
 <body>
     <form id="form1" runat="server">
@@ -72,34 +98,18 @@
                                     <asp:LinkButton class="nav-link" ID="LinkButton1" runat="server" OnClientClick="NavProduct_Click" OnClick="NavProduct_Click">Products</asp:LinkButton>
                                 </li>
 
-                                <div class="dropdown show">
-  <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-    Dropdown link
-  </a>
-
-  <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-    <a class="dropdown-item" href="#ProductList.aspx">Action</a>
-    <a class="dropdown-item" href="#">Another action</a>
-    <a class="dropdown-item" href="#">Something else here</a>
-  </div>
-</div>
-
                                 <li class="nav-item dropdown">
                                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                         Products
                                     </a>
-                                    <a class="nav-item dropdown-toggle">
-                                        <asp:LinkButton class="nav-link" ID="LinkButton4" runat="server" OnClientClick="NavProduct_Click" OnClick="NavProduct_Click">Products2</asp:LinkButton>
-                                    </a>
                                     <ul class="dropdown-menu" data-bs-toggle='dropdown' aria-labelledby="navbarDropdown">
-                                        <asp:LinkButton class="nav-link" ID="LinkButton2" runat="server" OnClientClick="NavProduct_Click" OnClick="NavProduct_Click">Products3</asp:LinkButton>
-                                        <li><asp:LinkButton class="nav-link" ID="LinkButton3" runat="server" OnClientClick="NavProduct_Click" OnClick="NavProduct_Click">Candle</asp:LinkButton></li>
-                                        <li><a class="dropdown-item" OnClick="NavProduct_Click">Scented candle</a></li>
+                                        <li><a class="dropdown-item" OnClick="ToProduct(Candles)">Candles</a></li>
+                                        <li><a class="dropdown-item" OnClick="ToProduct(Candles)">Scented candles</a></li>
                                         <li><hr class="dropdown-divider"></li>
-                                        <li><a class="dropdown-item" OnClick="NavProduct_Click">Scents</a></li>
-                                        <li><a class="dropdown-item" OnClick="NavProduct_Click">Neutral scents</a></li>
+                                        <li><a class="dropdown-item" OnClick="ToProduct(Scents)">Scents</a></li>
+                                        <li><a class="dropdown-item" OnClick="ToProduct(Scents)">Neutral scents</a></li>
                                         <li><hr class="dropdown-divider"></li>
-                                        <li><a class="dropdown-item" OnClick="NavProduct_Click">Other</a></li>
+                                        <li><a class="dropdown-item" OnClick="ToProduct(Other)">Other</a></li>
                                     </ul>
                                 </li>
                             </ul>
