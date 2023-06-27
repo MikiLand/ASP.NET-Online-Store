@@ -55,13 +55,16 @@
 
         //window.location.replace("https://localhost:44305/ProductList.aspx?Scent");
 
+        //document.getElementById("demo").innerHTML = 5 + 6;
+
         function ToProduct(Type) {
+            //document.getElementById("demo").innerHTML = 5 + 6;
             if (Type == 'Candles')
-                window.location.replace("https://localhost:44305/ProductList.aspx?Candle");
-            else if (Type == 'Scent')
-                window.location.replace("https://localhost:44305/ProductList.aspx?Scent");
-            else
-                window.location.replace("https://localhost:44305/ProductList.aspx?Other");
+                window.location.replace("https://localhost:44305/ProductList.aspx?Candles");
+            else if (Type == 'Scents')
+                window.location.replace("https://localhost:44305/ProductList.aspx?Scents");
+            else if (Type == 'Other')
+                window.location.replace("https://localhost:44305/ProductList.aspx?Others");
         }
     </script>
 </head>
@@ -103,13 +106,13 @@
                                         Products
                                     </a>
                                     <ul class="dropdown-menu" data-bs-toggle='dropdown' aria-labelledby="navbarDropdown">
-                                        <li><a class="dropdown-item" OnClick="ToProduct(Candles)">Candles</a></li>
-                                        <li><a class="dropdown-item" OnClick="ToProduct(Candles)">Scented candles</a></li>
+                                        <li><a class="dropdown-item" OnClick="ToProduct('Candles')">Candles</a></li>
+                                        <li><a class="dropdown-item" OnClick="ToProduct('Candles')">Scented candles</a></li>
                                         <li><hr class="dropdown-divider"></li>
-                                        <li><a class="dropdown-item" OnClick="ToProduct(Scents)">Scents</a></li>
-                                        <li><a class="dropdown-item" OnClick="ToProduct(Scents)">Neutral scents</a></li>
+                                        <li><a class="dropdown-item" OnClick="ToProduct('Scents')">Scents</a></li>
+                                        <li><a class="dropdown-item" OnClick="ToProduct('Scents')">Neutral scents</a></li>
                                         <li><hr class="dropdown-divider"></li>
-                                        <li><a class="dropdown-item" OnClick="ToProduct(Other)">Other</a></li>
+                                        <li><a class="dropdown-item" OnClick="ToProduct('Other')">Other</a></li>
                                     </ul>
                                 </li>
                             </ul>
