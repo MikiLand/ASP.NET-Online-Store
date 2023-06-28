@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Data.SqlClient;
 using System.Linq;
+using System.Text;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
@@ -13,6 +14,47 @@ namespace Sklep
         public static SqlConnection sqlCon = new SqlConnection(@"Data Source=DESKTOP-9EOJGT1\Typcio;Initial Catalog=Shop;User ID=sa;Password=1234");
         protected void Page_Load(object sender, EventArgs e)
         {
+
+            //string path = HttpContext.Current.Request.Url.AbsolutePath;
+            string path = HttpContext.Current.Request.Url.AbsoluteUri;
+            path = path.Substring(path.LastIndexOf('?') + 1);
+
+            //TBSearch.Text = path.ToString();
+
+            switch (path)
+            {
+                case "Candles":
+                    CBCandle.Checked = true;
+                    CBScent.Checked = false;
+                    CBOther.Checked = false;
+                    Search();
+
+                    /*StringBuilder sb = new StringBuilder();
+                    sb.Append("<script type = 'text/javascript'>");
+                    sb.Append("window.onload=function(){");
+                    sb.Append("document.getElementById('BtnSearch').click();");
+                    sb.Append("};");
+                    sb.Append("</script>");
+                    ClientScript.RegisterStartupScript(this.GetType(), "message", sb.ToString());*/
+
+                    break;
+                case "Scents":
+                    CBCandle.Checked = false;
+                    CBScent.Checked = true;
+                    CBOther.Checked = false;
+                    Search();
+
+                    break;
+                case "Others":
+                    CBCandle.Checked = false;
+                    CBScent.Checked = false;
+                    CBOther.Checked = true;
+                    Search();
+
+                    break;
+            }
+
+
             ////RangePrice.Min = 1;
             ////TBSearch.Text = "reee";
 
@@ -41,9 +83,67 @@ namespace Sklep
             RangeCurrentAmount.Text = PriceMax.ToString();
         }
 
+        public void Search()
+        {
+            string SQLWhere = " where p.Price < 1000"; //+ RangePrice.Value.Trim() + "";
+            string SQLWhereProductType = "", SQLOrderBy = "";
+
+            if (TBSearch.Text != "")
+            {
+                SQLWhere += " and p.Name like '%" + TBSearch.Text.Trim() + "%'";
+            }
+
+            if (CBCandle.Checked)
+            {
+                SQLWhereProductType = " and p.type in (1";
+            }
+
+            if (CBScent.Checked)
+            {
+                if (SQLWhereProductType == "")
+                {
+                    SQLWhereProductType = " and p.type in (2";
+                }
+                else
+                {
+                    SQLWhereProductType += ",2";
+                }
+            }
+
+            if (CBOther.Checked)
+            {
+                if (SQLWhereProductType == "")
+                {
+                    SQLWhereProductType = "and p.type in (3";
+                }
+                else
+                {
+                    SQLWhereProductType += ",3";
+                }
+            }
+
+            if (SQLWhereProductType != "")
+            {
+                SQLWhereProductType += ")";
+            }
+
+            if (RadioNameAsc.Checked)
+                SQLOrderBy = " order by p.Name asc";
+            else if (RadioNameDesc.Checked)
+                SQLOrderBy = " order by p.Name desc";
+            else if (RadioPriceAsc.Checked)
+                SQLOrderBy = " order by p.Price asc";
+            else if (RadioPriceDesc.Checked)
+                SQLOrderBy = " order by p.Price desc";
+            else if (RadioProductType.Checked)
+                SQLOrderBy = " order by tp.TypeName";
+
+            SqlDataProducts.SelectCommand = "select p.id, p.Name, p.Description, tp.TypeName as Type, p.Price, pic.Path from Product p left join ProductType tp on tp.id = p.Type left join Pictures Pic on Pic.IDCard = P.id" + SQLWhere + SQLWhereProductType + SQLOrderBy + "";
+        }
+
         protected void ProductPicture_Click(object sender, EventArgs e)
         {
-
+            
         }
 
         protected void DataListProduct_ItemCommand(object source, DataListCommandEventArgs e)
