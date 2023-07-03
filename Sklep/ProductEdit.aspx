@@ -62,19 +62,6 @@
                                                 <li><a class="dropdown-item" OnClick="ToProduct('Other')">Other</a></li>
                                             </ul>
                                         </div>
-                                        
-                                        <!--<ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                                            <li class="nav-item dropdown">
-                                                <a class="btn btn-secondary dropdown-toggle m-1 mt-0 mb-0" style="width: 100px" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                                    Type
-                                                </a>
-                                                <ul class="dropdown-menu" data-bs-toggle='dropdown' aria-labelledby="navbarDropdown">
-                                                    <li><a class="dropdown-item" OnClick="ToProduct('Candles')">Candles</a></li>
-                                                    <li><a class="dropdown-item" OnClick="ToProduct('Scents')">Scents</a></li>
-                                                    <li><a class="dropdown-item" OnClick="ToProduct('Other')">Other</a></li>
-                                                </ul>
-                                            </li>
-                                        </ul>-->
                                     </div>
 
 

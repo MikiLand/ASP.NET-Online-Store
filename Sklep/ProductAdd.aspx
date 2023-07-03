@@ -116,19 +116,19 @@
                                     <asp:TextBox class="form-control" ID="TBName" runat="server" placeholder="Product name" ></asp:TextBox>
                                 </div>
 
-                                <div class="input-group mt-1 mb-2">
-                                        <asp:TextBox class="form-control" ID="TBProductType" runat="server" placeholder="Product type" ReadOnly="True"></asp:TextBox>
-                                        <div class="dropdown m-1 mt-0 mb-0">
-                                            <a class="btn btn-secondary dropdown-toggle" style="width: 100px" href="#" role="button" id="DDType" data-bs-toggle="dropdown" aria-expanded="false">
-                                                Type
-                                            </a>
-                                            <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink" ID="DDLProductType" onselect="DDLProductTypeOnSelect">
-                                                <li><a class="dropdown-item" OnClick="ToProduct('Candles')">Candle</a></li>
-                                                <li><a class="dropdown-item" OnClick="ToProduct('Scents')">Scent</a></li>
-                                                <li><a class="dropdown-item" OnClick="ToProduct('Other')">Other</a></li>
-                                            </ul>
-                                        </div>
+                                <div class="input-group mb-2">
+                                    <asp:TextBox class="form-control" ID="TBProductType" runat="server" placeholder="Product type" ReadOnly="True" ClientIDMode="Static"></asp:TextBox>
+                                    <div class="dropdown m-1 mt-0 mb-0">
+                                        <a class="btn btn-secondary dropdown-toggle" style="width: 100px" href="#" role="button" id="DDType" data-bs-toggle="dropdown" aria-expanded="false">
+                                            Type
+                                        </a>
+                                        <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink" ID="DDLProductType" onselect="DDLProductTypeOnSelect">
+                                            <li><a class="dropdown-item" OnClick="ToProduct('Candles')">Candle</a></li>
+                                            <li><a class="dropdown-item" OnClick="ToProduct('Scents')">Scent</a></li>
+                                            <li><a class="dropdown-item" OnClick="ToProduct('Other')">Other</a></li>
+                                        </ul>
                                     </div>
+                                </div>
 
                                 <center>
                                     <label>Description</label>
