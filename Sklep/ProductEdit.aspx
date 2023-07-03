@@ -2,6 +2,17 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+    <script type='text/javascript'>
+        function ToProduct(Type) {
+            if (Type == 'Candles') {
+                document.getElementById('TBProductType').value = "Candle";
+            }
+            else if (Type == 'Scents')
+                document.getElementById('TBProductType').value = "Scent";
+            else if (Type == 'Other')
+                document.getElementById('TBProductType').value = "Other";
+        }
+    </script>
     <div class="container-fluid">
         <hr />
         <div class="row">
@@ -40,13 +51,32 @@
                                         <asp:Button Class="btn btn-primary m-1 mt-0 mb-0" ID="BtnSearch" style="width: 100px"  runat="server" Text="Search" OnClick="BtnSearchOnClick"/>                      
                                     </div>
                                     <div class="input-group mb-2">
-                                        <asp:TextBox class="form-control" ID="TBProductType" runat="server" placeholder="Product type" ReadOnly="True"></asp:TextBox>
-                                        <asp:DropDownList Class="btn btn-secondary dropdown-toggle m-1 mt-0 mb-0" style="width: 100px" ID="DDLProductType" AutoPostBack="True" runat="server" >
-                                            <asp:ListItem Value="1">Candle</asp:ListItem>
-                                            <asp:ListItem Value="2">Scent</asp:ListItem>
-                                            <asp:ListItem Value="3">Other</asp:ListItem>
-                                        </asp:DropDownList>
+                                        <asp:TextBox class="form-control" ID="TBProductType" runat="server" placeholder="Product type" ReadOnly="True" ClientIDMode="Static"></asp:TextBox>
+                                        <div class="dropdown m-1 mt-0 mb-0">
+                                            <a class="btn btn-secondary dropdown-toggle" style="width: 100px" href="#" role="button" id="DDType" data-bs-toggle="dropdown" aria-expanded="false">
+                                                Type
+                                            </a>
+                                            <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink" ID="DDLProductType" onselect="DDLProductTypeOnSelect">
+                                                <li><a class="dropdown-item" OnClick="ToProduct('Candles')">Candle</a></li>
+                                                <li><a class="dropdown-item" OnClick="ToProduct('Scents')">Scent</a></li>
+                                                <li><a class="dropdown-item" OnClick="ToProduct('Other')">Other</a></li>
+                                            </ul>
+                                        </div>
+                                        
+                                        <!--<ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                                            <li class="nav-item dropdown">
+                                                <a class="btn btn-secondary dropdown-toggle m-1 mt-0 mb-0" style="width: 100px" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                                    Type
+                                                </a>
+                                                <ul class="dropdown-menu" data-bs-toggle='dropdown' aria-labelledby="navbarDropdown">
+                                                    <li><a class="dropdown-item" OnClick="ToProduct('Candles')">Candles</a></li>
+                                                    <li><a class="dropdown-item" OnClick="ToProduct('Scents')">Scents</a></li>
+                                                    <li><a class="dropdown-item" OnClick="ToProduct('Other')">Other</a></li>
+                                                </ul>
+                                            </li>
+                                        </ul>-->
                                     </div>
+
 
                                     <center>
                                         <label>Description</label>

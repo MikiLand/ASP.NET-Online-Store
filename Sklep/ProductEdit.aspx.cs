@@ -65,7 +65,7 @@ namespace Sklep
             string Price;
             
 
-            switch (DDLProductType.Text)
+            switch (TBProductType.Text)
             {
                 case "Candle":
                     ProductType = 1;
@@ -81,7 +81,7 @@ namespace Sklep
             Price = TBPrice.Text.Trim();
             Price = Price.Replace(',', '.');
 
-            sql = "Update product set type = " + DDLProductType.SelectedValue + ", description = '" + TBDescription.Text.Trim() + "', price = " + Price + " where name ='" + TBProductName.Text.Trim() + "'";
+            sql = "Update product set type = " + ProductType.ToString() + ", description = '" + TBDescription.Text.Trim() + "', price = " + Price + " where name ='" + TBProductName.Text.Trim() + "'";
             UserLogin.sqlCon.Open();
             command = new SqlCommand(sql, UserLogin.sqlCon);
             command.ExecuteNonQuery();

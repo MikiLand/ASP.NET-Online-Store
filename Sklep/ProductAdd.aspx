@@ -23,6 +23,17 @@
 </asp:Content>
 
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+    <script type='text/javascript'>
+        function ToProduct(Type) {
+            if (Type == 'Candles') {
+                document.getElementById('TBProductType').value = "Candle";
+            }
+            else if (Type == 'Scents')
+                document.getElementById('TBProductType').value = "Scent";
+            else if (Type == 'Other')
+                document.getElementById('TBProductType').value = "Other";
+        }
+    </script>
     <div class="container-fluid">
         <hr />
         <!-- Button trigger modal -->
@@ -112,9 +123,9 @@
                                                 Type
                                             </a>
                                             <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink" ID="DDLProductType" onselect="DDLProductTypeOnSelect">
-                                                <li><a class="dropdown-item" href="#">Candle</a></li>
-                                                <li><a class="dropdown-item" href="#">Scent</a></li>
-                                                <li><a class="dropdown-item" href="#">Other</a></li>
+                                                <li><a class="dropdown-item" OnClick="ToProduct('Candles')">Candle</a></li>
+                                                <li><a class="dropdown-item" OnClick="ToProduct('Scents')">Scent</a></li>
+                                                <li><a class="dropdown-item" OnClick="ToProduct('Other')">Other</a></li>
                                             </ul>
                                         </div>
                                     </div>

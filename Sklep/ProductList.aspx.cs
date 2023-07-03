@@ -14,12 +14,8 @@ namespace Sklep
         public static SqlConnection sqlCon = new SqlConnection(@"Data Source=DESKTOP-9EOJGT1\Typcio;Initial Catalog=Shop;User ID=sa;Password=1234");
         protected void Page_Load(object sender, EventArgs e)
         {
-
-            //string path = HttpContext.Current.Request.Url.AbsolutePath;
             string path = HttpContext.Current.Request.Url.AbsoluteUri;
             path = path.Substring(path.LastIndexOf('?') + 1);
-
-            //TBSearch.Text = path.ToString();
 
             switch (path)
             {
