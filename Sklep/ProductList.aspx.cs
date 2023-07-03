@@ -17,6 +17,8 @@ namespace Sklep
             string path = HttpContext.Current.Request.Url.AbsoluteUri;
             path = path.Substring(path.LastIndexOf('?') + 1);
 
+            TBSearch.Text = path.ToString();
+
             switch (path)
             {
                 case "Candles":
@@ -24,6 +26,8 @@ namespace Sklep
                     CBScent.Checked = false;
                     CBOther.Checked = false;
                     Search();
+                    Page.ClientScript.RegisterStartupScript(this.GetType(), "CallMyFunction", "Func()", true);
+                    path = "";
 
                     /*StringBuilder sb = new StringBuilder();
                     sb.Append("<script type = 'text/javascript'>");
@@ -39,6 +43,8 @@ namespace Sklep
                     CBScent.Checked = true;
                     CBOther.Checked = false;
                     Search();
+                    Page.ClientScript.RegisterStartupScript(this.GetType(), "CallMyFunction", "Func()", true);
+                    path = "";
 
                     break;
                 case "Others":
@@ -46,8 +52,16 @@ namespace Sklep
                     CBScent.Checked = false;
                     CBOther.Checked = true;
                     Search();
+                    Page.ClientScript.RegisterStartupScript(this.GetType(), "CallMyFunction", "Func()", true);
+                    path = "";
 
                     break;
+
+                    
+
+                    //ScriptManager.RegisterStartupScript(this.Page, Page.GetType(), "text", "Func()", true);
+                    //ClientScript.RegisterStartupScript(GetType(), "hwa", "alert('Hello World');", true);
+                    //Page.ClientScript.RegisterStartupScript(this.GetType(), "CallMyFunction", "Func()", true);
             }
 
 
