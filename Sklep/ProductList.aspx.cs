@@ -11,13 +11,13 @@ namespace Sklep
 {
     public partial class ProductList : System.Web.UI.Page
     {
+        bool Test = false;
         public static SqlConnection sqlCon = new SqlConnection(@"Data Source=DESKTOP-9EOJGT1\Typcio;Initial Catalog=Shop;User ID=sa;Password=1234");
         protected void Page_Load(object sender, EventArgs e)
         {
+            
             string path = HttpContext.Current.Request.Url.AbsoluteUri;
             path = path.Substring(path.LastIndexOf('?') + 1);
-
-            TBSearch.Text = path.ToString();
 
             switch (path)
             {
@@ -28,15 +28,6 @@ namespace Sklep
                     Search();
                     Page.ClientScript.RegisterStartupScript(this.GetType(), "CallMyFunction", "Func()", true);
                     path = "";
-
-                    /*StringBuilder sb = new StringBuilder();
-                    sb.Append("<script type = 'text/javascript'>");
-                    sb.Append("window.onload=function(){");
-                    sb.Append("document.getElementById('BtnSearch').click();");
-                    sb.Append("};");
-                    sb.Append("</script>");
-                    ClientScript.RegisterStartupScript(this.GetType(), "message", sb.ToString());*/
-
                     break;
                 case "Scents":
                     CBCandle.Checked = false;
@@ -45,7 +36,6 @@ namespace Sklep
                     Search();
                     Page.ClientScript.RegisterStartupScript(this.GetType(), "CallMyFunction", "Func()", true);
                     path = "";
-
                     break;
                 case "Others":
                     CBCandle.Checked = false;
@@ -54,19 +44,12 @@ namespace Sklep
                     Search();
                     Page.ClientScript.RegisterStartupScript(this.GetType(), "CallMyFunction", "Func()", true);
                     path = "";
-
                     break;
-
-                    
-
-                    //ScriptManager.RegisterStartupScript(this.Page, Page.GetType(), "text", "Func()", true);
-                    //ClientScript.RegisterStartupScript(GetType(), "hwa", "alert('Hello World');", true);
-                    //Page.ClientScript.RegisterStartupScript(this.GetType(), "CallMyFunction", "Func()", true);
             }
 
 
             ////RangePrice.Min = 1;
-            ////TBSearch.Text = "reee";
+            ////TBSearch.Text = "test";
 
             SqlCommand command;
             // SqlDataReader dataReader;
