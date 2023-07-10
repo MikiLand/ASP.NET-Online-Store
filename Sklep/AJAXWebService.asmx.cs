@@ -22,6 +22,17 @@ namespace Sklep
     {
         public static SqlConnection sqlCon = new SqlConnection(@"Data Source=DESKTOP-9EOJGT1\Typcio;Initial Catalog=Shop;User ID=sa;Password=1234");
 
+        public class Products
+        {
+            public int ID { get; set; }
+            public string Name { get; set; }
+            public string Description { get; set; }
+            public string TypeName { get; set; }
+            public float Price { get; set; }
+            public string Path { get; set; }
+        }
+
+
         [WebMethod]
         public string HelloWorld()
         {
@@ -32,6 +43,9 @@ namespace Sklep
         {
             string SQLWhere = " where p.Price < 1000"; //+ RangePrice.Value.Trim() + "";
             string SQLWhereProductType = "", SQLOrderBy = "";
+            SqlCommand command;
+            String sql;
+            List<Products> ProductList = new List<Products>();
 
             if (TBSearch != "")
             {
@@ -84,6 +98,25 @@ namespace Sklep
                 SQLOrderBy = " order by tp.TypeName";
 
             return "select p.id, p.Name, p.Description, tp.TypeName as Type, p.Price, pic.Path from Product p left join ProductType tp on tp.id = p.Type left join Pictures Pic on Pic.IDCard = P.id" + SQLWhere + SQLWhereProductType + SQLOrderBy + "";
+            sqlCon.Open();
+            command = new SqlCommand(sql, sqlCon);
+
+            SqlDataReader dr = command.ExecuteReader();
+
+            while (dr.Read())
+            {
+                Products Product = new Products();
+                Product.ID = Convert.ToInt32(dr["ID"]);
+                Product.Name = dr["Name"].ToString();
+                Product.Description = dr["Description"].ToString();
+                Product.TypeName = dr["Type"].ToString();
+                Product.Price = float.Parse(dr["Price"].ToString());
+                Product.Path = dr["Path"].ToString();
+
+            }
+
+            JavaScriptSerializer js = new JavaScriptSerializer();
+            Context.Response.Write(js.Serialize(ProductList));
         }
     }
 }
