@@ -67,6 +67,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="AJAXWebService.asmx" />
     <Content Include="OrderDetails.aspx" />
     <Content Include="Bootstrap\CSS\bootstrap.min.css" />
     <Content Include="Bootstrap\js\bootstrap.bundle.min.js" />
@@ -1752,6 +1753,10 @@
     <Content Include="page1.aspx" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AJAXWebService.asmx.cs">
+      <DependentUpon>AJAXWebService.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="OrderDetails.aspx.cs">
       <DependentUpon>OrderDetails.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
