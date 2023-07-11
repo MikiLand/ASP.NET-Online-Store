@@ -12,19 +12,19 @@
             window.history.pushState(nextState, nextTitle, nextURL);
         }
     </script>
-    <script type="text/javascript">  
-        $(document).ready(function () {
+    <!--<script type="text/javascript">  
+           $(document).ready(function () {
             $.ajax({
-                url: 'EmployeeService.asmx/GetAllEmployee',
+                url: 'AJAXWebService.asmx/GetProducts',
                 dataType: "json",
                 method: 'post',
                 success: function (data) {
-                    var employeeTable = $('#tblEmployee tbody');
-                    employeeTable.empty();
+                    var productTable = $('#tblProduct tbody');
+                    productTable.empty();
                     $(data).each(function (index, emp) {
-                        employeeTable.append('<tr><td>' + emp.ID + '</td><td>'
-                            + emp.Name + '</td><td>' + emp.Position + '</td><td>' + emp.Office
-                            + '</td><td>' + emp.Age + '</td><td>' + emp.Salary + '</td></tr>');
+                        productTable.append('<tr><td>' + emp.ID + '</td><td>'
+                            + emp.Name + '</td><td>' + emp.Description + '</td><td>' + emp.Type
+                            + '</td><td>' + emp.Price + '</td><td>' + emp.Path + '</td></tr>');
                     });
                 },
                 error: function (err) {
@@ -32,7 +32,7 @@
                 }
             });
         });
-    </script> 
+    </script> -->
     <section>
         <div class="container-fluid">
             <div class="row">
@@ -204,22 +204,22 @@
                         </ItemTemplate>
                     </asp:DataList>
                 </div>
-        <div class="container">  
+        <!--<div class="container">  
             <h3 class="text-uppercase text-center">How to retrive data using ajax in asp.net</h3>  
-            <table id="tblEmployee" class="table table-bordered">  
+            <table id="tblProduct" class="table table-bordered">  
                 <thead class="bg-primary text-white">  
                     <tr>  
                         <th>ID</th>  
                         <th>Name</th>  
-                        <th>Position</th>  
-                        <th>Office</th>  
-                        <th>Age</th>  
-                        <th>Salary</th>  
+                        <th>Description</th>  
+                        <th>Type</th>  
+                        <th>Price</th>  
+                        <th>Path</th>  
                     </tr>  
                 </thead>  
                 <tbody></tbody>  
             </table>  
-        </div>  
+        </div>  -->
                 <div style="height: 50px;">
 
                 </div>
