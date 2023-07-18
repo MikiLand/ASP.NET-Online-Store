@@ -119,7 +119,7 @@ namespace Sklep
             else if (RadioOrder == 5)
                 SQLOrderBy = " order by tp.TypeName";
 
-            return "select p.id, p.Name, p.Description, tp.TypeName as Type, p.Price, pic.Path from Product p left join ProductType tp on tp.id = p.Type left join Pictures Pic on Pic.IDCard = P.id" + SQLWhere + SQLWhereProductType + SQLOrderBy + "";
+            sql = "select p.id, p.Name, p.Description, tp.TypeName as Type, p.Price, pic.Path from Product p left join ProductType tp on tp.id = p.Type left join Pictures Pic on Pic.IDCard = P.id" + SQLWhere + SQLWhereProductType + SQLOrderBy + "";
             sqlCon.Open();
             command = new SqlCommand(sql, sqlCon);
 
@@ -135,6 +135,7 @@ namespace Sklep
                 Product.Price = float.Parse(dr["Price"].ToString());
                 Product.Path = dr["Path"].ToString();
 
+                ProductList.Add(Product);
             }
 
             JavaScriptSerializer js = new JavaScriptSerializer();
