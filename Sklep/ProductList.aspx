@@ -12,6 +12,54 @@
             window.history.pushState(nextState, nextTitle, nextURL);
         }
     </script>
+
+
+
+    <script type="text/javascript">  
+        $(document).ready(function () {
+            $.ajax({
+                url: 'EmployeeService.asmx/GetAllEmployee',
+                dataType: "json",
+                method: 'post',
+                success: function (data) {
+                    var employeeTable = $('#tblEmployee tbody');
+                    employeeTable.empty();
+                    $(data).each(function (index, emp) {
+                        employeeTable.append('<tr><td>' + emp.ID + '</td><td>'
+                            + emp.Name + '</td><td>' + emp.Position + '</td><td>' + emp.Office
+                            + '</td><td>' + emp.Age + '</td><td>' + emp.Salary + '</td></tr>');
+                    });
+                },
+                error: function (err) {
+                    alert(err);
+                }
+            });
+        });
+    </script>
+
+
+
+    <script type="text/javascript">  
+           $(document).ready(function () {
+               $.ajax({
+                url: 'AJAXWebService.asmx/GetProducts',
+                dataType: "json",
+                method: 'post',
+                success: function (data) {
+                    var productTable = $('#tblProduct tbody');
+                    productTable.empty();
+                    $(data).each(function (index, emp) {
+                        productTable.append('<tr><td>' + emp.ID + '</td><td>'
+                            + emp.Name + '</td><td>' + emp.Description + '</td><td>' + emp.Type
+                            + '</td><td>' + emp.Price + '</td><td>' + emp.Path + '</td></tr>');
+                    });
+                },
+                error: function (err) {
+                    alert(err);
+                }
+            });
+        });
+    </script>
     <section>
         <div class="container-fluid">
             <div class="row">
@@ -21,11 +69,6 @@
                     </div>
                     <div class="card">
                         <div class="card-body" DataSourceID="SqlDataProducts">
-                            <!--<center>
-                                <br /><h1>"Two words my friend<br />
-                                No refunds"</h1><br />
-                                <h3>September 18, 2012 ~ Marcus</h3>
-                            </center>-->
                             <center>
                                 <h3>Products</h3>
                             </center>
@@ -183,6 +226,40 @@
                         </ItemTemplate>
                     </asp:DataList>
                 </div>
+        <div class="container">  
+            <h3 class="text-uppercase text-center">How to retrive data using ajax in asp.net</h3>  
+            <table id="tblProduct" class="table table-bordered">  
+                <thead class="bg-primary text-white">  
+                    <tr>  
+                        <th>ID</th>  
+                        <th>Name</th>  
+                        <th>Description</th>  
+                        <th>Type</th>  
+                        <th>Price</th>  
+                        <th>Path</th>  
+                    </tr>  
+                </thead>  
+                <tbody></tbody>  
+            </table>  
+        </div>  
+
+
+        <div class="container">  
+            <h3 class="text-uppercase text-center">How to retrive data using ajax in asp.net</h3>  
+            <table id="tblEmployee" class="table table-bordered">  
+                <thead class="bg-primary text-white">  
+                    <tr>  
+                        <th>ID</th>  
+                        <th>Name</th>  
+                        <th>Position</th>  
+                        <th>Office</th>  
+                        <th>Age</th>  
+                        <th>Salary</th>  
+                    </tr>  
+                </thead>  
+                <tbody></tbody>  
+            </table>  
+        </div>  
                 <div style="height: 50px;">
 
                 </div>
