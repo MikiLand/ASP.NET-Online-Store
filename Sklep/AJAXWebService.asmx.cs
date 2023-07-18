@@ -22,23 +22,161 @@ namespace Sklep
     {
         public static SqlConnection sqlCon = new SqlConnection(@"Data Source=DESKTOP-9EOJGT1\Typcio;Initial Catalog=Shop;User ID=sa;Password=1234");
 
-        public class Products
+        [WebMethod]
+        public void GetAllEmployee()
         {
-            public int ID { get; set; }
-            public string Name { get; set; }
-            public string Description { get; set; }
-            public string TypeName { get; set; }
-            public float Price { get; set; }
-            public string Path { get; set; }
-        }
+            List<EmployeesRecord> employeelist = new List<EmployeesRecord>();
 
+            string CS = ConfigurationManager.ConnectionStrings["DBCS"].ConnectionString;
+            using (SqlConnection con = new SqlConnection(CS))
+            {
+                SqlCommand cmd = new SqlCommand("spGetAllEmployee", con);
+                cmd.CommandType = CommandType.StoredProcedure;
+                con.Open();
+
+                SqlDataReader rdr = cmd.ExecuteReader();
+
+                while (rdr.Read())
+                {
+                    EmployeesRecord employee = new EmployeesRecord();
+                    employee.ID = Convert.ToInt32(rdr["ID"]);
+                    employee.Name = rdr["Name"].ToString();
+                    employee.Position = rdr["Position"].ToString();
+                    employee.Office = rdr["Office"].ToString();
+                    employee.Age = Convert.ToInt32(rdr["Age"]);
+                    employee.Salary = Convert.ToInt32(rdr["Salary"]);
+
+                    employeelist.Add(employee);
+                }
+            }
+
+            JavaScriptSerializer js = new JavaScriptSerializer();
+            Context.Response.Write(js.Serialize(employeelist));
+        }
 
         [WebMethod]
-        public string HelloWorld()
+        public void GetProducts()
         {
-            return "Hello World";
+            string SQLWhere = " where p.Price < 1000"; //+ RangePrice.Value.Trim() + "";
+            string SQLWhereProductType = "", SQLOrderBy = "";
+            SqlCommand command;
+            String sql;
+            List<Products> ProductList = new List<Products>();
+
+            String TBSearch = "";
+                bool CBCandle = true;
+                bool CBScent = true;
+                bool CBOther = true;
+                int RadioOrder = 1;
+
+            if (TBSearch != "")
+            {
+                SQLWhere += " and p.Name like '%" + TBSearch.Trim() + "%'";
+            }
+
+            if (CBCandle == true)
+            {
+                SQLWhereProductType = " and p.type in (1";
+            }
+
+            if (CBScent == true)
+            {
+                if (SQLWhereProductType == "")
+                {
+                    SQLWhereProductType = " and p.type in (2";
+                }
+                else
+                {
+                    SQLWhereProductType += ",2";
+                }
+            }
+
+            if (CBOther == true)
+            {
+                if (SQLWhereProductType == "")
+                {
+                    SQLWhereProductType = "and p.type in (3";
+                }
+                else
+                {
+                    SQLWhereProductType += ",3";
+                }
+            }
+
+            if (SQLWhereProductType != "")
+            {
+                SQLWhereProductType += ")";
+            }
+
+            if (RadioOrder == 1)
+                SQLOrderBy = " order by p.Name asc";
+            else if (RadioOrder == 2)
+                SQLOrderBy = " order by p.Name desc";
+            else if (RadioOrder == 3)
+                SQLOrderBy = " order by p.Price asc";
+            else if (RadioOrder == 4)
+                SQLOrderBy = " order by p.Price desc";
+            else if (RadioOrder == 5)
+                SQLOrderBy = " order by tp.TypeName";
+
+            return "select p.id, p.Name, p.Description, tp.TypeName as Type, p.Price, pic.Path from Product p left join ProductType tp on tp.id = p.Type left join Pictures Pic on Pic.IDCard = P.id" + SQLWhere + SQLWhereProductType + SQLOrderBy + "";
+            sqlCon.Open();
+            command = new SqlCommand(sql, sqlCon);
+
+            SqlDataReader dr = command.ExecuteReader();
+
+            while (dr.Read())
+            {
+                Products Product = new Products();
+                Product.ID = Convert.ToInt32(dr["ID"]);
+                Product.Name = dr["Name"].ToString();
+                Product.Description = dr["Description"].ToString();
+                Product.TypeName = dr["Type"].ToString();
+                Product.Price = float.Parse(dr["Price"].ToString());
+                Product.Path = dr["Path"].ToString();
+
+            }
+
+            JavaScriptSerializer js = new JavaScriptSerializer();
+            Context.Response.Write(js.Serialize(ProductList));
+
+
+
+
+
+
+
+
+            /*List<EmployeesRecord> employeelist = new List<EmployeesRecord>();
+
+            string CS = ConfigurationManager.ConnectionStrings["DBCS"].ConnectionString;
+            using (SqlConnection con = new SqlConnection(CS))
+            {
+                SqlCommand cmd = new SqlCommand("spGetAllEmployee", con);
+                cmd.CommandType = CommandType.StoredProcedure;
+                con.Open();
+
+                SqlDataReader rdr = cmd.ExecuteReader();
+
+                while (rdr.Read())
+                {
+                    EmployeesRecord employee = new EmployeesRecord();
+                    employee.ID = Convert.ToInt32(rdr["ID"]);
+                    employee.Name = rdr["Name"].ToString();
+                    employee.Position = rdr["Position"].ToString();
+                    employee.Office = rdr["Office"].ToString();
+                    employee.Age = Convert.ToInt32(rdr["Age"]);
+                    employee.Salary = Convert.ToInt32(rdr["Salary"]);
+
+                    employeelist.Add(employee);
+                }
+            }
+
+            JavaScriptSerializer js = new JavaScriptSerializer();
+            Context.Response.Write(js.Serialize(employeelist));*/
         }
 
+        /*[WebMethod]
         public string GetProducts(String TBSearch, bool CBCandle, bool CBScent, bool CBOther, int RadioOrder)
         {
             string SQLWhere = " where p.Price < 1000"; //+ RangePrice.Value.Trim() + "";
@@ -117,6 +255,6 @@ namespace Sklep
 
             JavaScriptSerializer js = new JavaScriptSerializer();
             Context.Response.Write(js.Serialize(ProductList));
-        }
+        }*/
     }
 }
