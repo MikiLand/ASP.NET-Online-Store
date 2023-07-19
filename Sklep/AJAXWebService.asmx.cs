@@ -55,7 +55,7 @@ namespace Sklep
         }
 
         [WebMethod]
-        public void GetProducts()
+        public void GetProducts(String TBSearch, bool CBCandle, bool CBScent, bool CBOther, int RadioOrder)
         {
             string SQLWhere = " where p.Price < 1000"; //+ RangePrice.Value.Trim() + "";
             string SQLWhereProductType = "", SQLOrderBy = "";
@@ -63,11 +63,11 @@ namespace Sklep
             String sql;
             List<Products> ProductList = new List<Products>();
 
-            String TBSearch = "";
+            /*String TBSearch = "";
                 bool CBCandle = true;
                 bool CBScent = true;
                 bool CBOther = true;
-                int RadioOrder = 1;
+                int RadioOrder = 1;*/
 
             if (TBSearch != "")
             {
@@ -120,6 +120,7 @@ namespace Sklep
                 SQLOrderBy = " order by tp.TypeName";
 
             sql = "select p.id, p.Name, p.Description, tp.TypeName as Type, p.Price, pic.Path from Product p left join ProductType tp on tp.id = p.Type left join Pictures Pic on Pic.IDCard = P.id" + SQLWhere + SQLWhereProductType + SQLOrderBy + "";
+            //SqlDataProducts.SelectCommand = "select p.id, p.Name, p.Description, tp.TypeName as Type, p.Price, pic.Path from Product p left join ProductType tp on tp.id = p.Type left join Pictures Pic on Pic.IDCard = P.id" + SQLWhere + SQLWhereProductType + SQLOrderBy + "";
             sqlCon.Open();
             command = new SqlCommand(sql, sqlCon);
 
@@ -137,6 +138,8 @@ namespace Sklep
 
                 ProductList.Add(Product);
             }
+
+
 
             JavaScriptSerializer js = new JavaScriptSerializer();
             Context.Response.Write(js.Serialize(ProductList));
