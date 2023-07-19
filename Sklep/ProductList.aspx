@@ -12,37 +12,18 @@
             window.history.pushState(nextState, nextTitle, nextURL);
         }
     </script>
-
-
-
     <script type="text/javascript">  
         $(document).ready(function () {
             $.ajax({
-                url: 'EmployeeService.asmx/GetAllEmployee',
-                dataType: "json",
-                method: 'post',
-                success: function (data) {
-                    var employeeTable = $('#tblEmployee tbody');
-                    employeeTable.empty();
-                    $(data).each(function (index, emp) {
-                        employeeTable.append('<tr><td>' + emp.ID + '</td><td>'
-                            + emp.Name + '</td><td>' + emp.Position + '</td><td>' + emp.Office
-                            + '</td><td>' + emp.Age + '</td><td>' + emp.Salary + '</td></tr>');
-                    });
-                },
-                error: function (err) {
-                    alert(err);
-                }
-            });
-        });
-    </script>
-
-
-
-    <script type="text/javascript">  
-           $(document).ready(function () {
-               $.ajax({
                 url: 'AJAXWebService.asmx/GetProducts',
+                data: {
+                    TBSearch: document.getElementById('<%= TBSearch.ClientID %>'),
+                    CBCandle: document.getElementById('<%= CBCandle.ClientID %>'),
+                    CBScent: document.getElementById('<%= CBScent.ClientID %>'),
+                    CBOther: document.getElementById('<%= CBOther.ClientID %>'),
+                    RadioOrder: document.getElementById('<%= RadioProductType.ClientID %>')
+
+                },
                 dataType: "json",
                 method: 'post',
                 success: function (data) {
@@ -52,6 +33,7 @@
                         productTable.append('<tr><td>' + emp.ID + '</td><td>'
                             + emp.Name + '</td><td>' + emp.Description + '</td><td>' + emp.Type
                             + '</td><td>' + emp.Price + '</td><td>' + emp.Path + '</td></tr>');
+
                     });
                 },
                 error: function (err) {
@@ -134,7 +116,7 @@
 
                             <input type="range" ID="RangePrice" class="form-range" min="1" max="100" runat="server" OnClick="RangeOnChange" ondrag="RangeOnChange" onmousemove="RangeOnChange" onfocus="RangeOnChange">
                             <asp:Label ID="RangeCurrentAmount" runat="server" Text='100'></asp:Label>
-                            <script>
+                            <!--<script>
                                 var slider = document.getElementById("RangePrice");
                                 var output = document.getElementById("LblPrice");
                                 output.innerHTML = slider.value;
@@ -142,7 +124,7 @@
                                 slider.oninput = function() {
                                 output.innerHTML = this.value;
                                 }
-                            </script>
+                            </script>-->
 
                             <div class="row">
                                 <div class="col">
@@ -237,24 +219,6 @@
                         <th>Type</th>  
                         <th>Price</th>  
                         <th>Path</th>  
-                    </tr>  
-                </thead>  
-                <tbody></tbody>  
-            </table>  
-        </div>  
-
-
-        <div class="container">  
-            <h3 class="text-uppercase text-center">How to retrive data using ajax in asp.net</h3>  
-            <table id="tblEmployee" class="table table-bordered">  
-                <thead class="bg-primary text-white">  
-                    <tr>  
-                        <th>ID</th>  
-                        <th>Name</th>  
-                        <th>Position</th>  
-                        <th>Office</th>  
-                        <th>Age</th>  
-                        <th>Salary</th>  
                     </tr>  
                 </thead>  
                 <tbody></tbody>  
