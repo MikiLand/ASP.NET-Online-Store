@@ -5,6 +5,11 @@
        <div style="height: 10px;">
 
     </div>
+    <script type='text/javascript'>
+        function ToOrder(Type) {
+            window.location.replace("https://localhost:44305/OrderDetails.aspx?id=" + Type);
+        }
+    </script>
      <div class="container-fluid">
         <div class="row">
             <div class="col-md-4">
@@ -164,22 +169,22 @@
                             <asp:DataList ID="DataListBasket" runat="server" DataSourceID="SqlDataOrders" RepeatColumns="1" RepeatDirection="Horizontal" OnItemCommand="DataListProfileOrders_ItemCommand">
                         <ItemTemplate>
                             <div class="container">
-                                <div class="row">
-                                    <div class="col-md-3">
-                                        <asp:Label ID="Label6" runat="server" Text='<%# Eval("Order number") %>'></asp:Label>
-                                    </div>
-                                    <div class="col-md-2">
-                                        <asp:Label ID="Label1" runat="server" Text='<%# Eval("Net") %>'></asp:Label>
-                                    </div>
-                                    <div class="col-md-2">
-                                        <asp:Label ID="Label2" runat="server" Text='<%# Eval("Gross") %>'></asp:Label>
-                                    </div>
-                                    <div class="col-md-3">
-                                        <asp:Label ID="Label3" runat="server" Text='<%# Eval("Date") %>'></asp:Label>
-                                    </div>
-                                    <div class="col-md-2">
-                                        <asp:Button runat="server" ID="Button2" Class="btn d-grid gap-2 btn-primary btn-block btn-lgmt-3 mt-1" Style="width: 150px;" Text="View" Commandname="ToOrders" commandargument='<%# Eval("id") %>'/>
-                                    </div>
+                                <div class="row" onclick="ToOrder(<%# Eval("Order number") %>)">
+                                        <div class="col-md-3">
+                                            <asp:Label ID="Label6" runat="server" Text='<%# Eval("Order number") %>'></asp:Label>
+                                        </div>
+                                        <div class="col-md-2">
+                                            <asp:Label ID="Label1" runat="server" Text='<%# Eval("Net") %>'></asp:Label>
+                                        </div>
+                                        <div class="col-md-2">
+                                            <asp:Label ID="Label2" runat="server" Text='<%# Eval("Gross") %>'></asp:Label>
+                                        </div>
+                                        <div class="col-md-3">
+                                            <asp:Label ID="Label3" runat="server" Text='<%# Eval("Date") %>'></asp:Label>
+                                        </div>
+                                        <div class="col-md-2">
+                                            <asp:Button runat="server" ID="Button2" Class="btn d-grid gap-2 btn-primary btn-block btn-lgmt-3 mt-1" Style="width: 150px;" Text="View" Commandname="ToOrders" commandargument='<%# Eval("id") %>'/>
+                                        </div>
                                 </div>
                             </div>
                             <center>
