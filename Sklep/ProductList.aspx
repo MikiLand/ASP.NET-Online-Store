@@ -57,7 +57,7 @@
                             
                             <br />
                             <div class="form-group">
-                                <asp:TextBox class="form-control" ID="TBSearch" runat="server" placeholder="What are you looking for?"></asp:TextBox>
+                                <asp:TextBox class="form-control" runat="server" ID="TBSearch" placeholder="What are you looking for?"></asp:TextBox>
                             </div>
 
                             <div class="row">
